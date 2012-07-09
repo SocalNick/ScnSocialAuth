@@ -1,0 +1,70 @@
+<?php
+/**
+ * ScnSocialAuth Configuration
+ *
+ * If you have a ./config/autoload/ directory set up for your project, you can
+ * drop this config file in it and change the values as you wish.
+ */
+$settings = array(
+    /**
+     * HybridAuth Path
+     *
+     * Please specify the path to the HybridAuth library
+     */
+    //'hybrid_auth_path' => '/some/path/to/hybridauth',
+
+    /**
+     * Facebook Enabled
+     *
+     * Please specify if Facebook is enabled
+     */
+    //'facebook_enabled' => true,
+
+    /**
+     * Facebook Client ID
+     *
+     * Please specify a Facebook Client ID
+     */
+    //'facebook_client_id' => 'your-client-id',
+
+    /**
+     * Facebook Secret
+     *
+     * Please specify a Facebook Secret
+     */
+    //'facebook_secret' => 'your-secret',
+
+	/**
+     * Facebook Scope
+     *
+     * Please specify a Facebook scope
+     *
+     * A comma-separated list of permissions you want to request from the user.
+     * See the Facebook docs for a full list of available permissions:
+     * http://developers.facebook.com/docs/reference/api/permissions.
+     */
+    //'facebook_scope' => '',
+
+	/**
+     * Facebook Display
+     *
+     * Please specify a Facebook display
+     *
+     * The display context to show the authentication page.
+     * Options are: page, popup, iframe, touch and wap.
+     * Read the Facebook docs for more details:
+     * http://developers.facebook.com/docs/reference/dialogs#display. Default: page
+     */
+    //'facebook_display' => '',
+
+    /**
+     * End of ScnSocialAuth configuration
+     */
+);
+
+/**
+ * You do not need to edit below this line
+ */
+return array(
+    'scn-social-auth' => $settings,
+);
