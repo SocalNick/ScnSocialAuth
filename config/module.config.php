@@ -2,7 +2,6 @@
 return array(
     'controllers' => array(
         'factories' => array(
-            'ScnSocialAuth-Facebook' => 'ScnSocialAuth\Service\FacebookControllerFactory',
             'ScnSocialAuth-HybridAuth' => 'ScnSocialAuth\Service\HybridAuthControllerFactory',
         ),
     ),
