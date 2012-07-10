@@ -35,6 +35,11 @@ return array(
             'ScnSocialAuth-ModuleOptions' => 'ScnSocialAuth\Service\ModuleOptionsFactory',
         ),
     ),
+    'view_helpers' => array(
+        'invokables' => array(
+            'socialSignInButton' => 'ScnSocialAuth\View\Helper\SocialSignInButton',
+        ),
+    ),
     'view_manager' => array(
         'template_path_stack' => array(
             'scn-social-auth' => __DIR__ . '/../view'
