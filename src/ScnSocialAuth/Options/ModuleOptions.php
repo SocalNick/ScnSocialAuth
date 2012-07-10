@@ -32,6 +32,24 @@ class ModuleOptions extends AbstractOptions
     protected $facebookDisplay;
 
     /**
+     * get an array of enabled providers
+     *
+     * @return array
+     */
+    public function getEnabledProviders()
+    {
+        $providers = array('Facebook');
+        $enabledProviders = array();
+        foreach ($providers as $provider) {
+            $method = 'get' . $provider . 'Enabled';
+            if ($this->$method()) {
+                $enabledProviders[] = $provider;
+            }
+        }
+        return $enabledProviders;
+    }
+
+    /**
      * set facebook enabled
      *
      * @param boolean $facebookEnabled
