@@ -22,8 +22,7 @@ class HybridAuthControllerFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $services)
     {
-        $options = $services->get('ScnSocialAuth-ModuleOptions');
-
+        // These class_exists calls take care of autoloading
         if (!class_exists('Hybrid_Auth') || !class_exists('Hybrid_Endpoint')) {
             throw new RuntimeException('Unable to load Hybrid_Auth and Hybrid_Endpoint');
         }
