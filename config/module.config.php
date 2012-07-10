@@ -3,6 +3,7 @@ return array(
     'controllers' => array(
         'factories' => array(
             'ScnSocialAuth-HybridAuth' => 'ScnSocialAuth\Service\HybridAuthControllerFactory',
+            'ScnSocialAuth-User' => 'ScnSocialAuth\Service\UserControllerFactory',
         ),
     ),
     'router' => array(
@@ -17,13 +18,70 @@ return array(
                     ),
                 ),
             ),
-            'scn-social-auth-facebook-login' => array(
-                'type'    => 'Literal',
-                    'options' => array(
-                    'route' => '/scn-social-auth/facebook/login',
+            'scn-social-auth-user' => array(
+                'type' => 'Literal',
+                'priority' => 2000,
+                'options' => array(
+                    'route' => '/user',
                     'defaults' => array(
-                        'controller' => 'ScnSocialAuth-Facebook',
-                        'action'     => 'login',
+                        'controller' => 'ScnSocialAuth-User',
+                        'action'     => 'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'login' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/login',
+                            'defaults' => array(
+                                'controller' => 'ScnSocialAuth-User',
+                                'action'     => 'login',
+                            ),
+                        ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'facebook' => array(
+                                'type' => 'Literal',
+                                'options' => array(
+                                	'route' => '/facebook',
+                                    'defaults' => array(
+                                    	'controller' => 'ScnSocialAuth-User',
+                                        'action' => 'facebook-login',
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    'authenticate' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/authenticate',
+                            'defaults' => array(
+                                'controller' => 'ScnSocialAuth-User',
+                                'action'     => 'authenticate',
+                            ),
+                        ),
+                    ),
+                    'logout' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/logout',
+                            'defaults' => array(
+                                'controller' => 'ScnSocialAuth-User',
+                                'action'     => 'logout',
+                            ),
+                        ),
+                    ),
+                    'register' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/register',
+                            'defaults' => array(
+                                'controller' => 'ScnSocialAuth-User',
+                                'action'     => 'register',
+                            ),
+                        ),
                     ),
                 ),
             ),
