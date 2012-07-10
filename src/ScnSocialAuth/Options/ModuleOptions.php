@@ -7,11 +7,6 @@ use Zend\Stdlib\AbstractOptions;
 class ModuleOptions extends AbstractOptions
 {
     /**
-     * @var string
-     */
-    protected $hybridAuthPath;
-
-    /**
      * @var boolean
      */
     protected $facebookEnabled = false;
@@ -37,28 +32,6 @@ class ModuleOptions extends AbstractOptions
     protected $facebookDisplay;
 
     /**
-     * set hybrid auth path
-     *
-     * @param string $hybridAuthPath
-     * @return ModuleOptions
-     */
-    public function setHybridAuthPath($hybridAuthPath)
-    {
-        $this->hybridAuthPath = (string) $hybridAuthPath;
-        return $this;
-    }
-
-    /**
-     * get hybrid auth path
-     *
-     * @return string
-     */
-    public function getHybridAuthPath()
-    {
-        return $this->hybridAuthPath;
-    }
-
-	/**
      * set facebook enabled
      *
      * @param boolean $facebookEnabled
@@ -80,7 +53,7 @@ class ModuleOptions extends AbstractOptions
         return $this->facebookEnabled;
     }
 
-	/**
+    /**
      * set facebook client id
      *
      * @param boolean $facebookClientId
@@ -102,7 +75,7 @@ class ModuleOptions extends AbstractOptions
         return $this->facebookClientId;
     }
 
-	/**
+    /**
      * set facebook secret
      *
      * @param boolean $facebookSecret
@@ -124,7 +97,7 @@ class ModuleOptions extends AbstractOptions
         return $this->facebookSecret;
     }
 
-	/**
+    /**
      * set facebook scope
      *
      * @param boolean $facebookScope
@@ -146,7 +119,7 @@ class ModuleOptions extends AbstractOptions
         return $this->facebookScope;
     }
 
-	/**
+    /**
      * set facebook display
      *
      * @param boolean $facebookDisplay

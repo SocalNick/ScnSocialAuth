@@ -8,6 +8,7 @@
 
 namespace ScnSocialAuth\Service;
 
+use Hybrid_Auth;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -31,11 +32,7 @@ class HybridAuthFactory implements FactoryInterface
             )
         );
 
-        require_once $options->getHybridAuthPath()
-            . '/Hybrid'
-            . '/Auth.php';
-
-        $hybridAuth = new \Hybrid_Auth(
+        $hybridAuth = new Hybrid_Auth(
             array(
                 'base_url' => $baseUrl . 'scn-social-auth/hauth',
                 'providers' => array(

@@ -7,13 +7,6 @@
  */
 $settings = array(
     /**
-     * HybridAuth Path
-     *
-     * Please specify the path to the HybridAuth library
-     */
-    //'hybrid_auth_path' => '/some/path/to/hybridauth',
-
-    /**
      * Facebook Enabled
      *
      * Please specify if Facebook is enabled
