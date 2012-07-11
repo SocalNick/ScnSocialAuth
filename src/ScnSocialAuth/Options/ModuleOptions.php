@@ -7,6 +7,11 @@ use Zend\Stdlib\AbstractOptions;
 class ModuleOptions extends AbstractOptions
 {
     /**
+     * @var string
+     */
+    protected $userProviderEntityClass = 'ScnSocialAuth\Entity\UserProvider';
+
+    /**
      * @var boolean
      */
     protected $facebookEnabled = false;
@@ -47,6 +52,28 @@ class ModuleOptions extends AbstractOptions
             }
         }
         return $enabledProviders;
+    }
+
+	/**
+     * set user provider entity class
+     *
+     * @param string $userProviderEntityClass
+     * @return ModuleOptions
+     */
+    public function setUserProviderEntityClass($userProviderEntityClass)
+    {
+        $this->userProviderEntityClass = (string) $userProviderEntityClass;
+        return $this;
+    }
+
+    /**
+     * get user provider entity class
+     *
+     * @return string
+     */
+    public function getUserProviderEntityClass()
+    {
+        return $this->userProviderEntityClass;
     }
 
     /**

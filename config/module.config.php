@@ -91,6 +91,7 @@ return array(
         'factories' => array(
             'HybridAuth' => 'ScnSocialAuth\Service\HybridAuthFactory',
             'ScnSocialAuth-ModuleOptions' => 'ScnSocialAuth\Service\ModuleOptionsFactory',
+            'ScnSocialAuth-UserProviderMapper' => 'ScnSocialAuth\Service\UserProviderMapperFactory',
         ),
     ),
     'view_helpers' => array(

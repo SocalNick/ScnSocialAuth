@@ -7,6 +7,22 @@
  */
 $settings = array(
     /**
+     * Zend\Db\Adapter\Adapter DI Alias
+     *
+     * Please specify the DI alias for the configured Zend\Db\Adapter\Adapter
+     * instance that ZfcUser should use.
+     */
+    //'zend_db_adapter' => 'Zend\Db\Adapter\Adapter',
+
+    /**
+     * User Provider Entity Class
+     *
+     * Name of Entity class to use. Useful for using your own entity class
+     * instead of the default one provided. Default is ScnSocialAuth\Entity\UserProvider.
+     */
+    //'user_provider_entity_class' => 'ScnSocialAuth\Entity\UserProvider',
+
+    /**
      * Facebook Enabled
      *
      * Please specify if Facebook is enabled
@@ -60,4 +76,9 @@ $settings = array(
  */
 return array(
     'scn-social-auth' => $settings,
+   	'service_manager' => array(
+        'aliases' => array(
+            'ScnSocialAuth_ZendDbAdapter' => (isset($settings['zend_db_adapter'])) ? $settings['zend_db_adapter']: 'Zend\Db\Adapter\Adapter',
+        ),
+    ),
 );
