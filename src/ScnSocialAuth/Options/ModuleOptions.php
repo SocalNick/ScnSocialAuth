@@ -6,7 +6,7 @@ use Zend\Stdlib\AbstractOptions;
 
 class ModuleOptions extends AbstractOptions
 {
-    protected $providers = array('facebook', 'google');
+    protected $providers = array('facebook', 'google', 'yahoo');
 
     /**
      * @var string
@@ -57,6 +57,21 @@ class ModuleOptions extends AbstractOptions
      * @var string
      */
     protected $googleScope;
+
+    /**
+     * @var boolean
+     */
+    protected $yahooEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $yahooClientId;
+
+    /**
+     * @var string
+     */
+    protected $yahooSecret;
 
     /**
      * get an array of enabled providers
@@ -293,5 +308,71 @@ class ModuleOptions extends AbstractOptions
     public function getGoogleScope()
     {
         return $this->googleScope;
+    }
+
+    /**
+     * set yahoo enabled
+     *
+     * @param boolean $yahooEnabled
+     * @return ModuleOptions
+     */
+    public function setYahooEnabled($yahooEnabled)
+    {
+        $this->yahooEnabled = (boolean) $yahooEnabled;
+        return $this;
+    }
+
+    /**
+     * get yahoo enabled
+     *
+     * @return string
+     */
+    public function getYahooEnabled()
+    {
+        return $this->yahooEnabled;
+    }
+
+    /**
+     * set yahoo client id
+     *
+     * @param boolean $yahooClientId
+     * @return ModuleOptions
+     */
+    public function setYahooClientId($yahooClientId)
+    {
+        $this->yahooClientId = (string) $yahooClientId;
+        return $this;
+    }
+
+    /**
+     * get yahoo client id
+     *
+     * @return string
+     */
+    public function getYahooClientId()
+    {
+        return $this->yahooClientId;
+    }
+
+    /**
+     * set yahoo secret
+     *
+     * @param boolean $yahooSecret
+     * @return ModuleOptions
+     */
+    public function setYahooSecret($yahooSecret)
+    {
+        $this->yahooSecret = (string) $yahooSecret;
+        return $this;
+    }
+
+    /**
+     * get yahoo secret
+     *
+     * @return string
+     */
+    public function getYahooSecret()
+    {
+        return $this->yahooSecret;
     }
 }

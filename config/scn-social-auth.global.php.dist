@@ -70,6 +70,12 @@ $settings = array(
      */
     //'google_scope' => '',
 
+    /**
+     * Yahoo! Enabled
+     *
+     * Please specify if Yahoo! is enabled
+     */
+    //'yahoo_enabled' => true,
 
     /**
      * End of ScnSocialAuth configuration

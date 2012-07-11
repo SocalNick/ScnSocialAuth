@@ -39,6 +39,20 @@ $settings = array(
     //'google_secret' => 'your-secret',
 
     /**
+     * Yahoo! Client ID
+     *
+     * Please specify a Yahoo! Client ID
+     */
+    //'yahoo_client_id' => 'your-client-id',
+
+    /**
+     * Yahoo! Secret
+     *
+     * Please specify a Yahoo! Secret
+     */
+    //'yahoo_secret' => 'your-secret',
+
+    /**
      * End of ScnSocialAuth configuration
      */
 );

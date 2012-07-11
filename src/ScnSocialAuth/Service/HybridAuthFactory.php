@@ -53,6 +53,13 @@ class HybridAuthFactory implements FactoryInterface
                         ),
                         'scope' => $options->getGoogleScope(),
                     ),
+                    'Yahoo' => array(
+                        'enabled' => $options->getYahooEnabled(),
+                        'keys' => array(
+                            'key' => $options->getYahooClientId(),
+                            'secret' => $options->getYahooSecret(),
+                        ),
+                    ),
                 ),
             )
         );
