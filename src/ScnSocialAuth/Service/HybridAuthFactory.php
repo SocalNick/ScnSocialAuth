@@ -13,9 +13,8 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * @category   SIgnCom
- * @package    SIgnCom_Controller
- * @copyright  Copyright (c) 2006-2011 IGN Entertainment, Inc. (http://corp.ign.com/)
+ * @category   ScnSocialAuth
+ * @package    ScnSocialAuth_Service
  */
 class HybridAuthFactory implements FactoryInterface
 {

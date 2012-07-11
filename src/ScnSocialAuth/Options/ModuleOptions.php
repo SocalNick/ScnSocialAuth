@@ -43,7 +43,7 @@ class ModuleOptions extends AbstractOptions
      */
     public function getEnabledProviders()
     {
-        $providers = array('Facebook');
+        $providers = array('facebook');
         $enabledProviders = array();
         foreach ($providers as $provider) {
             $method = 'get' . $provider . 'Enabled';
