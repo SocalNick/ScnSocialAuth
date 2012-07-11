@@ -53,6 +53,25 @@ $settings = array(
     //'facebook_display' => '',
 
     /**
+     * Google Enabled
+     *
+     * Please specify if Google is enabled
+     */
+    //'google_enabled' => true,
+
+    /**
+     * Google Scope
+     *
+     * Please specify a Google scope
+     *
+     * A space-separated list of permissions you want to request from the user.
+     * See the Google docs for a full list of available permissions:
+     * https://developers.google.com/accounts/docs/OAuth2Login#scopeparameter.
+     */
+    //'google_scope' => '',
+
+
+    /**
      * End of ScnSocialAuth configuration
      */
 );

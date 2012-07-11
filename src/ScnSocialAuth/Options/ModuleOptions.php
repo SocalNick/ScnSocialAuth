@@ -6,6 +6,8 @@ use Zend\Stdlib\AbstractOptions;
 
 class ModuleOptions extends AbstractOptions
 {
+    protected $providers = array('facebook', 'google');
+
     /**
      * @var string
      */
@@ -37,15 +39,34 @@ class ModuleOptions extends AbstractOptions
     protected $facebookDisplay;
 
     /**
+     * @var boolean
+     */
+    protected $googleEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $googleClientId;
+
+    /**
+     * @var string
+     */
+    protected $googleSecret;
+
+    /**
+     * @var string
+     */
+    protected $googleScope;
+
+    /**
      * get an array of enabled providers
      *
      * @return array
      */
     public function getEnabledProviders()
     {
-        $providers = array('facebook');
         $enabledProviders = array();
-        foreach ($providers as $provider) {
+        foreach ($this->providers as $provider) {
             $method = 'get' . $provider . 'Enabled';
             if ($this->$method()) {
                 $enabledProviders[] = $provider;
@@ -184,5 +205,93 @@ class ModuleOptions extends AbstractOptions
     public function getFacebookDisplay()
     {
         return $this->facebookDisplay;
+    }
+
+    /**
+     * set google enabled
+     *
+     * @param boolean $googleEnabled
+     * @return ModuleOptions
+     */
+    public function setGoogleEnabled($googleEnabled)
+    {
+        $this->googleEnabled = (boolean) $googleEnabled;
+        return $this;
+    }
+
+    /**
+     * get google enabled
+     *
+     * @return string
+     */
+    public function getGoogleEnabled()
+    {
+        return $this->googleEnabled;
+    }
+
+    /**
+     * set google client id
+     *
+     * @param boolean $googleClientId
+     * @return ModuleOptions
+     */
+    public function setGoogleClientId($googleClientId)
+    {
+        $this->googleClientId = (string) $googleClientId;
+        return $this;
+    }
+
+    /**
+     * get google client id
+     *
+     * @return string
+     */
+    public function getGoogleClientId()
+    {
+        return $this->googleClientId;
+    }
+
+    /**
+     * set google secret
+     *
+     * @param boolean $googleSecret
+     * @return ModuleOptions
+     */
+    public function setGoogleSecret($googleSecret)
+    {
+        $this->googleSecret = (string) $googleSecret;
+        return $this;
+    }
+
+    /**
+     * get google secret
+     *
+     * @return string
+     */
+    public function getGoogleSecret()
+    {
+        return $this->googleSecret;
+    }
+
+    /**
+     * set google scope
+     *
+     * @param boolean $googleScope
+     * @return ModuleOptions
+     */
+    public function setGoogleScope($googleScope)
+    {
+        $this->googleScope = (string) $googleScope;
+        return $this;
+    }
+
+    /**
+     * get google scope
+     *
+     * @return string
+     */
+    public function getGoogleScope()
+    {
+        return $this->googleScope;
     }
 }

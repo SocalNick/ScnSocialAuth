@@ -34,6 +34,21 @@ class UserController extends AbstractActionController
         return $this->redirect()->toUrl($redirectUrl);
     }
 
+    public function googleLoginAction()
+    {
+        $hybridAuth = $this->getHybridAuth();
+        $provider = 'google';
+        //TODO Replace with route assembly
+        $redirectUrl = '/user/authenticate?provider=' . $provider;
+        $adapter = $hybridAuth->authenticate(
+            $provider,
+            array(
+                'hauth_return_to' => $redirectUrl,
+            )
+        );
+        return $this->redirect()->toUrl($redirectUrl);
+    }
+
     public function loginAction()
     {
         $zfcUserLogin = $this->forward()->dispatch('zfcuser', array('action' => 'login'));

@@ -20,6 +20,7 @@ class HybridAuthFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $services)
     {
+        /* @var $options \ScnSocialAuth\Options\ModuleOptions */
         $options = $services->get('ScnSocialAuth-ModuleOptions');
 
         $router = $services->get('Router');
@@ -43,6 +44,14 @@ class HybridAuthFactory implements FactoryInterface
                         ),
                         'scope' => $options->getFacebookScope(),
                         'display' => $options->getFacebookDisplay(),
+                    ),
+                    'Google' => array(
+                        'enabled' => $options->getGoogleEnabled(),
+                        'keys' => array(
+                            'id' => $options->getGoogleClientId(),
+                            'secret' => $options->getGoogleSecret(),
+                        ),
+                        'scope' => $options->getGoogleScope(),
                     ),
                 ),
             )

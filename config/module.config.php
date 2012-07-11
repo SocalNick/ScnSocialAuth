@@ -51,6 +51,16 @@ return array(
                                     ),
                                 ),
                             ),
+                            'google' => array(
+                                'type' => 'Literal',
+                                'options' => array(
+                                	'route' => '/google',
+                                    'defaults' => array(
+                                    	'controller' => 'ScnSocialAuth-User',
+                                        'action' => 'google-login',
+                                    ),
+                                ),
+                            ),
                         ),
                     ),
                     'logout' => array(
