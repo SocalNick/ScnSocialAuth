@@ -19,27 +19,18 @@ class UserController extends AbstractActionController
      */
     protected $options;
 
-    public function facebookLoginAction()
+    public function providerLoginAction()
     {
+        $provider = $this->getEvent()->getRouteMatch()->getParam('provider');
+        if (!in_array($provider, $this->getOptions()->getEnabledProviders())) {
+            return $this->notFoundAction();
+        }
         $hybridAuth = $this->getHybridAuth();
-        $provider = 'facebook';
         //TODO Replace with route assembly
-        $redirectUrl = '/user/authenticate?provider=' . $provider;
-        $adapter = $hybridAuth->authenticate(
-            $provider,
-            array(
-                'hauth_return_to' => $redirectUrl,
-            )
+        $redirectUrl = $this->getEvent()->getRouter()->assemble(
+            array('provider' => $provider),
+            array('name' => 'scn-social-auth-user/authenticate/query')
         );
-        return $this->redirect()->toUrl($redirectUrl);
-    }
-
-    public function googleLoginAction()
-    {
-        $hybridAuth = $this->getHybridAuth();
-        $provider = 'google';
-        //TODO Replace with route assembly
-        $redirectUrl = '/user/authenticate?provider=' . $provider;
         $adapter = $hybridAuth->authenticate(
             $provider,
             array(

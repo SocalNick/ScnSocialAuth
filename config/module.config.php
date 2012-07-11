@@ -30,6 +30,22 @@ return array(
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
+                    'authenticate' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/authenticate',
+                            'defaults' => array(
+                                'controller' => 'zfcuser',
+                                'action'     => 'authenticate',
+                            ),
+                        ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'query' => array(
+                                'type' => 'Query',
+                            ),
+                        ),
+                    ),
                     'login' => array(
                         'type' => 'Literal',
                         'options' => array(
@@ -41,23 +57,16 @@ return array(
                         ),
                         'may_terminate' => true,
                         'child_routes' => array(
-                            'facebook' => array(
-                                'type' => 'Literal',
+                            'provider' => array(
+                                'type' => 'Segment',
                                 'options' => array(
-                                	'route' => '/facebook',
-                                    'defaults' => array(
-                                    	'controller' => 'ScnSocialAuth-User',
-                                        'action' => 'facebook-login',
+                                	'route' => '/:provider',
+                                    'constraints' => array(
+        								'provider' => '[a-zA-Z][a-zA-Z0-9_-]+',
                                     ),
-                                ),
-                            ),
-                            'google' => array(
-                                'type' => 'Literal',
-                                'options' => array(
-                                	'route' => '/google',
                                     'defaults' => array(
                                     	'controller' => 'ScnSocialAuth-User',
-                                        'action' => 'google-login',
+                                        'action' => 'provider-login',
                                     ),
                                 ),
                             ),
