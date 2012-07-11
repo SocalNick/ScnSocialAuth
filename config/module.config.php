@@ -24,7 +24,7 @@ return array(
                 'options' => array(
                     'route' => '/user',
                     'defaults' => array(
-                        'controller' => 'ScnSocialAuth-User',
+                        'controller' => 'zfcuser',
                         'action'     => 'index',
                     ),
                 ),
@@ -50,16 +50,6 @@ return array(
                                         'action' => 'facebook-login',
                                     ),
                                 ),
-                            ),
-                        ),
-                    ),
-                    'authenticate' => array(
-                        'type' => 'Literal',
-                        'options' => array(
-                            'route' => '/authenticate',
-                            'defaults' => array(
-                                'controller' => 'ScnSocialAuth-User',
-                                'action'     => 'authenticate',
                             ),
                         ),
                     ),
