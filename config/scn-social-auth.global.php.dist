@@ -29,20 +29,6 @@ $settings = array(
      */
     //'facebook_enabled' => true,
 
-    /**
-     * Facebook Client ID
-     *
-     * Please specify a Facebook Client ID
-     */
-    //'facebook_client_id' => 'your-client-id',
-
-    /**
-     * Facebook Secret
-     *
-     * Please specify a Facebook Secret
-     */
-    //'facebook_secret' => 'your-secret',
-
 	/**
      * Facebook Scope
      *

@@ -1,0 +1,51 @@
+<?php
+/**
+ * ScnSocialAuth Configuration
+ *
+ * If you have a ./config/autoload/ directory set up for your project, you can
+ * drop this config file in it and change the values as you wish.
+ */
+$settings = array(
+    /**
+     * Facebook Client ID
+     *
+     * Please specify a Facebook Client ID
+     */
+    //'facebook_client_id' => 'your-client-id',
+
+    /**
+     * Facebook Secret
+     *
+     * Please specify a Facebook Secret
+     */
+    //'facebook_secret' => 'your-secret',
+
+    /**
+     * End of ScnSocialAuth configuration
+     */
+     
+    /**
+     * Google Client ID
+     *
+     * Please specify a Google Client ID
+     */
+    //'google_client_id' => 'your-client-id',
+
+    /**
+     * Google Secret
+     *
+     * Please specify a Google Secret
+     */
+    //'google_secret' => 'your-secret',
+
+    /**
+     * End of ScnSocialAuth configuration
+     */
+);
+
+/**
+ * You do not need to edit below this line
+ */
+return array(
+    'scn-social-auth' => $settings,
+);
