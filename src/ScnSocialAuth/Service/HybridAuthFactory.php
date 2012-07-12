@@ -53,6 +53,13 @@ class HybridAuthFactory implements FactoryInterface
                         ),
                         'scope' => $options->getGoogleScope(),
                     ),
+                    'Twitter' => array(
+                        'enabled' => $options->getTwitterEnabled(),
+                        'keys' => array(
+                            'key' => $options->getTwitterConsumerKey(),
+                            'secret' => $options->getTwitterConsumerSecret(),
+                        ),
+                    ),
                     'Yahoo' => array(
                         'enabled' => $options->getYahooEnabled(),
                         'keys' => array(

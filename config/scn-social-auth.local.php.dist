@@ -39,6 +39,20 @@ $settings = array(
     //'google_secret' => 'your-secret',
 
     /**
+     * Twitter Consumer Key
+     *
+     * Please specify a Twitter Consumer Key
+     */
+    //'twitter_consumer_key' => 'your-consumer-key',
+
+    /**
+     * Twitter Secret
+     *
+     * Please specify a Twitter Consumer Secret
+     */
+    //'twitter_consumer_secret' => 'your-consumer-secret',
+
+    /**
      * Yahoo! Client ID
      *
      * Please specify a Yahoo! Client ID

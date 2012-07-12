@@ -88,7 +88,8 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         if (false == ($localUserProvider = $this->getMapper()->findUserByProviderId($userProfile->identifier, $provider))) {
             $userModelClass = $this->getZfcUserOptions()->getUserEntityClass();
             $localUser = new $userModelClass;
-            $localUser->setEmail($userProfile->email)
+            //TODO We may want to provide different adapter implementation per provider
+            $localUser->setEmail($userProfile->email ?: $userProfile->displayName)
                 ->setDisplayName($userProfile->displayName)
                 ->setPassword($provider);
             $result = $this->getZfcUserMapper()->insert($localUser);

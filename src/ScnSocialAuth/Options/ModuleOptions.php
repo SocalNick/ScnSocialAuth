@@ -6,7 +6,7 @@ use Zend\Stdlib\AbstractOptions;
 
 class ModuleOptions extends AbstractOptions
 {
-    protected $providers = array('facebook', 'google', 'yahoo');
+    protected $providers = array('facebook', 'google', 'twitter', 'yahoo');
 
     /**
      * @var string
@@ -57,6 +57,21 @@ class ModuleOptions extends AbstractOptions
      * @var string
      */
     protected $googleScope;
+
+    /**
+     * @var boolean
+     */
+    protected $twitterEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $twitterConsumerKey;
+
+    /**
+     * @var string
+     */
+    protected $twitterConsumerSecret;
 
     /**
      * @var boolean
@@ -308,6 +323,72 @@ class ModuleOptions extends AbstractOptions
     public function getGoogleScope()
     {
         return $this->googleScope;
+    }
+
+    /**
+     * set twitter enabled
+     *
+     * @param boolean $twitterEnabled
+     * @return ModuleOptions
+     */
+    public function setTwitterEnabled($twitterEnabled)
+    {
+        $this->twitterEnabled = (boolean) $twitterEnabled;
+        return $this;
+    }
+
+    /**
+     * get twitter enabled
+     *
+     * @return string
+     */
+    public function getTwitterEnabled()
+    {
+        return $this->twitterEnabled;
+    }
+
+    /**
+     * set twitter consumer key
+     *
+     * @param boolean $twitterConsumerKey
+     * @return ModuleOptions
+     */
+    public function setTwitterConsumerKey($twitterConsumerKey)
+    {
+        $this->twitterConsumerKey = (string) $twitterConsumerKey;
+        return $this;
+    }
+
+    /**
+     * get twitter consumer key
+     *
+     * @return string
+     */
+    public function getTwitterConsumerKey()
+    {
+        return $this->twitterConsumerKey;
+    }
+
+    /**
+     * set twitter consumer secret
+     *
+     * @param boolean $twitterConsumerSecret
+     * @return ModuleOptions
+     */
+    public function setTwitterConsumerSecret($twitterConsumerSecret)
+    {
+        $this->twitterConsumerSecret = (string) $twitterConsumerSecret;
+        return $this;
+    }
+
+    /**
+     * get twitter consumer secret
+     *
+     * @return string
+     */
+    public function getTwitterConsumerSecret()
+    {
+        return $this->twitterConsumerSecret;
     }
 
     /**

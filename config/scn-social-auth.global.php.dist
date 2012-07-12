@@ -71,6 +71,13 @@ $settings = array(
     //'google_scope' => '',
 
     /**
+     * Twitter Enabled
+     *
+     * Please specify if Twitter is enabled
+     */
+    //'twitter_enabled' => true,
+
+    /**
      * Yahoo! Enabled
      *
      * Please specify if Yahoo! is enabled
