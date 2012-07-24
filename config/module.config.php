@@ -10,7 +10,8 @@ return array(
         'routes' => array(
             'scn-social-auth-hauth' => array(
                 'type'    => 'Literal',
-                    'options' => array(
+                'priority' => 2000,
+                'options' => array(
                     'route' => '/scn-social-auth/hauth',
                     'defaults' => array(
                         'controller' => 'ScnSocialAuth-HybridAuth',
