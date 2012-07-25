@@ -58,6 +58,18 @@ class UserController extends AbstractActionController
         return $this->forward()->dispatch('zfcuser', array('action' => 'logout'));
     }
 
+    public function registerAction()
+    {
+        $zfcUserRegister = $this->forward()->dispatch('zfcuser', array('action' => 'register'));
+        if (!$zfcUserRegister instanceof ModelInterface) {
+            return $zfcUserRegister;
+        }
+        $viewModel = new ViewModel();
+        $viewModel->addChild($zfcUserRegister, 'zfcUserLogin');
+        $viewModel->setVariable('options', $this->getOptions());
+        return $viewModel;
+    }
+
     /**
      * Get the Hybrid_Auth object
      *
