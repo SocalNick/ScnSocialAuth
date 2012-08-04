@@ -18,10 +18,10 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  */
 class UserControllerFactory implements FactoryInterface
 {
-    public function createService(ServiceLocatorInterface $services)
+    public function createService(ServiceLocatorInterface $controllerManager)
     {
-        $hybridAuth = $services->get('HybridAuth');
-        $moduleOptions = $services->get('ScnSocialAuth-ModuleOptions');
+        $hybridAuth = $controllerManager->getServiceLocator()->get('HybridAuth');
+        $moduleOptions = $controllerManager->getServiceLocator()->get('ScnSocialAuth-ModuleOptions');
 
         $controller = new UserController();
         $controller->setHybridAuth($hybridAuth);
