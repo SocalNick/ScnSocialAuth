@@ -297,4 +297,14 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $result = $this->getZfcUserMapper()->insert($localUser);
         return $localUser;
     }
+
+    protected function twitterToLocalUser($userProfile)
+    {
+        $localUser = $this->instantiateLocalUser();
+        $localUser->setUsername($userProfile->displayName)
+            ->setDisplayName($userProfile->firstName)
+            ->setPassword(__FUNCTION__);
+        $result = $this->getZfcUserMapper()->insert($localUser);
+        return $localUser;
+    }
 }
