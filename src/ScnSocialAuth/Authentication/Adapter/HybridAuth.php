@@ -307,4 +307,13 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $result = $this->getZfcUserMapper()->insert($localUser);
         return $localUser;
     }
+
+    protected function yahooToLocalUser($userProfile)
+    {
+        $localUser = $this->instantiateLocalUser();
+        $localUser->setDisplayName($userProfile->displayName)
+            ->setPassword(__FUNCTION__);
+        $result = $this->getZfcUserMapper()->insert($localUser);
+        return $localUser;
+    }
 }
