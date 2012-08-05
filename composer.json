@@ -18,7 +18,7 @@
         "zendframework/zendframework": "dev-master",
         "zf-commons/zfc-base": "dev-master",
         "zf-commons/zfc-user": "dev-master",
-        "hybridauth/hybridauth": "2.1.*"
+        "hybridauth/hybridauth": "dev-master"
     },
     "autoload": {
         "psr-0": {
