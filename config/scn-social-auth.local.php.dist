@@ -33,7 +33,7 @@ $settings = array(
      * Please specify a Foursquare Secret
      */
     //'foursquare_secret' => 'your-secret',
-     
+
     /**
      * Google Client ID
      *
@@ -47,6 +47,20 @@ $settings = array(
      * Please specify a Google Secret
      */
     //'google_secret' => 'your-secret',
+
+    /**
+     * LinkedIn Client ID
+     *
+     * Please specify a LinkedIn Client ID
+     */
+    //'linkedIn_client_id' => 'your-client-id',
+
+    /**
+     * LinkedIn Secret
+     *
+     * Please specify a LinkedIn Secret
+     */
+    //'linkedIn_secret' => 'your-secret',
 
     /**
      * Twitter Consumer Key

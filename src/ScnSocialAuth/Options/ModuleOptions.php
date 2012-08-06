@@ -6,7 +6,14 @@ use Zend\Stdlib\AbstractOptions;
 
 class ModuleOptions extends AbstractOptions
 {
-    protected $providers = array('facebook', 'foursquare', 'google', 'twitter', 'yahoo');
+    protected $providers = array(
+        'facebook',
+        'foursquare',
+        'google',
+        'linkedIn',
+        'twitter',
+        'yahoo'
+    );
 
     /**
      * @var string
@@ -72,6 +79,21 @@ class ModuleOptions extends AbstractOptions
      * @var string
      */
     protected $googleScope;
+
+    /**
+     * @var boolean
+     */
+    protected $linkedInEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $linkedInClientId;
+
+    /**
+     * @var string
+     */
+    protected $linkedInSecret;
 
     /**
      * @var boolean
@@ -404,6 +426,72 @@ class ModuleOptions extends AbstractOptions
     public function getGoogleScope()
     {
         return $this->googleScope;
+    }
+
+    /**
+     * set linkedIn enabled
+     *
+     * @param boolean $linkedInEnabled
+     * @return ModuleOptions
+     */
+    public function setLinkedInEnabled($linkedInEnabled)
+    {
+        $this->linkedInEnabled = (boolean) $linkedInEnabled;
+        return $this;
+    }
+
+    /**
+     * get linkedIn enabled
+     *
+     * @return string
+     */
+    public function getLinkedInEnabled()
+    {
+        return $this->linkedInEnabled;
+    }
+
+    /**
+     * set linkedIn client id
+     *
+     * @param boolean $linkedInClientId
+     * @return ModuleOptions
+     */
+    public function setLinkedInClientId($linkedInClientId)
+    {
+        $this->linkedInClientId = (string) $linkedInClientId;
+        return $this;
+    }
+
+    /**
+     * get linkedIn client id
+     *
+     * @return string
+     */
+    public function getLinkedInClientId()
+    {
+        return $this->linkedInClientId;
+    }
+
+    /**
+     * set linkedIn secret
+     *
+     * @param boolean $linkedInSecret
+     * @return ModuleOptions
+     */
+    public function setLinkedInSecret($linkedInSecret)
+    {
+        $this->linkedInSecret = (string) $linkedInSecret;
+        return $this;
+    }
+
+    /**
+     * get linkedIn secret
+     *
+     * @return string
+     */
+    public function getLinkedInSecret()
+    {
+        return $this->linkedInSecret;
     }
 
     /**

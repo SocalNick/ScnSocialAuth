@@ -78,6 +78,13 @@ $settings = array(
     //'google_scope' => '',
 
     /**
+     * LinkedIn Enabled
+     *
+     * Please specify if LinkedIn is enabled
+     */
+    //'linkedIn_enabled' => true,
+
+    /**
      * Twitter Enabled
      *
      * Please specify if Twitter is enabled
