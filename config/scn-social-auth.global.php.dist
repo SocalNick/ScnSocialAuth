@@ -75,7 +75,7 @@ $settings = array(
      * See the Google docs for a full list of available permissions:
      * https://developers.google.com/accounts/docs/OAuth2Login#scopeparameter.
      */
-    //'google_scope' => '',
+    //'google_scope' => 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
 
     /**
      * LinkedIn Enabled

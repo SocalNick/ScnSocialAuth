@@ -318,6 +318,26 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         return $localUser;
     }
 
+    protected function googleToLocalUser($userProfile)
+    {
+        if (!isset($userProfile->emailVerified)) {
+            throw new Exception\RuntimeException(
+                'Please verify your email with Google before attempting login',
+                 Result::FAILURE_CREDENTIAL_INVALID
+            );
+        }
+        $mapper = $this->getZfcUserMapper();
+        if (false != ($localUser = $mapper->findByEmail($userProfile->emailVerified))) {
+            return $localUser;
+        }
+        $localUser = $this->instantiateLocalUser();
+        $localUser->setEmail($userProfile->emailVerified)
+            ->setDisplayName($userProfile->displayName)
+            ->setPassword(__FUNCTION__);
+        $result = $this->getZfcUserMapper()->insert($localUser);
+        return $localUser;
+    }
+
     protected function linkedInToLocalUser($userProfile)
     {
         $localUser = $this->instantiateLocalUser();
