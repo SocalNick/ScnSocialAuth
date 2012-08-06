@@ -25,7 +25,7 @@ Login with Yahoo! [COMPLETE]
 
 Installation
 ------------
-It is recommended to add this module to your Zend Framework 2 application using Composer. After cloning [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication), change composer.json to look something like this, then run php composer.phar install/update:
+It is recommended to add this module to your Zend Framework 2 application using Composer. After cloning [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication), change the composer minimum-stability setting to "dev" and add "socalnick/scn-social-auth" to list of requirements, then run php composer.phar install/update. Your composer.json should look something like this:
 ```
 {
     "name": "zendframework/skeleton-application",
@@ -35,30 +35,12 @@ It is recommended to add this module to your Zend Framework 2 application using 
         "framework",
         "zf2"
     ],
+    "minimum-stability": "dev",
     "homepage": "http://framework.zend.com/",
-    "repositories": [
-     {
-            "type": "package",
-            "package": {
-                "name": "hybridauth/hybridauth",
-                "version": "2.1.0",
-                "source": {
-                	"type": "git",
-                    "url": "https://github.com/hybridauth/hybridauth",
-                    "reference": "f2b03b22ba096f724a924b55a2079b7dc53c52b6"
-                }
-            }
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "dev-master",
         "socalnick/scn-social-auth": "dev-master"
-    },
-    "autoload": {
-        "psr-0": {
-            "Hybrid": "vendor/hybridauth/hybridauth/hybridauth/"
-        }
     }
 }
 ```
