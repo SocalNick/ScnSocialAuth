@@ -53,6 +53,13 @@ $settings = array(
     //'facebook_display' => '',
 
     /**
+     * Foursquare Enabled
+     *
+     * Please specify if Foursquare is enabled
+     */
+    //'foursquare_enabled' => true,
+
+    /**
      * Google Enabled
      *
      * Please specify if Google is enabled

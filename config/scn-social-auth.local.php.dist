@@ -21,8 +21,18 @@ $settings = array(
     //'facebook_secret' => 'your-secret',
 
     /**
-     * End of ScnSocialAuth configuration
+     * Foursquare Client ID
+     *
+     * Please specify a Foursquare Client ID
      */
+    //'foursquare_client_id' => 'your-client-id',
+
+    /**
+     * Foursquare Secret
+     *
+     * Please specify a Foursquare Secret
+     */
+    //'foursquare_secret' => 'your-secret',
      
     /**
      * Google Client ID

@@ -6,7 +6,7 @@ use Zend\Stdlib\AbstractOptions;
 
 class ModuleOptions extends AbstractOptions
 {
-    protected $providers = array('facebook', 'google', 'twitter', 'yahoo');
+    protected $providers = array('facebook', 'foursquare', 'google', 'twitter', 'yahoo');
 
     /**
      * @var string
@@ -37,6 +37,21 @@ class ModuleOptions extends AbstractOptions
      * @var string
      */
     protected $facebookDisplay;
+
+    /**
+     * @var boolean
+     */
+    protected $foursquareEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $foursquareClientId;
+
+    /**
+     * @var string
+     */
+    protected $foursquareSecret;
 
     /**
      * @var boolean
@@ -235,6 +250,72 @@ class ModuleOptions extends AbstractOptions
     public function getFacebookDisplay()
     {
         return $this->facebookDisplay;
+    }
+
+    /**
+     * set foursquare enabled
+     *
+     * @param boolean $foursquareEnabled
+     * @return ModuleOptions
+     */
+    public function setFoursquareEnabled($foursquareEnabled)
+    {
+        $this->foursquareEnabled = (boolean) $foursquareEnabled;
+        return $this;
+    }
+
+    /**
+     * get foursquare enabled
+     *
+     * @return string
+     */
+    public function getFoursquareEnabled()
+    {
+        return $this->foursquareEnabled;
+    }
+
+    /**
+     * set foursquare client id
+     *
+     * @param boolean $foursquareClientId
+     * @return ModuleOptions
+     */
+    public function setFoursquareClientId($foursquareClientId)
+    {
+        $this->foursquareClientId = (string) $foursquareClientId;
+        return $this;
+    }
+
+    /**
+     * get foursquare client id
+     *
+     * @return string
+     */
+    public function getFoursquareClientId()
+    {
+        return $this->foursquareClientId;
+    }
+
+    /**
+     * set foursquare secret
+     *
+     * @param boolean $foursquareSecret
+     * @return ModuleOptions
+     */
+    public function setFoursquareSecret($foursquareSecret)
+    {
+        $this->foursquareSecret = (string) $foursquareSecret;
+        return $this;
+    }
+
+    /**
+     * get foursquare secret
+     *
+     * @return string
+     */
+    public function getFoursquareSecret()
+    {
+        return $this->foursquareSecret;
     }
 
     /**

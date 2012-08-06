@@ -11,9 +11,9 @@ Requirements
 
 Features
 --------
-* Login with AOL [INCOMPLETE]
+* Login with AOL [NO LONGER SUPPORTED]
 * Login with Facebook [COMPLETE]
-* Login with Foursquare [INCOMPLETE]
+* Login with Foursquare [COMPLETE]
 * Login with Github [INCOMPLETE]
 * Login with Google [INCOMPLETE]
 * Login with LinkedIn [INCOMPLETE]

@@ -45,6 +45,13 @@ class HybridAuthFactory implements FactoryInterface
                         'scope' => $options->getFacebookScope(),
                         'display' => $options->getFacebookDisplay(),
                     ),
+                    'Foursquare' => array(
+                        'enabled' => $options->getFoursquareEnabled(),
+                        'keys' => array(
+                            'id' => $options->getFoursquareClientId(),
+                            'secret' => $options->getFoursquareSecret(),
+                        ),
+                    ),
                     'Google' => array(
                         'enabled' => $options->getGoogleEnabled(),
                         'keys' => array(
