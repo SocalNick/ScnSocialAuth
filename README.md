@@ -11,17 +11,17 @@ Requirements
 
 Features
 --------
-Login with AOL [INCOMPLETE]
-Login with Facebook [COMPLETE]
-Login with Foursquare [INCOMPLETE]
-Login with Github [INCOMPLETE]
-Login with Google [INCOMPLETE]
-Login with LinkedIn [INCOMPLETE]
-Login with Live [INCOMPLETE]
-Login with MySpace [INCOMPLETE]
-Login with OpenID [INCOMPLETE]
-Login with Twitter [COMPLETE]
-Login with Yahoo! [COMPLETE]
+* Login with AOL [INCOMPLETE]
+* Login with Facebook [COMPLETE]
+* Login with Foursquare [INCOMPLETE]
+* Login with Github [INCOMPLETE]
+* Login with Google [INCOMPLETE]
+* Login with LinkedIn [INCOMPLETE]
+* Login with Live [INCOMPLETE]
+* Login with MySpace [INCOMPLETE]
+* Login with OpenID [INCOMPLETE]
+* Login with Twitter [COMPLETE]
+* Login with Yahoo! [COMPLETE]
 
 Installation
 ------------
