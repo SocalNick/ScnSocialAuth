@@ -23,13 +23,6 @@ $settings = array(
     //'user_provider_entity_class' => 'ScnSocialAuth\Entity\UserProvider',
 
     /**
-     * AOL Enabled
-     *
-     * Please specify if AOL is enabled
-     */
-    //'aol_enabled' => true,
-
-    /**
      * Facebook Enabled
      *
      * Please specify if Facebook is enabled
