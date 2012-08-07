@@ -142,7 +142,7 @@ class ModuleOptions extends AbstractOptions
         return $enabledProviders;
     }
 
-	/**
+    /**
      * set user provider entity class
      *
      * @param string $userProviderEntityClass

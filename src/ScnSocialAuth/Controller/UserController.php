@@ -95,7 +95,7 @@ class UserController extends AbstractActionController
         return $this;
     }
 
-	/**
+    /**
      * set options
      *
      * @param ModuleOptions $options

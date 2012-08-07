@@ -86,7 +86,8 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
             return false;
         }
 
-        if (false == ($localUserProvider = $this->getMapper()->findUserByProviderId($userProfile->identifier, $provider))) {
+        $localUserProvider = $this->getMapper()->findUserByProviderId($userProfile->identifier, $provider);
+        if (false == $localUserProvider) {
             $method = $provider.'ToLocalUser';
             if (method_exists($this, $method)) {
                 try {
@@ -123,7 +124,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
           ->stopPropagation();
     }
 
-	/**
+    /**
      * Get the Hybrid_Auth object
      *
      * @return Hybrid_Auth
@@ -148,7 +149,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         return $this;
     }
 
-	/**
+    /**
      * Retrieve service manager instance
      *
      * @return ServiceManager
@@ -215,7 +216,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         return $this->zfcUserOptions;
     }
 
-	/**
+    /**
      * set mapper
      *
      * @param UserProvider $mapper

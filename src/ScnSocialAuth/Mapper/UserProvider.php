@@ -16,7 +16,7 @@ class UserProvider extends AbstractDbMapper
             ->from($this->tableName)
             ->where(
                 array(
-    				'provider_id' => $providerId,
+                    'provider_id' => $providerId,
                     'provider' => $provider,
                 )
             );

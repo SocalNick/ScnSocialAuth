@@ -10,7 +10,7 @@ class UserProvider
 
     protected $provider;
 
-	/**
+    /**
      * @return the $userId
      */
     public function getUserId()
@@ -18,7 +18,7 @@ class UserProvider
         return $this->userId;
     }
 
-	/**
+    /**
      * @param integer $userId
      * @return UserProvider
      */
@@ -28,7 +28,7 @@ class UserProvider
         return $this;
     }
 
-	/**
+    /**
      * @return the $providerId
      */
     public function getProviderId()
@@ -36,7 +36,7 @@ class UserProvider
         return $this->providerId;
     }
 
-	/**
+    /**
      * @param integer $providerId
      * @return UserProvider
      */
@@ -46,7 +46,7 @@ class UserProvider
         return $this;
     }
 
-	/**
+    /**
      * @return the $provider
      */
     public function getProvider()
@@ -54,7 +54,7 @@ class UserProvider
         return $this->provider;
     }
 
-	/**
+    /**
      * @param string $provider
      * @return UserProvider
      */

@@ -27,7 +27,7 @@ class HybridAuthFactory implements FactoryInterface
         $baseUrl = $router->assemble(
             array(),
             array(
-            	'name' => 'home',
+                'name' => 'home',
                 'force_canonical' => true,
             )
         );
