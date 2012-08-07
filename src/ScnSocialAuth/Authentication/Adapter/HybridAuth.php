@@ -284,7 +284,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         if (!isset($userProfile->emailVerified)) {
             throw new Exception\RuntimeException(
                 'Please verify your email with Facebook before attempting login',
-                 Result::FAILURE_CREDENTIAL_INVALID
+                Result::FAILURE_CREDENTIAL_INVALID
             );
         }
         $mapper = $this->getZfcUserMapper();
@@ -304,7 +304,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         if (!isset($userProfile->emailVerified)) {
             throw new Exception\RuntimeException(
                 'Please verify your email with Foursquare before attempting login',
-                 Result::FAILURE_CREDENTIAL_INVALID
+                Result::FAILURE_CREDENTIAL_INVALID
             );
         }
         $mapper = $this->getZfcUserMapper();
@@ -324,7 +324,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         if (!isset($userProfile->emailVerified)) {
             throw new Exception\RuntimeException(
                 'Please verify your email with Google before attempting login',
-                 Result::FAILURE_CREDENTIAL_INVALID
+                Result::FAILURE_CREDENTIAL_INVALID
             );
         }
         $mapper = $this->getZfcUserMapper();
