@@ -110,7 +110,7 @@ class UserController extends AbstractActionController
     /**
      * get options
      *
-     * @return UserControllerOptionsInterface
+     * @return ModuleOptions
      */
     public function getOptions()
     {
