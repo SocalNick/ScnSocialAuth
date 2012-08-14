@@ -5,7 +5,7 @@ namespace ScnSocialAuth\Mapper;
 use ZfcBase\Mapper\AbstractDbMapper;
 use Zend\Stdlib\Hydrator\HydratorInterface;
 
-class UserProvider extends AbstractDbMapper
+class UserProvider extends AbstractDbMapper implements UserProviderInterface
 {
     protected $tableName  = 'user_provider';
 

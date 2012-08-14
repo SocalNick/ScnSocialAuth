@@ -5,7 +5,7 @@ namespace ScnSocialAuth\Authentication\Adapter;
 use DateTime;
 use Hybrid_Auth;
 use ScnSocialAuth\Authentication\Adapter\Exception;
-use ScnSocialAuth\Mapper\UserProvider;
+use ScnSocialAuth\Mapper\UserProviderInterface;
 use ScnSocialAuth\Options\ModuleOptions;
 use Zend\Authentication\Result;
 use Zend\ServiceManager\ServiceManagerAwareInterface;
@@ -13,7 +13,7 @@ use Zend\ServiceManager\ServiceManager;
 use Zend\Crypt\Password\Bcrypt;
 use ZfcUser\Authentication\Adapter\AbstractAdapter;
 use ZfcUser\Authentication\Adapter\AdapterChainEvent as AuthEvent;
-use ZfcUser\Mapper\User as UserMapperInterface;
+use ZfcUser\Mapper\UserInterface as UserMapperInterface;
 use ZfcUser\Options\UserServiceOptionsInterface;
 
 class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
@@ -39,7 +39,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
     protected $zfcUserOptions;
 
     /**
-     * @var UserProvider
+     * @var UserProviderInterface
      */
     protected $mapper;
 
@@ -219,10 +219,10 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
     /**
      * set mapper
      *
-     * @param UserProvider $mapper
+     * @param UserProviderInterface $mapper
      * @return HybridAuth
      */
-    public function setMapper(UserProvider $mapper)
+    public function setMapper(UserProviderInterface $mapper)
     {
         $this->mapper = $mapper;
         return $this;
@@ -231,11 +231,11 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
     /**
      * get mapper
      *
-     * @return UserProvider
+     * @return UserProviderInterface
      */
     public function getMapper()
     {
-        if (!$this->mapper instanceof UserProvider) {
+        if (!$this->mapper instanceof UserProviderInterface) {
             $this->setMapper($this->getServiceLocator()->get('ScnSocialAuth-UserProviderMapper'));
         }
         return $this->mapper;
