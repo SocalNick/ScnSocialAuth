@@ -26,11 +26,7 @@ class UserController extends AbstractActionController
             return $this->notFoundAction();
         }
         $hybridAuth = $this->getHybridAuth();
-        //TODO Replace with route assembly
-        $redirectUrl = $this->getEvent()->getRouter()->assemble(
-            array('provider' => $provider),
-            array('name' => 'scn-social-auth-user/authenticate/query')
-        );
+        $redirectUrl = $this->url()->fromRoute('scn-social-auth-user/authenticate/query', array('provider' => $provider));
         $adapter = $hybridAuth->authenticate(
             $provider,
             array(

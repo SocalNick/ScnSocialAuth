@@ -52,6 +52,18 @@ class HybridAuthFactory implements FactoryInterface
                             'secret' => $options->getFoursquareSecret(),
                         ),
                     ),
+                    'GitHub' => array(
+                        'enabled' => $options->getGithubEnabled(),
+                        'keys' => array(
+                            'id' => $options->getGithubClientId(),
+                            'secret' => $options->getGithubSecret(),
+                        ),
+                        'scope' => $options->getGithubScope(),
+                        'wrapper' => array(
+                            'class' => 'Hybrid_Providers_GitHub',
+                            'path' => realpath(__DIR__ . '/../HybridAuth/Provider/GitHub.php'),
+                        ),
+                    ),
                     'Google' => array(
                         'enabled' => $options->getGoogleEnabled(),
                         'keys' => array(

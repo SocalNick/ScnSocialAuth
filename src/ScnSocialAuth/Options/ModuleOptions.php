@@ -9,6 +9,7 @@ class ModuleOptions extends AbstractOptions
     protected $providers = array(
         'facebook',
         'foursquare',
+        'github',
         'google',
         'linkedIn',
         'twitter',
@@ -44,6 +45,26 @@ class ModuleOptions extends AbstractOptions
      * @var string
      */
     protected $facebookDisplay;
+
+    /**
+     * @var string
+     */
+    protected $githubEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $githubClientId;
+
+    /**
+     * @var string
+     */
+    protected $githubSecret;
+
+    /**
+     * @var string
+     */
+    protected $githubScope;
 
     /**
      * @var boolean
@@ -179,7 +200,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * get facebook enabled
      *
-     * @return string
+     * @return boolean
      */
     public function getFacebookEnabled()
     {
@@ -308,6 +329,7 @@ class ModuleOptions extends AbstractOptions
         return $this;
     }
 
+
     /**
      * get foursquare client id
      *
@@ -341,6 +363,94 @@ class ModuleOptions extends AbstractOptions
     }
 
     /**
+     * set github enabled
+     *
+     * @param boolean $githubEnabled
+     * @return ModuleOptions
+     */
+    public function setGithubEnabled($githubEnabled)
+    {
+        $this->githubEnabled = (boolean) $githubEnabled;
+        return $this;
+    }
+
+    /**
+     * get github enabled
+     *
+     * @return boolean
+     */
+    public function getGithubEnabled()
+    {
+        return $this->githubEnabled;
+    }
+
+    /**
+     * set github client id
+     *
+     * @param boolean $githubClientId
+     * @return ModuleOptions
+     */
+    public function setGithubClientId($githubClientId)
+    {
+        $this->githubClientId = (string) $githubClientId;
+        return $this;
+    }
+
+    /**
+     * get github client id
+     *
+     * @return string
+     */
+    public function getGithubClientId()
+    {
+        return $this->githubClientId;
+    }
+
+    /**
+     * set github secret
+     *
+     * @param boolean $githubSecret
+     * @return ModuleOptions
+     */
+    public function setGithubSecret($githubSecret)
+    {
+        $this->githubSecret = (string) $githubSecret;
+        return $this;
+    }
+
+    /**
+     * get github secret
+     *
+     * @return string
+     */
+    public function getGithubSecret()
+    {
+        return $this->githubSecret;
+    }
+
+    /**
+     * set github scope
+     *
+     * @param boolean $githubScope
+     * @return ModuleOptions
+     */
+    public function setGithubScope($githubScope)
+    {
+        $this->githubScope = (string) $githubScope;
+        return $this;
+    }
+
+    /**
+     * get github scope
+     *
+     * @return string
+     */
+    public function getGithubScope()
+    {
+        return $this->githubScope;
+    }
+
+    /**
      * set google enabled
      *
      * @param boolean $googleEnabled
@@ -355,7 +465,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * get google enabled
      *
-     * @return string
+     * @return boolean
      */
     public function getGoogleEnabled()
     {
@@ -509,7 +619,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * get twitter enabled
      *
-     * @return string
+     * @return boolean
      */
     public function getTwitterEnabled()
     {
@@ -575,7 +685,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * get yahoo enabled
      *
-     * @return string
+     * @return boolean
      */
     public function getYahooEnabled()
     {

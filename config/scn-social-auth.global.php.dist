@@ -29,7 +29,7 @@ $settings = array(
      */
     //'facebook_enabled' => true,
 
-	/**
+    /**
      * Facebook Scope
      *
      * Please specify a Facebook scope
@@ -40,7 +40,7 @@ $settings = array(
      */
     //'facebook_scope' => '',
 
-	/**
+    /**
      * Facebook Display
      *
      * Please specify a Facebook display
@@ -58,6 +58,27 @@ $settings = array(
      * Please specify if Foursquare is enabled
      */
     //'foursquare_enabled' => true,
+
+    /**
+     * Github Enabled
+     *
+     * Please specify if Github is enabled
+     *
+     * You can register a new application at:
+     * https://github.com/settings/applications/new
+     */
+    //'github_enabled' => true,
+
+    /**
+     * Github Scope
+     *
+     * Please specify a Github scope
+     *
+     * A comma-separated list of permissions you want to request from the user.
+     * See he Github docs for a full list of the available permissions:
+     * http://developer.github.com/v3/oauth/#scopes
+     */
+    //'github_scope' => '',
 
     /**
      * Google Enabled

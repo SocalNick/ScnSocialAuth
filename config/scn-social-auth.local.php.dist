@@ -35,6 +35,20 @@ $settings = array(
     //'foursquare_secret' => 'your-secret',
 
     /**
+     * Github Client ID
+     *
+     * Please specify a Github Client ID
+     */
+    //'github_client_id' => 'your-client-id',
+
+    /**
+     * Github Secret
+     *
+     * Please specify a Github Secret
+     */
+    //'github_secret' => 'your-secret',
+
+    /**
      * Google Client ID
      *
      * Please specify a Google Client ID
