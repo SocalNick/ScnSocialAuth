@@ -101,9 +101,9 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
                 }
             } else {
                 $localUser = $this->instantiateLocalUser();
-                $localUser->setEmail($userProfile->verifiedEmail ?: $userProfile->displayName)
-                    ->setDisplayName($userProfile->displayName)
-                    ->setPassword($provider);
+                $localUser->setDisplayName($userProfile->displayName)
+                          ->setPassword($provider);
+                if ($userProfile->emailVerified) $localUser->setEmail($userProfile->emailVerified);
                 $result = $this->getZfcUserMapper()->insert($localUser);
             }
             $localUserProvider = clone($this->getMapper()->getEntityPrototype());
