@@ -12,7 +12,7 @@ class UserProvider extends AbstractDbMapper implements UserProviderInterface
     public function findUserByProviderId($providerId, $provider)
     {
         $select = $this
-            ->select()
+            ->getSelect()
             ->from($this->tableName)
             ->where(
                 array(
@@ -21,8 +21,13 @@ class UserProvider extends AbstractDbMapper implements UserProviderInterface
                 )
             );
 
-        $entity = $this->selectWith($select)->current();
+        $entity = $this->select($select)->current();
         $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
         return $entity;
+    }
+
+    public function insert($entity, $tableName = null, HydratorInterface $hydrator = null)
+    {
+        return parent::insert($entity, $tableName, $hydrator);
     }
 }
