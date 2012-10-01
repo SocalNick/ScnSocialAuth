@@ -98,6 +98,9 @@ return array(
         ),
     ),
     'service_manager' => array(
+        'aliases' => array(
+            'ScnSocialAuth_ZendDbAdapter' => 'Zend\Db\Adapter\Adapter',
+        ),
         'factories' => array(
             'HybridAuth' => 'ScnSocialAuth\Service\HybridAuthFactory',
             'ScnSocialAuth-ModuleOptions' => 'ScnSocialAuth\Service\ModuleOptionsFactory',
