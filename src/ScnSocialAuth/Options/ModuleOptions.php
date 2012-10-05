@@ -160,18 +160,20 @@ class ModuleOptions extends AbstractOptions
                 $enabledProviders[] = $provider;
             }
         }
+
         return $enabledProviders;
     }
 
     /**
      * set user provider entity class
      *
-     * @param string $userProviderEntityClass
+     * @param  string        $userProviderEntityClass
      * @return ModuleOptions
      */
     public function setUserProviderEntityClass($userProviderEntityClass)
     {
         $this->userProviderEntityClass = (string) $userProviderEntityClass;
+
         return $this;
     }
 
@@ -188,12 +190,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set facebook enabled
      *
-     * @param boolean $facebookEnabled
+     * @param  boolean       $facebookEnabled
      * @return ModuleOptions
      */
     public function setFacebookEnabled($facebookEnabled)
     {
         $this->facebookEnabled = (boolean) $facebookEnabled;
+
         return $this;
     }
 
@@ -210,12 +213,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set facebook client id
      *
-     * @param boolean $facebookClientId
+     * @param  boolean       $facebookClientId
      * @return ModuleOptions
      */
     public function setFacebookClientId($facebookClientId)
     {
         $this->facebookClientId = (string) $facebookClientId;
+
         return $this;
     }
 
@@ -232,12 +236,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set facebook secret
      *
-     * @param boolean $facebookSecret
+     * @param  boolean       $facebookSecret
      * @return ModuleOptions
      */
     public function setFacebookSecret($facebookSecret)
     {
         $this->facebookSecret = (string) $facebookSecret;
+
         return $this;
     }
 
@@ -254,12 +259,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set facebook scope
      *
-     * @param boolean $facebookScope
+     * @param  boolean       $facebookScope
      * @return ModuleOptions
      */
     public function setFacebookScope($facebookScope)
     {
         $this->facebookScope = (string) $facebookScope;
+
         return $this;
     }
 
@@ -276,12 +282,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set facebook display
      *
-     * @param boolean $facebookDisplay
+     * @param  boolean       $facebookDisplay
      * @return ModuleOptions
      */
     public function setFacebookDisplay($facebookDisplay)
     {
         $this->facebookDisplay = (string) $facebookDisplay;
+
         return $this;
     }
 
@@ -298,12 +305,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set foursquare enabled
      *
-     * @param boolean $foursquareEnabled
+     * @param  boolean       $foursquareEnabled
      * @return ModuleOptions
      */
     public function setFoursquareEnabled($foursquareEnabled)
     {
         $this->foursquareEnabled = (boolean) $foursquareEnabled;
+
         return $this;
     }
 
@@ -320,15 +328,15 @@ class ModuleOptions extends AbstractOptions
     /**
      * set foursquare client id
      *
-     * @param boolean $foursquareClientId
+     * @param  boolean       $foursquareClientId
      * @return ModuleOptions
      */
     public function setFoursquareClientId($foursquareClientId)
     {
         $this->foursquareClientId = (string) $foursquareClientId;
+
         return $this;
     }
-
 
     /**
      * get foursquare client id
@@ -343,12 +351,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set foursquare secret
      *
-     * @param boolean $foursquareSecret
+     * @param  boolean       $foursquareSecret
      * @return ModuleOptions
      */
     public function setFoursquareSecret($foursquareSecret)
     {
         $this->foursquareSecret = (string) $foursquareSecret;
+
         return $this;
     }
 
@@ -365,12 +374,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set github enabled
      *
-     * @param boolean $githubEnabled
+     * @param  boolean       $githubEnabled
      * @return ModuleOptions
      */
     public function setGithubEnabled($githubEnabled)
     {
         $this->githubEnabled = (boolean) $githubEnabled;
+
         return $this;
     }
 
@@ -387,12 +397,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set github client id
      *
-     * @param boolean $githubClientId
+     * @param  boolean       $githubClientId
      * @return ModuleOptions
      */
     public function setGithubClientId($githubClientId)
     {
         $this->githubClientId = (string) $githubClientId;
+
         return $this;
     }
 
@@ -409,12 +420,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set github secret
      *
-     * @param boolean $githubSecret
+     * @param  boolean       $githubSecret
      * @return ModuleOptions
      */
     public function setGithubSecret($githubSecret)
     {
         $this->githubSecret = (string) $githubSecret;
+
         return $this;
     }
 
@@ -431,12 +443,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set github scope
      *
-     * @param boolean $githubScope
+     * @param  boolean       $githubScope
      * @return ModuleOptions
      */
     public function setGithubScope($githubScope)
     {
         $this->githubScope = (string) $githubScope;
+
         return $this;
     }
 
@@ -453,12 +466,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set google enabled
      *
-     * @param boolean $googleEnabled
+     * @param  boolean       $googleEnabled
      * @return ModuleOptions
      */
     public function setGoogleEnabled($googleEnabled)
     {
         $this->googleEnabled = (boolean) $googleEnabled;
+
         return $this;
     }
 
@@ -475,12 +489,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set google client id
      *
-     * @param boolean $googleClientId
+     * @param  boolean       $googleClientId
      * @return ModuleOptions
      */
     public function setGoogleClientId($googleClientId)
     {
         $this->googleClientId = (string) $googleClientId;
+
         return $this;
     }
 
@@ -497,12 +512,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set google secret
      *
-     * @param boolean $googleSecret
+     * @param  boolean       $googleSecret
      * @return ModuleOptions
      */
     public function setGoogleSecret($googleSecret)
     {
         $this->googleSecret = (string) $googleSecret;
+
         return $this;
     }
 
@@ -519,12 +535,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set google scope
      *
-     * @param boolean $googleScope
+     * @param  boolean       $googleScope
      * @return ModuleOptions
      */
     public function setGoogleScope($googleScope)
     {
         $this->googleScope = (string) $googleScope;
+
         return $this;
     }
 
@@ -541,12 +558,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set linkedIn enabled
      *
-     * @param boolean $linkedInEnabled
+     * @param  boolean       $linkedInEnabled
      * @return ModuleOptions
      */
     public function setLinkedInEnabled($linkedInEnabled)
     {
         $this->linkedInEnabled = (boolean) $linkedInEnabled;
+
         return $this;
     }
 
@@ -563,12 +581,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set linkedIn client id
      *
-     * @param boolean $linkedInClientId
+     * @param  boolean       $linkedInClientId
      * @return ModuleOptions
      */
     public function setLinkedInClientId($linkedInClientId)
     {
         $this->linkedInClientId = (string) $linkedInClientId;
+
         return $this;
     }
 
@@ -585,12 +604,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set linkedIn secret
      *
-     * @param boolean $linkedInSecret
+     * @param  boolean       $linkedInSecret
      * @return ModuleOptions
      */
     public function setLinkedInSecret($linkedInSecret)
     {
         $this->linkedInSecret = (string) $linkedInSecret;
+
         return $this;
     }
 
@@ -607,12 +627,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set twitter enabled
      *
-     * @param boolean $twitterEnabled
+     * @param  boolean       $twitterEnabled
      * @return ModuleOptions
      */
     public function setTwitterEnabled($twitterEnabled)
     {
         $this->twitterEnabled = (boolean) $twitterEnabled;
+
         return $this;
     }
 
@@ -629,12 +650,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set twitter consumer key
      *
-     * @param boolean $twitterConsumerKey
+     * @param  boolean       $twitterConsumerKey
      * @return ModuleOptions
      */
     public function setTwitterConsumerKey($twitterConsumerKey)
     {
         $this->twitterConsumerKey = (string) $twitterConsumerKey;
+
         return $this;
     }
 
@@ -651,12 +673,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set twitter consumer secret
      *
-     * @param boolean $twitterConsumerSecret
+     * @param  boolean       $twitterConsumerSecret
      * @return ModuleOptions
      */
     public function setTwitterConsumerSecret($twitterConsumerSecret)
     {
         $this->twitterConsumerSecret = (string) $twitterConsumerSecret;
+
         return $this;
     }
 
@@ -673,12 +696,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set yahoo enabled
      *
-     * @param boolean $yahooEnabled
+     * @param  boolean       $yahooEnabled
      * @return ModuleOptions
      */
     public function setYahooEnabled($yahooEnabled)
     {
         $this->yahooEnabled = (boolean) $yahooEnabled;
+
         return $this;
     }
 
@@ -695,12 +719,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set yahoo client id
      *
-     * @param boolean $yahooClientId
+     * @param  boolean       $yahooClientId
      * @return ModuleOptions
      */
     public function setYahooClientId($yahooClientId)
     {
         $this->yahooClientId = (string) $yahooClientId;
+
         return $this;
     }
 
@@ -717,12 +742,13 @@ class ModuleOptions extends AbstractOptions
     /**
      * set yahoo secret
      *
-     * @param boolean $yahooSecret
+     * @param  boolean       $yahooSecret
      * @return ModuleOptions
      */
     public function setYahooSecret($yahooSecret)
     {
         $this->yahooSecret = (string) $yahooSecret;
+
         return $this;
     }
 

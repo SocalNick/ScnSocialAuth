@@ -19,12 +19,13 @@ class UserProvider
     }
 
     /**
-     * @param integer $userId
+     * @param  integer      $userId
      * @return UserProvider
      */
     public function setUserId($userId)
     {
         $this->userId = $userId;
+
         return $this;
     }
 
@@ -37,12 +38,13 @@ class UserProvider
     }
 
     /**
-     * @param integer $providerId
+     * @param  integer      $providerId
      * @return UserProvider
      */
     public function setProviderId($providerId)
     {
         $this->providerId = $providerId;
+
         return $this;
     }
 
@@ -55,12 +57,13 @@ class UserProvider
     }
 
     /**
-     * @param string $provider
+     * @param  string       $provider
      * @return UserProvider
      */
     public function setProvider($provider)
     {
         $this->provider = $provider;
+
         return $this;
     }
 }

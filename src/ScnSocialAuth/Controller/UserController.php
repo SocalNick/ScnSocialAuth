@@ -33,6 +33,7 @@ class UserController extends AbstractActionController
                 'hauth_return_to' => $redirectUrl,
             )
         );
+
         return $this->redirect()->toUrl($redirectUrl);
     }
 
@@ -45,12 +46,14 @@ class UserController extends AbstractActionController
         $viewModel = new ViewModel();
         $viewModel->addChild($zfcUserLogin, 'zfcUserLogin');
         $viewModel->setVariable('options', $this->getOptions());
+
         return $viewModel;
     }
 
     public function logoutAction()
     {
         Hybrid_Auth::logoutAllProviders();
+
         return $this->forward()->dispatch('zfcuser', array('action' => 'logout'));
     }
 
@@ -63,6 +66,7 @@ class UserController extends AbstractActionController
         $viewModel = new ViewModel();
         $viewModel->addChild($zfcUserRegister, 'zfcUserLogin');
         $viewModel->setVariable('options', $this->getOptions());
+
         return $viewModel;
     }
 
@@ -76,30 +80,33 @@ class UserController extends AbstractActionController
         if (!$this->hybridAuth) {
             $this->hybridAuth = $this->getServiceLocator()->get('HybridAuth');
         }
+
         return $this->hybridAuth;
     }
 
     /**
      * Set the Hybrid_Auth object
      *
-     * @param Hybrid_Auth $hybridAuth
+     * @param  Hybrid_Auth    $hybridAuth
      * @return UserController
      */
     public function setHybridAuth(Hybrid_Auth $hybridAuth)
     {
         $this->hybridAuth = $hybridAuth;
+
         return $this;
     }
 
     /**
      * set options
      *
-     * @param ModuleOptions $options
+     * @param  ModuleOptions  $options
      * @return UserController
      */
     public function setOptions(ModuleOptions $options)
     {
         $this->options = $options;
+
         return $this;
     }
 
@@ -113,6 +120,7 @@ class UserController extends AbstractActionController
         if (!$this->options instanceof ModuleOptions) {
             $this->setOptions($this->getServiceLocator()->get('ScnSocialAuth-ModuleOptions'));
         }
+
         return $this->options;
     }
 }

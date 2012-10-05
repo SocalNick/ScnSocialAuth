@@ -24,6 +24,7 @@ class AuthenticationAdapterChainFactory implements FactoryInterface
         $chain = $factory->createService($services);
         $adapter = $services->get('ScnSocialAuth\Authentication\Adapter\HybridAuth');
         $chain->getEventManager()->attach('authenticate', array($adapter, 'authenticate'), 1000);
+
         return $chain;
     }
 }

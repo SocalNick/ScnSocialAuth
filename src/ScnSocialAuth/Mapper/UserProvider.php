@@ -23,6 +23,7 @@ class UserProvider extends AbstractDbMapper implements UserProviderInterface
 
         $entity = $this->select($select)->current();
         $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
+
         return $entity;
     }
 
