@@ -386,4 +386,15 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
         return $localUser;
     }
+
+    protected function githubToLocalUser($userProfile)
+    {
+        $localUser = $this->instantiateLocalUser();
+        $localUser->setDisplayName($userProfile->displayName)
+                  ->setPassword(__FUNCTION__)
+                  ->setEmail($userProfile->email);
+        $result = $this->getZfcUserMapper()->insert($localUser);
+
+        return $localUser;
+    }
 }
