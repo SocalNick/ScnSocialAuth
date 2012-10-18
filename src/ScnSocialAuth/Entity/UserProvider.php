@@ -2,7 +2,7 @@
 
 namespace ScnSocialAuth\Entity;
 
-class UserProvider
+class UserProvider implements UserProviderInterface
 {
     protected $userId;
 
