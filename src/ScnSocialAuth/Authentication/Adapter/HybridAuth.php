@@ -167,7 +167,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
     /**
      * Set service manager instance
      *
-     * @param  ServiceManager $locator
+     * @param  ServiceManager $serviceManager
      * @return void
      */
     public function setServiceManager(ServiceManager $serviceManager)
