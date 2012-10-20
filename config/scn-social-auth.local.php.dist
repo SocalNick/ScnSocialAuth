@@ -105,11 +105,6 @@ $settings = array(
     //'yahoo_secret' => 'your-secret',
 
     /**
-     *  The home route key as used in your application
-     */
-    //'home_route' => 'home',
-
-    /**
      * End of ScnSocialAuth configuration
      */
 );
