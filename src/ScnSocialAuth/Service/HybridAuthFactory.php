@@ -32,8 +32,7 @@ class HybridAuthFactory implements FactoryInterface
                     'force_canonical' => true,
                 )
             );
-        }
-        catch (\Zend\Mvc\Router\Exception\RuntimeException $e) {
+        } catch (\Zend\Mvc\Router\Exception\RuntimeException $e) {
             throw new \Zend\Mvc\Router\Exception\RuntimeException(
                     $e->getMessage() . '. ' .
                     'Please set your correct home route key in the scn-social-auth.local.php config file.');
