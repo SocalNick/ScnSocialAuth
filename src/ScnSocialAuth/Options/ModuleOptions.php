@@ -782,7 +782,7 @@ class ModuleOptions extends AbstractOptions
      */
     public function setHomeRoute($homeRoute)
     {
-        $this->homeRoute = $homeRoute;
+        $this->homeRoute = (string) $homeRoute;
 
         return $this;
     }
