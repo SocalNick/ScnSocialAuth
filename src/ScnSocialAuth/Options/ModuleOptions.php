@@ -152,6 +152,13 @@ class ModuleOptions extends AbstractOptions
     protected $yahooSecret;
 
     /**
+     * home route key as used in your application
+     *
+     * @var string
+     */
+    protected $homeRoute = 'home';
+
+    /**
      * get an array of enabled providers
      *
      * @return array
@@ -765,5 +772,28 @@ class ModuleOptions extends AbstractOptions
     public function getYahooSecret()
     {
         return $this->yahooSecret;
+    }
+
+    /**
+     * set home route
+     *
+     * @param string         $homeRoute
+     * @return ModuleOptions
+     */
+    public function setHomeRoute($homeRoute)
+    {
+        $this->homeRoute = (string) $homeRoute;
+
+        return $this;
+    }
+
+    /**
+     * get home route
+     *
+     * @return string
+     */
+    public function getHomeRoute()
+    {
+        return $this->homeRoute;
     }
 }

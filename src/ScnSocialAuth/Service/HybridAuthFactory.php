@@ -24,13 +24,19 @@ class HybridAuthFactory implements FactoryInterface
         $options = $services->get('ScnSocialAuth-ModuleOptions');
 
         $router = $services->get('Router');
-        $baseUrl = $router->assemble(
-            array(),
-            array(
-                'name' => 'home',
-                'force_canonical' => true,
-            )
-        );
+        try {
+            $baseUrl = $router->assemble(
+                array(),
+                array(
+                    'name' => $options->getHomeRoute(),
+                    'force_canonical' => true,
+                )
+            );
+        } catch (\Zend\Mvc\Router\Exception\RuntimeException $e) {
+            throw new \Zend\Mvc\Router\Exception\RuntimeException(
+                    $e->getMessage() . '. ' .
+                    'Please set your correct home route key in the scn-social-auth.local.php config file.');
+        }
 
         $hybridAuth = new Hybrid_Auth(
             array(
