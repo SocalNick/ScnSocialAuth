@@ -15,8 +15,9 @@ use ZfcUser\Mapper\UserInterface as UserMapperInterface;
 use ZfcUser\Options\UserServiceOptionsInterface;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\EventManager;
+use Zend\EventManager\EventManagerAwareInterface;
 
-class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
+class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface, EventManagerAwareInterface
 {
     /**
      * @var Hybrid_Auth
@@ -402,26 +403,30 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
                   ->setEmail($userProfile->email);
 
         $this->getEventManager()->trigger(__FUNCTION__, $localUser, array('userProfile' => $userProfile));
-        
+
         $result = $this->getZfcUserMapper()->insert($localUser);
 
         return $localUser;
     }
 
     /**
-     * Set the event manager instance used by this context
+     * Set Event Manager
      *
      * @param  EventManagerInterface $events
-     * @return mixed
+     * @return HybridAuth
      */
     public function setEventManager(EventManagerInterface $events)
     {
+        $events->setIdentifiers(array(
+            __CLASS__,
+            get_called_class(),
+        ));
         $this->events = $events;
         return $this;
     }
 
     /**
-     * Retrieve the event manager
+     * Get Event Manager
      *
      * Lazy-loads an EventManager instance if none registered.
      *
@@ -429,21 +434,6 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
      */
     public function getEventManager()
     {
-        if (!$this->events instanceof EventManagerInterface) {
-            $identifiers = array(__CLASS__, get_called_class());
-            if (isset($this->eventIdentifier)) {
-                if ((is_string($this->eventIdentifier))
-                    || (is_array($this->eventIdentifier))
-                    || ($this->eventIdentifier instanceof Traversable)
-                ) {
-                    $identifiers = array_unique($identifiers + (array) $this->eventIdentifier);
-                } elseif (is_object($this->eventIdentifier)) {
-                    $identifiers[] = $this->eventIdentifier;
-                }
-                // silently ignore invalid eventIdentifier types
-            }
-            $this->setEventManager(new EventManager($identifiers));
-        }
         return $this->events;
     }
 }
