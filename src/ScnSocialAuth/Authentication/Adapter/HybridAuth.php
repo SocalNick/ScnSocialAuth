@@ -434,6 +434,9 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
      */
     public function getEventManager()
     {
+        if (null === $this->events) {
+            $this->setEventManager(new EventManager());
+        }
         return $this->events;
     }
 }
