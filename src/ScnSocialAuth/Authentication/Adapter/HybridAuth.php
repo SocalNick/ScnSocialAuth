@@ -13,8 +13,11 @@ use ZfcUser\Authentication\Adapter\AbstractAdapter;
 use ZfcUser\Authentication\Adapter\AdapterChainEvent as AuthEvent;
 use ZfcUser\Mapper\UserInterface as UserMapperInterface;
 use ZfcUser\Options\UserServiceOptionsInterface;
+use Zend\EventManager\EventManagerInterface;
+use Zend\EventManager\EventManager;
+use Zend\EventManager\EventManagerAwareInterface;
 
-class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
+class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface, EventManagerAwareInterface
 {
     /**
      * @var Hybrid_Auth
@@ -45,6 +48,11 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
      * @var UserMapperInterface
      */
     protected $zfcUserMapper;
+
+    /**
+     * @var EventManagerInterface
+     */
+    protected $events;
 
     public function authenticate(AuthEvent $authEvent)
     {
@@ -385,5 +393,50 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $result = $this->getZfcUserMapper()->insert($localUser);
 
         return $localUser;
+    }
+
+    protected function githubToLocalUser($userProfile)
+    {
+        $localUser = $this->instantiateLocalUser();
+        $localUser->setDisplayName($userProfile->displayName)
+                  ->setPassword(__FUNCTION__)
+                  ->setEmail($userProfile->email);
+
+        $this->getEventManager()->trigger(__FUNCTION__, $localUser, array('userProfile' => $userProfile));
+
+        $result = $this->getZfcUserMapper()->insert($localUser);
+
+        return $localUser;
+    }
+
+    /**
+     * Set Event Manager
+     *
+     * @param  EventManagerInterface $events
+     * @return HybridAuth
+     */
+    public function setEventManager(EventManagerInterface $events)
+    {
+        $events->setIdentifiers(array(
+            __CLASS__,
+            get_called_class(),
+        ));
+        $this->events = $events;
+        return $this;
+    }
+
+    /**
+     * Get Event Manager
+     *
+     * Lazy-loads an EventManager instance if none registered.
+     *
+     * @return EventManagerInterface
+     */
+    public function getEventManager()
+    {
+        if (null === $this->events) {
+            $this->setEventManager(new EventManager());
+        }
+        return $this->events;
     }
 }
