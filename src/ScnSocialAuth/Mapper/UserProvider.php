@@ -11,15 +11,13 @@ class UserProvider extends AbstractDbMapper implements UserProviderInterface
 
     public function findUserByProviderId($providerId, $provider)
     {
-        $select = $this
-            ->getSelect()
-            ->from($this->tableName)
-            ->where(
-                array(
-                    'provider_id' => $providerId,
-                    'provider' => $provider,
-                )
-            );
+        $sql    = $this->getSql();
+        $select = $sql->select();
+        $select->from($this->tableName)
+               ->where(array(
+                   'provider_id' => $providerId,
+                   'provider'    => $provider,
+               ));
 
         $entity = $this->select($select)->current();
         $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
