@@ -782,7 +782,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set social login only
      *
-     * @param boolean        $socialLoginOnly
+     * @param  boolean       $socialLoginOnly
      * @return ModuleOptions
      */
     public function setSocialLoginOnly($socialLoginOnly)
@@ -805,7 +805,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set home route
      *
-     * @param string         $homeRoute
+     * @param  string        $homeRoute
      * @return ModuleOptions
      */
     public function setHomeRoute($homeRoute)

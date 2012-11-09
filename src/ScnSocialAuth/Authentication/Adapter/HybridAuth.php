@@ -422,6 +422,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
             get_called_class(),
         ));
         $this->events = $events;
+
         return $this;
     }
 
@@ -437,6 +438,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         if (null === $this->events) {
             $this->setEventManager(new EventManager());
         }
+
         return $this->events;
     }
 }
