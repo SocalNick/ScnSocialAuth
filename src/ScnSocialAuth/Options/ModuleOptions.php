@@ -159,6 +159,11 @@ class ModuleOptions extends AbstractOptions
     protected $homeRoute = 'home';
 
     /**
+     * @var bool
+     */
+    protected $useRedirectParameterIfPresent = true;
+
+    /**
      * get an array of enabled providers
      *
      * @return array
@@ -795,5 +800,27 @@ class ModuleOptions extends AbstractOptions
     public function getHomeRoute()
     {
         return $this->homeRoute;
+    }
+
+    /**
+     * set use redirect param if present
+     *
+     * @param bool $useRedirectParameterIfPresent
+     * @return ModuleOptions
+     */
+    public function setUseRedirectParameterIfPresent($useRedirectParameterIfPresent)
+    {
+        $this->useRedirectParameterIfPresent = (bool) $useRedirectParameterIfPresent;
+        return $this;
+    }
+
+    /**
+     * get use redirect param if present
+     *
+     * @return bool
+     */
+    public function getUseRedirectParameterIfPresent()
+    {
+        return $this->useRedirectParameterIfPresent;
     }
 }
