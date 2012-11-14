@@ -8,7 +8,6 @@
 
 namespace ScnSocialAuth\Service;
 
-use RuntimeException;
 use ScnSocialAuth\Controller\HybridAuthController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
