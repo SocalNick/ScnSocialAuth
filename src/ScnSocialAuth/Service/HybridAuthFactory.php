@@ -20,6 +20,10 @@ class HybridAuthFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $services)
     {
+        // Making sure the SessionManager is initialized
+        // before creating HybridAuth components
+        $sessionManager = $services->get('ScnSocialAuth_ZendSessionManager')->start();
+
         /* @var $options \ScnSocialAuth\Options\ModuleOptions */
         $options = $services->get('ScnSocialAuth-ModuleOptions');
 

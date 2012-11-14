@@ -100,6 +100,7 @@ return array(
     'service_manager' => array(
         'aliases' => array(
             'ScnSocialAuth_ZendDbAdapter' => 'Zend\Db\Adapter\Adapter',
+            'ScnSocialAuth_ZendSessionManager' => 'Zend\Session\SessionManager',
         ),
         'factories' => array(
             'HybridAuth' => 'ScnSocialAuth\Service\HybridAuthFactory',
