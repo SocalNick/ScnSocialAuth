@@ -22,17 +22,6 @@ class ModuleOptionsFactory implements FactoryInterface
     {
         $config = $services->get('Configuration');
 
-        $options = array();
-
-        if (isset($config['scn-social-auth'])) {
-            $options = $config['scn-social-auth'];
-        }
-
-        // Add use_redirect_parameter_if_present option from zfc-user
-        if (isset($config['zfc-user']) && isset($config['zfc-user']['use_redirect_parameter_if_present'])) {
-            $options = array_merge($options, array('use_redirect_parameter_if_present' => $config['zfc-user']['use_redirect_parameter_if_present']));
-        }
-
-        return new Options\ModuleOptions($options);
+        return new Options\ModuleOptions(isset($config['scn-social-auth']) ? $config['scn-social-auth'] : array());
     }
 }
