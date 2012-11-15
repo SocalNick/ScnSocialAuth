@@ -108,7 +108,7 @@ manager configuration, put the following in `./config/autoload/session.local.php
 return array(
     'service_manager' => array(
         'invokables' => array(
-            'Zend\Session\SessionManager',
+            'Zend\Session\SessionManager' => 'Zend\Session\SessionManager',
         ),
     ),
 );
