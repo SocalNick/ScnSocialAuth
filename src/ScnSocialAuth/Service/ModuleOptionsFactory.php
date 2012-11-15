@@ -29,7 +29,7 @@ class ModuleOptionsFactory implements FactoryInterface
         }
 
         // Add use_redirect_parameter_if_present option from zfc-user
-        if (isset($config['zfc-user'])) {
+        if (isset($config['zfc-user']) && isset($config['zfc-user']['use_redirect_parameter_if_present'])) {
             $options = array_merge($options, array('use_redirect_parameter_if_present' => $config['zfc-user']['use_redirect_parameter_if_present']));
         }
 
