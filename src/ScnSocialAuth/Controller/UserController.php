@@ -2,6 +2,7 @@
 namespace ScnSocialAuth\Controller;
 
 use Hybrid_Auth;
+use ScnSocialAuth\Mapper\UserProviderInterface;
 use ScnSocialAuth\Options\ModuleOptions;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ModelInterface;
@@ -9,6 +10,11 @@ use Zend\View\Model\ViewModel;
 
 class UserController extends AbstractActionController
 {
+    /**
+     * @var UserProviderInterface
+     */
+    protected $mapper;
+
     /**
      * @var Hybrid_Auth
      */
@@ -68,6 +74,33 @@ class UserController extends AbstractActionController
         $viewModel->setVariable('options', $this->getOptions());
 
         return $viewModel;
+    }
+
+    /**
+     * set mapper
+     *
+     * @param  UserProviderInterface $mapper
+     * @return HybridAuth
+     */
+    public function setMapper(UserProviderInterface $mapper)
+    {
+        $this->mapper = $mapper;
+
+        return $this;
+    }
+
+    /**
+     * get mapper
+     *
+     * @return UserProviderInterface
+     */
+    public function getMapper()
+    {
+        if (!$this->mapper instanceof UserProviderInterface) {
+            $this->setMapper($this->getServiceLocator()->get('ScnSocialAuth-UserProviderMapper'));
+        }
+
+        return $this->mapper;
     }
 
     /**
