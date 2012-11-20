@@ -15,6 +15,14 @@ $settings = array(
     //'zend_db_adapter' => 'Zend\Db\Adapter\Adapter',
 
     /**
+     * Zend\Session\SessionManager DI Alias
+     *
+     * Please specify the DI alias for the configured Zend\Session\SessionManager
+     * instance that ScnSocialAuth should use.
+     */
+    //'zend_session_manager' => 'Zend\Session\SessionManager',
+
+    /**
      * User Provider Entity Class
      *
      * Name of Entity class to use. Useful for using your own entity class
@@ -143,6 +151,7 @@ return array(
     'service_manager' => array(
         'aliases' => array(
             'ScnSocialAuth_ZendDbAdapter' => (isset($settings['zend_db_adapter'])) ? $settings['zend_db_adapter']: 'Zend\Db\Adapter\Adapter',
+            'ScnSocialAuth_ZendSessionManager' => (isset($settings['zend_session_manager'])) ? $settings['zend_session_manager']: 'Zend\Session\SessionManager',
         ),
     ),
 );

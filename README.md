@@ -100,6 +100,20 @@ return array(
 );
 ```
 
+If you do not already have a valid Zend\Session\SessionManager in your service
+manager configuration, put the following in `./config/autoload/session.local.php`:
+```
+<?php
+
+return array(
+    'service_manager' => array(
+        'invokables' => array(
+            'Zend\Session\SessionManager' => 'Zend\Session\SessionManager',
+        ),
+    ),
+);
+```
+
 Options
 -------
 Make sure to check the options available in ZfcUser: https://github.com/ZF-Commons/ZfcUser#options

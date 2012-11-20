@@ -8,7 +8,6 @@
 
 namespace ScnSocialAuth\Service;
 
-use RuntimeException;
 use ScnSocialAuth\Controller\HybridAuthController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -19,12 +18,11 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  */
 class HybridAuthControllerFactory implements FactoryInterface
 {
-    public function createService(ServiceLocatorInterface $services)
+    public function createService(ServiceLocatorInterface $controllerManager)
     {
-        // These class_exists calls take care of autoloading
-        if (!class_exists('Hybrid_Auth') || !class_exists('Hybrid_Endpoint')) {
-            throw new RuntimeException('Unable to load Hybrid_Auth and Hybrid_Endpoint');
-        }
+        // Just making sure to instantiate and configure
+        // It's not actually needed in HybridAuthController
+        $hybridAuth = $controllerManager->getServiceLocator()->get('HybridAuth');
 
         $controller = new HybridAuthController();
 
