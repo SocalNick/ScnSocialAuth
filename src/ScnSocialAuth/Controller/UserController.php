@@ -25,6 +25,41 @@ class UserController extends AbstractActionController
      */
     protected $options;
 
+    public function addProviderAction()
+    {
+        // Make sure the provider is enabled, else 404
+        $provider = $this->params('provider');
+        if (!in_array($provider, $this->getOptions()->getEnabledProviders())) {
+            return $this->notFoundAction();
+        }
+
+        $authService = $this->zfcUserAuthentication()->getAuthService();
+
+        // If user is not logged in, redirect to login page
+        if (!$authService->hasIdentity()) {
+            return $this->redirect()->toRoute('zfcuser/login');
+        }
+
+        $hybridAuth = $this->getHybridAuth();
+        $adapter = $hybridAuth->authenticate($provider);
+
+        $localUser = $authService->getIdentity();
+        $userProfile = $adapter->getUserProfile();
+        $accessToken = $adapter->getAccessToken();
+
+        $this->getMapper()->linkUserToProvider($localUser, $userProfile, $provider, $accessToken);
+
+        $redirect = $this->params()->fromQuery('redirect', false);
+
+        if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $redirect) {
+            return $this->redirect()->toUrl($redirect);
+        }
+
+        return $this->redirect()->toRoute(
+            $this->getServiceLocator()->get('zfcuser_module_options')->getLoginRedirectRoute()
+        );
+    }
+
     public function providerLoginAction()
     {
         $provider = $this->getEvent()->getRouteMatch()->getParam('provider');
