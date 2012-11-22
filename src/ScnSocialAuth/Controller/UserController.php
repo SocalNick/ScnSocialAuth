@@ -25,6 +25,12 @@ class UserController extends AbstractActionController
      */
     protected $options;
 
+    /**
+     * @todo Make this dynamic / translation-friendly
+     * @var string
+     */
+    protected $failedAddProviderMessage = 'Add provider failed. Please try again.';
+
     public function addProviderAction()
     {
         // Make sure the provider is enabled, else 404
@@ -42,6 +48,12 @@ class UserController extends AbstractActionController
 
         $hybridAuth = $this->getHybridAuth();
         $adapter = $hybridAuth->authenticate($provider);
+
+        if (!$adapter->isUserConnected()) {
+            $this->flashMessenger()->setNamespace('zfcuser-index')->addMessage($this->failedAddProviderMessage);
+
+            return $this->redirect()->toRoute('zfcuser');
+        }
 
         $localUser = $authService->getIdentity();
         $userProfile = $adapter->getUserProfile();
