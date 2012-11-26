@@ -2,13 +2,22 @@
 
 namespace ScnSocialAuth\Mapper;
 
-use ZfcBase\Mapper\AbstractDbMapper;
+use Hybrid_User_Profile;
+use ScnSocialAuth\Entity\UserProvider as UserProviderEntity;
+use ScnSocialAuth\Mapper\Exception;
 use Zend\Stdlib\Hydrator\HydratorInterface;
+use ZfcBase\Mapper\AbstractDbMapper;
+use ZfcUser\Entity\UserInterface;
 
 class UserProvider extends AbstractDbMapper implements UserProviderInterface
 {
     protected $tableName  = 'user_provider';
 
+    /**
+     * @param  int                $providerId
+     * @param  string             $provider
+     * @return UserProviderEntity
+     */
     public function findUserByProviderId($providerId, $provider)
     {
         $sql    = $this->getSql();
@@ -25,8 +34,41 @@ class UserProvider extends AbstractDbMapper implements UserProviderInterface
         return $entity;
     }
 
+    /**
+     * Proxy to parent protected method
+     *
+     * @param  object|array                $entity
+     * @param  string|TableIdentifier|null $tableName
+     * @param  HydratorInterface|null      $hydrator
+     * @return ResultInterface
+     */
     public function insert($entity, $tableName = null, HydratorInterface $hydrator = null)
     {
         return parent::insert($entity, $tableName, $hydrator);
+    }
+
+    /**
+     * @param UserInterface       $user
+     * @param Hybrid_User_Profile $hybridUserProfile
+     * @param string              $provider
+     * @param array               $accessToken
+     */
+    public function linkUserToProvider(UserInterface $user, Hybrid_User_Profile $hybridUserProfile, $provider, array $accessToken = null)
+    {
+        $userProvider = $this->findUserByProviderId($hybridUserProfile->identifier, $provider);
+
+        if (false != $userProvider) {
+            if ($user->getId() == $userProvider->getUserId()) {
+                // already linked
+                return;
+            }
+            throw new Exception\RuntimeException('This ' . ucfirst($provider) . ' profile is already linked to another user.');
+        }
+
+        $userProvider = clone($this->getEntityPrototype());
+        $userProvider->setUserId($user->getId())
+            ->setProviderId($hybridUserProfile->identifier)
+            ->setProvider($provider);
+        $this->insert($userProvider);
     }
 }
