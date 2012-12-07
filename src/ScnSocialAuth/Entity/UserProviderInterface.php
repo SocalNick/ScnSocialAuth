@@ -10,7 +10,7 @@ interface UserProviderInterface
     public function getUserId();
 
     /**
-     * @param  integer      $userId
+     * @param  integer               $userId
      * @return UserProviderInterface
      */
     public function setUserId($userId);
@@ -21,7 +21,7 @@ interface UserProviderInterface
     public function getProviderId();
 
     /**
-     * @param  integer      $providerId
+     * @param  integer               $providerId
      * @return UserProviderInterface
      */
     public function setProviderId($providerId);
@@ -32,7 +32,7 @@ interface UserProviderInterface
     public function getProvider();
 
     /**
-     * @param  string       $provider
+     * @param  string                $provider
      * @return UserProviderInterface
      */
     public function setProvider($provider);

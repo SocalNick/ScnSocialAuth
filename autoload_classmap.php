@@ -23,4 +23,6 @@ return array(
     'ScnSocialAuth\Authentication\Exception\ExceptionInterface'         => __DIR__ . '/src/ScnSocialAuth/Authentication/Exception/ExceptionInterface.php',
     'ScnSocialAuth\Mapper\UserProviderInterface'                        => __DIR__ . '/src/ScnSocialAuth/Mapper/UserProviderInterface.php',
     'ScnSocialAuth\Mapper\UserProvider'                                 => __DIR__ . '/src/ScnSocialAuth/Mapper/UserProvider.php',
+    'ScnSocialAuth\Mapper\Exception\RuntimeException'                   => __DIR__ . '/src/ScnSocialAuth/Mapper/Exception/RuntimeException.php',
+    'ScnSocialAuth\Mapper\Exception\ExceptionInterface'                 => __DIR__ . '/src/ScnSocialAuth/Mapper/Exception/ExceptionInterface.php',
 );

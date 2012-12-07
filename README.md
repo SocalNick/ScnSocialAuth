@@ -8,6 +8,7 @@ Requirements
 * [ZfcBase](https://github.com/ZF-Commons/ZfcBase) (latest master)
 * [ZfcUser](https://github.com/ZF-Commons/ZfcUser) (latest master)
 * [HybridAuth](https://github.com/hybridauth/hybridauth) (latest master)
+* Extension php_curl enabled in php.ini
 
 Features
 --------
@@ -94,6 +95,20 @@ return array(
                     'hostname'  => $dbParams['hostname'],
                 ));
             },
+        ),
+    ),
+);
+```
+
+If you do not already have a valid Zend\Session\SessionManager in your service
+manager configuration, put the following in `./config/autoload/session.local.php`:
+```
+<?php
+
+return array(
+    'service_manager' => array(
+        'invokables' => array(
+            'Zend\Session\SessionManager' => 'Zend\Session\SessionManager',
         ),
     ),
 );

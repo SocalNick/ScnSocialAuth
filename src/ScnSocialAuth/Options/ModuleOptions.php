@@ -152,6 +152,11 @@ class ModuleOptions extends AbstractOptions
     protected $yahooSecret;
 
     /**
+     * @var string
+     */
+    protected $socialLoginOnly = false;
+
+    /**
      * home route key as used in your application
      *
      * @var string
@@ -225,7 +230,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set facebook client id
      *
-     * @param  boolean       $facebookClientId
+     * @param  string        $facebookClientId
      * @return ModuleOptions
      */
     public function setFacebookClientId($facebookClientId)
@@ -248,7 +253,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set facebook secret
      *
-     * @param  boolean       $facebookSecret
+     * @param  string        $facebookSecret
      * @return ModuleOptions
      */
     public function setFacebookSecret($facebookSecret)
@@ -271,7 +276,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set facebook scope
      *
-     * @param  boolean       $facebookScope
+     * @param  string        $facebookScope
      * @return ModuleOptions
      */
     public function setFacebookScope($facebookScope)
@@ -294,7 +299,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set facebook display
      *
-     * @param  boolean       $facebookDisplay
+     * @param  string        $facebookDisplay
      * @return ModuleOptions
      */
     public function setFacebookDisplay($facebookDisplay)
@@ -340,7 +345,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set foursquare client id
      *
-     * @param  boolean       $foursquareClientId
+     * @param  string        $foursquareClientId
      * @return ModuleOptions
      */
     public function setFoursquareClientId($foursquareClientId)
@@ -363,7 +368,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set foursquare secret
      *
-     * @param  boolean       $foursquareSecret
+     * @param  string        $foursquareSecret
      * @return ModuleOptions
      */
     public function setFoursquareSecret($foursquareSecret)
@@ -409,7 +414,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set github client id
      *
-     * @param  boolean       $githubClientId
+     * @param  string        $githubClientId
      * @return ModuleOptions
      */
     public function setGithubClientId($githubClientId)
@@ -432,7 +437,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set github secret
      *
-     * @param  boolean       $githubSecret
+     * @param  string        $githubSecret
      * @return ModuleOptions
      */
     public function setGithubSecret($githubSecret)
@@ -455,7 +460,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set github scope
      *
-     * @param  boolean       $githubScope
+     * @param  string        $githubScope
      * @return ModuleOptions
      */
     public function setGithubScope($githubScope)
@@ -501,7 +506,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set google client id
      *
-     * @param  boolean       $googleClientId
+     * @param  string        $googleClientId
      * @return ModuleOptions
      */
     public function setGoogleClientId($googleClientId)
@@ -524,7 +529,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set google secret
      *
-     * @param  boolean       $googleSecret
+     * @param  string        $googleSecret
      * @return ModuleOptions
      */
     public function setGoogleSecret($googleSecret)
@@ -547,7 +552,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set google scope
      *
-     * @param  boolean       $googleScope
+     * @param  string        $googleScope
      * @return ModuleOptions
      */
     public function setGoogleScope($googleScope)
@@ -593,7 +598,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set linkedIn client id
      *
-     * @param  boolean       $linkedInClientId
+     * @param  string        $linkedInClientId
      * @return ModuleOptions
      */
     public function setLinkedInClientId($linkedInClientId)
@@ -616,7 +621,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set linkedIn secret
      *
-     * @param  boolean       $linkedInSecret
+     * @param  string        $linkedInSecret
      * @return ModuleOptions
      */
     public function setLinkedInSecret($linkedInSecret)
@@ -662,7 +667,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set twitter consumer key
      *
-     * @param  boolean       $twitterConsumerKey
+     * @param  string        $twitterConsumerKey
      * @return ModuleOptions
      */
     public function setTwitterConsumerKey($twitterConsumerKey)
@@ -685,7 +690,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set twitter consumer secret
      *
-     * @param  boolean       $twitterConsumerSecret
+     * @param  string        $twitterConsumerSecret
      * @return ModuleOptions
      */
     public function setTwitterConsumerSecret($twitterConsumerSecret)
@@ -731,7 +736,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set yahoo client id
      *
-     * @param  boolean       $yahooClientId
+     * @param  string        $yahooClientId
      * @return ModuleOptions
      */
     public function setYahooClientId($yahooClientId)
@@ -754,7 +759,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * set yahoo secret
      *
-     * @param  boolean       $yahooSecret
+     * @param  string        $yahooSecret
      * @return ModuleOptions
      */
     public function setYahooSecret($yahooSecret)
@@ -775,9 +780,32 @@ class ModuleOptions extends AbstractOptions
     }
 
     /**
+     * set social login only
+     *
+     * @param  boolean       $socialLoginOnly
+     * @return ModuleOptions
+     */
+    public function setSocialLoginOnly($socialLoginOnly)
+    {
+        $this->socialLoginOnly = (bool) $socialLoginOnly;
+
+        return $this;
+    }
+
+    /**
+     * get social login only
+     *
+     * @return string
+     */
+    public function getSocialLoginOnly()
+    {
+        return $this->socialLoginOnly;
+    }
+
+    /**
      * set home route
      *
-     * @param string         $homeRoute
+     * @param  string        $homeRoute
      * @return ModuleOptions
      */
     public function setHomeRoute($homeRoute)

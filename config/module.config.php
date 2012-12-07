@@ -93,6 +93,27 @@ return array(
                             ),
                         ),
                     ),
+                    'add-provider' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/add-provider',
+                            'defaults' => array(
+                                'controller' => 'ScnSocialAuth-User',
+                                'action'     => 'add-provider',
+                            ),
+                        ),
+                        'child_routes' => array(
+                            'provider' => array(
+                                'type' => 'Segment',
+                                'options' => array(
+                                    'route' => '/:provider',
+                                    'constraints' => array(
+                                        'provider' => '[a-zA-Z][a-zA-Z0-9_-]+',
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -100,6 +121,7 @@ return array(
     'service_manager' => array(
         'aliases' => array(
             'ScnSocialAuth_ZendDbAdapter' => 'Zend\Db\Adapter\Adapter',
+            'ScnSocialAuth_ZendSessionManager' => 'Zend\Session\SessionManager',
         ),
         'factories' => array(
             'HybridAuth' => 'ScnSocialAuth\Service\HybridAuthFactory',

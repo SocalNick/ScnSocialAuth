@@ -7,4 +7,6 @@ foreach ($this->options->getEnabledProviders() as $provider) {
     }
     echo '<dd>' . $this->socialSignInButton($provider) . '</dd>';
 }
-echo $this->zfcUserLogin;
+if ($this->options->getSocialLoginOnly() == false) {
+    echo $this->zfcUserLogin;
+}
