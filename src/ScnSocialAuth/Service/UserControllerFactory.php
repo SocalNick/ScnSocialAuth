@@ -23,12 +23,10 @@ class UserControllerFactory implements FactoryInterface
         $services = $controllerManager->getServiceLocator();
         $hybridAuth = $services->get('HybridAuth');
         $moduleOptions = $services->get('ScnSocialAuth-ModuleOptions');
-        $zfcUserOptions = $services->get('zfcuser_module_options');
 
         $controller = new UserController();
         $controller->setHybridAuth($hybridAuth);
         $controller->setOptions($moduleOptions);
-        $controller->setZfcUserOptions($zfcUserOptions);
 
         return $controller;
     }
