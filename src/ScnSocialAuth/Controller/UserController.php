@@ -165,7 +165,7 @@ class UserController extends AbstractActionController
     public function getZfcUserOptions()
     {
         if (!$this->zfcUserOptions instanceof ZfcUserModuleOptions) {
-            $this->setOptions($this->getServiceLocator()->get('zfcuser_module_options'));
+            $this->setZfcUserOptions($this->getServiceLocator()->get('zfcuser_module_options'));
         }
 
         return $this->zfcUserOptions;
