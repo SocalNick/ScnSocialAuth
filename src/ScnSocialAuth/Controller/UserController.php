@@ -26,12 +26,6 @@ class UserController extends AbstractActionController
      */
     protected $options;
 
-    /**
-     *
-     * @var ZfcUserModuleOptions
-     */
-    protected $zfcUserOptions;
-
     /*
      * @todo Make this dynamic / translation-friendly
      * @var string
@@ -88,7 +82,7 @@ class UserController extends AbstractActionController
         $hybridAuth = $this->getHybridAuth();
 
         $query = array('provider' => $provider);
-        if ($this->getZfcUserOptions()->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
+        if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
             $query = array_merge($query, array('redirect' => $this->getRequest()->getQuery()->get('redirect')));
         }
         $redirectUrl = $this->url()->fromRoute('scn-social-auth-user/authenticate/query', $query);
@@ -113,7 +107,7 @@ class UserController extends AbstractActionController
         $viewModel->addChild($zfcUserLogin, 'zfcUserLogin');
         $viewModel->setVariable('options', $this->getOptions());
 
-        if ($this->getZfcUserOptions()->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
+        if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
             $redirect = $this->getRequest()->getQuery()->get('redirect');
         } else {
             $redirect = false;
@@ -222,32 +216,5 @@ class UserController extends AbstractActionController
         }
 
         return $this->options;
-    }
-
-    /**
-     * set options
-     *
-     * @param  ZfcUserModuleOptions  $options
-     * @return UserController
-     */
-    public function setZfcUserOptions(ZfcUserModuleOptions $options)
-    {
-        $this->zfcUserOptions = $options;
-
-        return $this;
-    }
-
-    /**
-     * get ZfcUser options
-     *
-     * @return ZfcUserModuleOptions
-     */
-    public function getZfcUserOptions()
-    {
-        if (!$this->zfcUserOptions instanceof ZfcUserModuleOptions) {
-            $this->setZfcUserOptions($this->getServiceLocator()->get('zfcuser_module_options'));
-        }
-
-        return $this->zfcUserOptions;
     }
 }
