@@ -4,6 +4,7 @@ namespace ScnSocialAuth\Controller;
 use Hybrid_Auth;
 use ScnSocialAuth\Mapper\UserProviderInterface;
 use ScnSocialAuth\Options\ModuleOptions;
+use ZfcUser\Options\ModuleOptions as ZfcUserModuleOptions;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ModelInterface;
 use Zend\View\Model\ViewModel;
@@ -25,7 +26,7 @@ class UserController extends AbstractActionController
      */
     protected $options;
 
-    /**
+    /*
      * @todo Make this dynamic / translation-friendly
      * @var string
      */
@@ -79,7 +80,13 @@ class UserController extends AbstractActionController
             return $this->notFoundAction();
         }
         $hybridAuth = $this->getHybridAuth();
-        $redirectUrl = $this->url()->fromRoute('scn-social-auth-user/authenticate/query', array('provider' => $provider));
+
+        $query = array('provider' => $provider);
+        if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
+            $query = array_merge($query, array('redirect' => $this->getRequest()->getQuery()->get('redirect')));
+        }
+        $redirectUrl = $this->url()->fromRoute('scn-social-auth-user/authenticate/query', $query);
+
         $adapter = $hybridAuth->authenticate(
             $provider,
             array(
@@ -99,6 +106,13 @@ class UserController extends AbstractActionController
         $viewModel = new ViewModel();
         $viewModel->addChild($zfcUserLogin, 'zfcUserLogin');
         $viewModel->setVariable('options', $this->getOptions());
+
+        if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
+            $redirect = $this->getRequest()->getQuery()->get('redirect');
+        } else {
+            $redirect = false;
+        }
+        $viewModel->setVariable('redirect', $redirect);
 
         return $viewModel;
     }
