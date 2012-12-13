@@ -4,7 +4,6 @@ namespace ScnSocialAuth\Controller;
 use Hybrid_Auth;
 use ScnSocialAuth\Mapper\UserProviderInterface;
 use ScnSocialAuth\Options\ModuleOptions;
-use ZfcUser\Options\ModuleOptions as ZfcUserModuleOptions;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ModelInterface;
 use Zend\View\Model\ViewModel;
