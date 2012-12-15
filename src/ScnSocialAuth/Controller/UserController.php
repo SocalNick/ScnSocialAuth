@@ -2,6 +2,7 @@
 namespace ScnSocialAuth\Controller;
 
 use Hybrid_Auth;
+use Ign\User\Mapper\Exception;
 use ScnSocialAuth\Mapper\UserProviderInterface;
 use ScnSocialAuth\Options\ModuleOptions;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -59,7 +60,13 @@ class UserController extends AbstractActionController
         $userProfile = $adapter->getUserProfile();
         $accessToken = $adapter->getAccessToken();
 
-        $this->getMapper()->linkUserToProvider($localUser, $userProfile, $provider, $accessToken);
+        try {
+            $this->getMapper()->linkUserToProvider($localUser, $userProfile, $provider, $accessToken);
+        } catch (Exception\RuntimeException $e) {
+            $redirect = $this->params()->fromQuery('redirect', false);
+
+            return $this->redirect()->toUrl($redirect . '?errorMessage=' . $e->getMessage());
+        }
 
         $redirect = $this->params()->fromQuery('redirect', false);
 
