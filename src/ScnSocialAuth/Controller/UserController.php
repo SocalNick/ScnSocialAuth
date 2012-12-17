@@ -59,16 +59,13 @@ class UserController extends AbstractActionController
         $localUser = $authService->getIdentity();
         $userProfile = $adapter->getUserProfile();
         $accessToken = $adapter->getAccessToken();
+        $redirect = $this->params()->fromQuery('redirect', false);
 
         try {
             $this->getMapper()->linkUserToProvider($localUser, $userProfile, $provider, $accessToken);
-        } catch (MapperException\RuntimeException $e) {
-            $redirect = $this->params()->fromQuery('redirect', false);
-
-            return $this->redirect()->toUrl($redirect . '?errorMessage=' . $e->getMessage());
+        } catch (MapperException\ExceptionInterface $e) {
+            $this->flashMessenger()->setNamespace('zfcuser-index')->addMessage($e->getMessage());
         }
-
-        $redirect = $this->params()->fromQuery('redirect', false);
 
         if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $redirect) {
             return $this->redirect()->toUrl($redirect);
