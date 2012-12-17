@@ -3,4 +3,6 @@ LICENSE.txt
 README.txt
 demos/
 extras/documentation
+vendor/
+composer.lock
 
