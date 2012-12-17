@@ -62,7 +62,7 @@ class UserController extends AbstractActionController
 
         try {
             $this->getMapper()->linkUserToProvider($localUser, $userProfile, $provider, $accessToken);
-        } catch (MapperException $e) {
+        } catch (MapperException\RuntimeException $e) {
             $redirect = $this->params()->fromQuery('redirect', false);
 
             return $this->redirect()->toUrl($redirect . '?errorMessage=' . $e->getMessage());
