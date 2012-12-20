@@ -6,6 +6,11 @@ return array(
             'ScnSocialAuth-User' => 'ScnSocialAuth\Service\UserControllerFactory',
         ),
     ),
+    'controller_plugins' => array(
+        'invokables' => array(
+            'scnsocialauthprovider' => 'ScnSocialAuth\Controller\Plugin\ScnSocialAuthProvider',
+        ),
+    ),
     'router' => array(
         'routes' => array(
             'scn-social-auth-hauth' => array(

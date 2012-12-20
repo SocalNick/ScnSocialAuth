@@ -16,6 +16,19 @@ interface UserProviderInterface
     public function findUserByProviderId($providerId, $provider);
 
     /**
+     * @param  UserInterface               $user
+     * @param  string                      $provider
+     * @return UserProviderInterface|false
+     */
+    public function findProviderByUser(UserInterface $user, $provider);
+
+    /**
+     * @param  UserInterface $user
+     * @return array
+     */
+    public function findProvidersByUser(UserInterface $user);
+
+    /**
      * @param UserInterface       $user
      * @param Hybrid_User_Profile $hybridUserProfile
      * @param string              $provider

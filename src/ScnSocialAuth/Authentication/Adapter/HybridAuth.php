@@ -411,9 +411,9 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
     /**
      * persists the user in the db, and trigger a pre and post events for it
-     * @param mixed $user
-     * @param string $provider
-     * @param mixed $userProfile
+     * @param  mixed  $user
+     * @param  string $provider
+     * @param  mixed  $userProfile
      * @return mixed
      */
     protected function insert($user, $provider, $userProfile)
