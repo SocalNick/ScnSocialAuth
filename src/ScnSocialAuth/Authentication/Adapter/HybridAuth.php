@@ -115,7 +115,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
                 $localUser->setDisplayName($userProfile->displayName)
                           ->setPassword($provider);
                 if ($userProfile->emailVerified) $localUser->setEmail($userProfile->emailVerified);
-                $result = $this->getZfcUserMapper()->insert($localUser);
+                $result = $this->insert($localUser, 'other', $userProfile);
             }
             $localUserProvider = clone($this->getMapper()->getEntityPrototype());
             $localUserProvider->setUserId($localUser->getId())
@@ -317,7 +317,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $localUser->setEmail($userProfile->emailVerified)
             ->setDisplayName($userProfile->displayName)
             ->setPassword(__FUNCTION__);
-        $result = $this->getZfcUserMapper()->insert($localUser);
+        $result = $this->insert($localUser, 'facebook', $userProfile);
 
         return $localUser;
     }
@@ -338,7 +338,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $localUser->setEmail($userProfile->emailVerified)
             ->setDisplayName($userProfile->displayName)
             ->setPassword(__FUNCTION__);
-        $result = $this->getZfcUserMapper()->insert($localUser);
+        $result = $this->insert($localUser, 'foursquare', $userProfile);
 
         return $localUser;
     }
@@ -359,7 +359,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $localUser->setEmail($userProfile->emailVerified)
             ->setDisplayName($userProfile->displayName)
             ->setPassword(__FUNCTION__);
-        $result = $this->getZfcUserMapper()->insert($localUser);
+        $result = $this->insert($localUser, 'google', $userProfile);
 
         return $localUser;
     }
@@ -369,7 +369,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $localUser = $this->instantiateLocalUser();
         $localUser->setDisplayName($userProfile->displayName)
             ->setPassword(__FUNCTION__);
-        $result = $this->getZfcUserMapper()->insert($localUser);
+        $result = $this->insert($localUser, 'linkedIn', $userProfile);
 
         return $localUser;
     }
@@ -380,7 +380,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $localUser->setUsername($userProfile->displayName)
             ->setDisplayName($userProfile->firstName)
             ->setPassword(__FUNCTION__);
-        $result = $this->getZfcUserMapper()->insert($localUser);
+        $result = $this->insert($localUser, 'twitter', $userProfile);
 
         return $localUser;
     }
@@ -390,7 +390,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $localUser = $this->instantiateLocalUser();
         $localUser->setDisplayName($userProfile->displayName)
             ->setPassword(__FUNCTION__);
-        $result = $this->getZfcUserMapper()->insert($localUser);
+        $result = $this->insert($localUser, 'yahoo', $userProfile);
 
         return $localUser;
     }
@@ -404,9 +404,31 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
         $this->getEventManager()->trigger(__FUNCTION__, $localUser, array('userProfile' => $userProfile));
 
-        $result = $this->getZfcUserMapper()->insert($localUser);
+        $result = $this->insert($localUser, 'github', $userProfile);
 
         return $localUser;
+    }
+
+    /**
+     * persists the user in the db, and trigger a pre and post events for it
+     * @param mixed $user
+     * @param string $provider
+     * @param mixed $userProfile
+     * @return mixed
+     */
+    protected function insert($user, $provider, $userProfile)
+    {
+        $options = array(
+            'user'          => $user,
+            'provider'      => $provider,
+            'userProfile'   => $userProfile,
+        );
+
+        $this->getEventManager()->trigger('registerViaProvider', $this, $options);
+        $result = $this->getZfcUserMapper()->insert($user);
+        $this->getEventManager()->trigger('registerViaProvider.post', $this, $options);
+
+        return $result;
     }
 
     /**
