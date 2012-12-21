@@ -35,6 +35,46 @@ class UserProvider extends AbstractDbMapper implements UserProviderInterface
     }
 
     /**
+     * @param  UserInterface               $user
+     * @param  string                      $provider
+     * @return UserProviderInterface|false
+     */
+    public function findProviderByUser(UserInterface $user, $provider)
+    {
+        $select = $this->getSelect()
+            ->where(array(
+                'user_id' => $user->getId(),
+                'provider' => $provider,
+            ));
+
+        $entity = $this->select($select)->current();
+        $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
+
+        return $entity;
+    }
+
+    /**
+     * @param  UserInterface $user
+     * @return array
+     */
+    public function findProvidersByUser(UserInterface $user)
+    {
+        $select = $this->getSelect()
+            ->where(array(
+                'user_id' => $user->getId(),
+            ));
+
+        $result = $this->select($select);
+        $return = array();
+        foreach ($result as $entity) {
+            $return[$entity->getProvider()] = $entity;
+            $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
+        }
+
+        return $return;
+    }
+
+    /**
      * Proxy to parent protected method
      *
      * @param  object|array                $entity
