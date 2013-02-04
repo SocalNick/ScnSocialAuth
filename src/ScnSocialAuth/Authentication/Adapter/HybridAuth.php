@@ -418,6 +418,15 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
      */
     protected function insert($user, $provider, $userProfile)
     {
+        $zfcUserOptions = $this->getZfcUserOptions();
+
+        // If user state is enabled, set the default state value
+        if ($zfcUserOptions->getEnableUserState()) {
+            if ($zfcUserOptions->getDefaultUserState()) {
+                $user->setState($zfcUserOptions->getDefaultUserState());
+            }
+        }
+
         $options = array(
             'user'          => $user,
             'provider'      => $provider,
