@@ -76,6 +76,9 @@ return array(
                                     ),
                                 ),
                             ),
+                            'query' => array(
+                                'type' => 'Query',
+                            ),
                         ),
                     ),
                     'logout' => array(
