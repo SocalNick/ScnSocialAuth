@@ -137,10 +137,9 @@ class UserController extends AbstractActionController
         $viewModel->addChild($zfcUserRegister, 'zfcUserLogin');
         $viewModel->setVariable('options', $this->getOptions());
 
+        $redirect = false;
         if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
             $redirect = $this->getRequest()->getQuery()->get('redirect');
-        } else {
-            $redirect = false;
         }
         $viewModel->setVariable('redirect', $redirect);
 
