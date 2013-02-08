@@ -143,6 +143,9 @@ return array(
         'invokables' => array(
             'socialSignInButton' => 'ScnSocialAuth\View\Helper\SocialSignInButton',
         ),
+        'factories' => array(
+            'scnUserProvider'   => 'ScnSocialAuth\Service\UserProviderViewHelperFactory',
+        ),
     ),
     'view_manager' => array(
         'template_path_stack' => array(
