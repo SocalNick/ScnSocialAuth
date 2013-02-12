@@ -17,7 +17,7 @@ Features
 * Login with AOL [NO LONGER SUPPORTED]
 * Login with Facebook [COMPLETE]
 * Login with Foursquare [COMPLETE]
-* Login with Github [INCOMPLETE]
+* Login with Github [COMPLETE]
 * Login with Google [COMPLETE]
 * Login with LinkedIn [COMPLETE]
 * Login with Live [INCOMPLETE]
