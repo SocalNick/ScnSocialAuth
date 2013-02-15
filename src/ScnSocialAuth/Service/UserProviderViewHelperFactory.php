@@ -10,7 +10,6 @@ namespace ScnSocialAuth\Service;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\Stdlib\Hydrator;
 
 /**
  * @category   ScnSocialAuth
@@ -23,6 +22,7 @@ class UserProviderViewHelperFactory implements FactoryInterface
         $serviceLocator = $serviceLocator->getServiceLocator();
         $viewHelper = new \ScnSocialAuth\View\Helper\ScnUserProvider();
         $viewHelper->setUserProviderMapper($serviceLocator->get('ScnSocialAuth-UserProviderMapper'));
+
         return $viewHelper;
     }
 }
