@@ -3,21 +3,21 @@
 namespace ScnSocialAuth\View\Helper;
 
 use ScnSocialAuth\Mapper\UserProvider;
-use ScnSocialAuth\Mapper\UserProviderInterface;
+use ScnSocialAuth\Mapper\UserProviderInterface as UserProviderMapper;
 use Zend\View\Helper\AbstractHelper;
 use ZfcUser\Entity\UserInterface;
 
 class ScnUserProvider extends AbstractHelper
 {
     /**
-     * @var UserProvider
+     * @var UserProviderMapper
      */
     protected $userProviderMapper;
 
     /**
      * @param UserInterface $user
      * @param string $providerName
-     * @return UserProviderInterface|bool
+     * @return UserProviderMapper|bool
      */
     public function __invoke(UserInterface $user, $providerName)
     {
@@ -29,7 +29,7 @@ class ScnUserProvider extends AbstractHelper
     }
 
     /**
-     * @return UserProviderInterface
+     * @return UserProviderMapper
      */
     protected function getUserProviderMapper()
     {
@@ -37,12 +37,13 @@ class ScnUserProvider extends AbstractHelper
     }
 
     /**
-     * @param UserProviderInterface $userProviderMapper
+     * @param UserProviderMapper $userProviderMapper
      * @return ScnUserProvider
      */
-    public function setUserProviderMapper(UserProviderInterface $userProviderMapper)
+    public function setUserProviderMapper(UserProviderMapper $userProviderMapper)
     {
         $this->userProviderMapper = $userProviderMapper;
         return $this;
     }
 }
+
