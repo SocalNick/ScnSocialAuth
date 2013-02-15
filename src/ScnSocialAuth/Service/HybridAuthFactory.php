@@ -28,12 +28,13 @@ class HybridAuthFactory implements FactoryInterface
         $options = $services->get('ScnSocialAuth-ModuleOptions');
 
         $router = $services->get('Router');
+        $request = $services->get('Request');
         try {
             $baseUrl = $router->assemble(
                 array(),
                 array(
                     'name' => $options->getHomeRoute(),
-                    'force_canonical' => true,
+                    'uri' => $request->getUri(),
                 )
             );
         } catch (\Zend\Mvc\Router\Exception\RuntimeException $e) {
