@@ -5,4 +5,5 @@ demos/
 extras/documentation
 vendor/
 composer.lock
+.idea/*
 
