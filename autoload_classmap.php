@@ -24,5 +24,6 @@ return array(
     'ScnSocialAuth\Service\ModuleOptionsFactory'                        => __DIR__ . '/src/ScnSocialAuth/Service/ModuleOptionsFactory.php',
     'ScnSocialAuth\Service\UserControllerFactory'                       => __DIR__ . '/src/ScnSocialAuth/Service/UserControllerFactory.php',
     'ScnSocialAuth\Service\UserProviderMapperFactory'                   => __DIR__ . '/src/ScnSocialAuth/Service/UserProviderMapperFactory.php',
+    'ScnSocialAuth\Service\UserProviderViewHelperFactory'               => __DIR__ . '/src/ScnSocialAuth/Service/UserProviderViewHelperFactory.php',
     'ScnSocialAuth\View\Helper\SocialSignInButton'                      => __DIR__ . '/src/ScnSocialAuth/View/Helper/SocialSignInButton.php',
 );
