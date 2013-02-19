@@ -19,7 +19,6 @@ class Bootstrap
     protected static function initAutoloader()
     {
         $vendorPath = static::findParentPath('vendor');
-        echo $vendorPath . "\n";
 
         if (is_readable($vendorPath . '/autoload.php')) {
             $loader = include $vendorPath . '/autoload.php';
@@ -56,9 +55,7 @@ class Bootstrap
         $dir = __DIR__;
         $previousDir = '.';
         while (!is_dir($dir . '/' . $path)) {
-            echo $dir . '/' . $path . "\n";
             $dir = dirname($dir);
-            echo $dir . '/' . $path . "\n";
             if ($previousDir === $dir) {
                 return false;
             }

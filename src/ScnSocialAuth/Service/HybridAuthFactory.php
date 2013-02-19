@@ -27,25 +27,11 @@ class HybridAuthFactory implements FactoryInterface
         /* @var $options \ScnSocialAuth\Options\ModuleOptions */
         $options = $services->get('ScnSocialAuth-ModuleOptions');
 
-        $router = $services->get('Router');
-        $request = $services->get('Request');
-        try {
-            $baseUrl = $router->assemble(
-                array(),
-                array(
-                    'name' => $options->getHomeRoute(),
-                    'uri' => $request->getUri(),
-                )
-            );
-        } catch (\Zend\Mvc\Router\Exception\RuntimeException $e) {
-            throw new \Zend\Mvc\Router\Exception\RuntimeException(
-                    $e->getMessage() . '. ' .
-                    'Please set your correct home route key in the scn-social-auth.local.php config file.');
-        }
+        $baseUrl = $this->getBaseUrl($services);
 
         $hybridAuth = new Hybrid_Auth(
             array(
-                'base_url' => $baseUrl . 'scn-social-auth/hauth',
+                'base_url' => $baseUrl,
                 'providers' => array(
                     'Facebook' => array(
                         'enabled' => $options->getFacebookEnabled(),
@@ -109,5 +95,25 @@ class HybridAuthFactory implements FactoryInterface
         );
 
         return $hybridAuth;
+    }
+
+    public function getBaseUrl(ServiceLocatorInterface $services)
+    {
+        $router = $services->get('Router');
+        $request = $services->get('Request');
+        if (!$router->getRequestUri() && method_exists($request, 'getUri')) {
+            $router->setRequestUri($request->getUri());
+        }
+        if (!$router->getBaseUrl() && method_exists($request, 'getBaseUrl')) {
+            $router->setBaseUrl($request->getBaseUrl());
+        }
+
+        return $router->assemble(
+            array(),
+            array(
+                'name' => 'scn-social-auth-hauth',
+                'force_canonical' => true,
+            )
+        );
     }
 }

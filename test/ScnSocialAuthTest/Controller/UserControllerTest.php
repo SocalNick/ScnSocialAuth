@@ -4,7 +4,7 @@
  * @copyright Copyright (c) 2012 Nicholas Calugar (http://socalnick.github.com)
  */
 
-namespace ScnSocialAuthTest;
+namespace ScnSocialAuthTest\Controller;
 
 use ScnSocialAuth\Controller\UserController;
 use PHPUnit_Framework_TestCase as TestCase;

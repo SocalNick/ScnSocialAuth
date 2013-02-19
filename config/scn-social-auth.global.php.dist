@@ -134,11 +134,6 @@ $settings = array(
     //'social_login_only' => false,
 
     /**
-     *  The home route key as used in your application
-     */
-    //'home_route' => 'home',
-
-    /**
      * End of ScnSocialAuth configuration
      */
 );
