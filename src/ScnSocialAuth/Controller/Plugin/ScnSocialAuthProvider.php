@@ -4,16 +4,16 @@ namespace ScnSocialAuth\Controller\Plugin;
 
 use ScnSocialAuth\Mapper\UserProviderInterface;
 use Zend\Mvc\Controller\Plugin\AbstractPlugin;
-use Zend\ServiceManager\ServiceManagerAwareInterface;
-use Zend\ServiceManager\ServiceManager;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 use ZfcUser\Entity\UserInterface;
 
-class ScnSocialAuthProvider extends AbstractPlugin implements ServiceManagerAwareInterface
+class ScnSocialAuthProvider extends AbstractPlugin implements ServiceLocatorAwareInterface
 {
     /**
-     * @var ServiceManager
+     * @var ServiceLocator
      */
-    protected $serviceManager;
+    protected $serviceLocator;
 
     /**
      * @var UserProviderInterface
@@ -64,7 +64,7 @@ class ScnSocialAuthProvider extends AbstractPlugin implements ServiceManagerAwar
     public function getMapper()
     {
         if (!$this->mapper instanceof UserProviderInterface) {
-            $this->setMapper($this->getServiceManager()->get('ScnSocialAuth-UserProviderMapper'));
+            $this->setMapper($this->getServiceLocator()->get('ScnSocialAuth-UserProviderMapper'));
         }
 
         return $this->mapper;
@@ -73,21 +73,20 @@ class ScnSocialAuthProvider extends AbstractPlugin implements ServiceManagerAwar
     /**
      * Retrieve service manager instance
      *
-     * @return ServiceManager
+     * @return ServiceLocator
      */
-    public function getServiceManager()
+    public function getServiceLocator()
     {
-        return $this->serviceManager->getServiceLocator();
+        return $this->serviceLocator->getServiceLocator();
     }
 
     /**
-     * Set service manager instance
+     * Set service locator
      *
-     * @param  ServiceManager $locator
-     * @return void
+     * @param ServiceLocatorInterface $serviceLocator
      */
-    public function setServiceManager(ServiceManager $serviceManager)
+    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
     {
-        $this->serviceManager = $serviceManager;
+        $this->serviceLocator = $serviceLocator;
     }
 }
