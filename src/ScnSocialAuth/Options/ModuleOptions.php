@@ -157,13 +157,6 @@ class ModuleOptions extends AbstractOptions
     protected $socialLoginOnly = false;
 
     /**
-     * home route key as used in your application
-     *
-     * @var string
-     */
-    protected $homeRoute = 'home';
-
-    /**
      * get an array of enabled providers
      *
      * @return array
@@ -800,28 +793,5 @@ class ModuleOptions extends AbstractOptions
     public function getSocialLoginOnly()
     {
         return $this->socialLoginOnly;
-    }
-
-    /**
-     * set home route
-     *
-     * @param  string        $homeRoute
-     * @return ModuleOptions
-     */
-    public function setHomeRoute($homeRoute)
-    {
-        $this->homeRoute = (string) $homeRoute;
-
-        return $this;
-    }
-
-    /**
-     * get home route
-     *
-     * @return string
-     */
-    public function getHomeRoute()
-    {
-        return $this->homeRoute;
     }
 }
