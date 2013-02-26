@@ -124,6 +124,20 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
             $this->getMapper()->insert($localUserProvider);
         }
 
+        $zfcUserOptions = $this->getZfcUserOptions();
+
+        if ($zfcUserOptions->getEnableUserState()) {
+            // Don't allow user to login if state is not in allowed list
+            $mapper = $this->getZfcUserMapper();
+            $user = $mapper->findById($localUserProvider->getUserId());
+            if (!in_array($user->getState(), $zfcUserOptions->getAllowedLoginStates())) {
+                $authEvent->setCode(Result::FAILURE_UNCATEGORIZED)
+                  ->setMessages(array('A record with the supplied identity is not active.'));
+                $this->setSatisfied(false);
+                return false;
+            }
+        }
+
         $authEvent->setIdentity($localUserProvider->getUserId());
 
         $this->setSatisfied(true);
