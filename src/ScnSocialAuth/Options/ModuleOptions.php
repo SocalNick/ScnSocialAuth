@@ -107,6 +107,11 @@ class ModuleOptions extends AbstractOptions
     protected $googleScope;
 
     /**
+     * @var string
+     */
+    protected $googleHd;
+
+    /**
      * @var boolean
      */
     protected $linkedInEnabled = false;
@@ -563,6 +568,29 @@ class ModuleOptions extends AbstractOptions
     public function getGoogleScope()
     {
         return $this->googleScope;
+    }
+
+    /**
+     * set google Hd
+     *
+     * @param  string        $googleHd
+     * @return ModuleOptions
+     */
+    public function setGoogleHd($googleHd)
+    {
+        $this->googleHd = (string) $googleHd;
+
+        return $this;
+    }
+
+    /**
+     * get google Hd
+     *
+     * @return string
+     */
+    public function getGoogleHd()
+    {
+        return $this->googleHd;
     }
 
     /**

@@ -63,6 +63,13 @@ $settings = array(
     //'google_secret' => 'your-secret',
 
     /**
+     * Google Hosted Domain
+     *
+     * OPTIONAL: Limit Google logins to a specific hosted domain (Google Apps)
+     */
+    //'google_hd' => 'your-domain.tld',
+
+    /**
      * LinkedIn Client ID
      *
      * Please specify a LinkedIn Client ID
