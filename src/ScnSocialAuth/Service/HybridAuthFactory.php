@@ -68,6 +68,7 @@ class HybridAuthFactory implements FactoryInterface
                             'secret' => $options->getGoogleSecret(),
                         ),
                         'scope' => $options->getGoogleScope(),
+                        'hd' => $options->getGoogleHd(),
                     ),
                     'LinkedIn' => array(
                         'enabled' => $options->getLinkedInEnabled(),
