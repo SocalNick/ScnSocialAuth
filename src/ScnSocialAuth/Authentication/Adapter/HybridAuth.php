@@ -380,8 +380,19 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
     protected function linkedInToLocalUser($userProfile)
     {
+        if (!isset($userProfile->emailVerified)) {
+            throw new Exception\RuntimeException(
+                'Please verify your email with LinkedIn before attempting login',
+                Result::FAILURE_CREDENTIAL_INVALID
+            );
+        }
+        $mapper = $this->getZfcUserMapper();
+        if (false != ($localUser = $mapper->findByEmail($userProfile->emailVerified))) {
+            return $localUser;
+        }
         $localUser = $this->instantiateLocalUser();
         $localUser->setDisplayName($userProfile->displayName)
+            ->setEmail($userProfile->emailVerified)
             ->setPassword(__FUNCTION__);
         $result = $this->insert($localUser, 'linkedIn', $userProfile);
 
