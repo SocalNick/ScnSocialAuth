@@ -9,6 +9,8 @@
 namespace ScnSocialAuth\Service;
 
 use Hybrid_Auth;
+use Zend\Mvc\Router\Http\TreeRouteStack;
+use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -101,6 +103,10 @@ class HybridAuthFactory implements FactoryInterface
     public function getBaseUrl(ServiceLocatorInterface $services)
     {
         $router = $services->get('Router');
+        if (!$router instanceof TreeRouteStack) {
+            throw new ServiceNotCreatedException('TreeRouteStack is required to create a fully qualified base url for HybridAuth');
+        }
+
         $request = $services->get('Request');
         if (!$router->getRequestUri() && method_exists($request, 'getUri')) {
             $router->setRequestUri($request->getUri());

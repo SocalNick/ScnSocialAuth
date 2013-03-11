@@ -10,6 +10,7 @@ use ScnSocialAuth\Service\HybridAuthFactory;
 use PHPUnit_Framework_TestCase as TestCase;
 use Zend\Http\PhpEnvironment\Request;
 use Zend\Mvc\Router\Http\TreeRouteStack;
+use Zend\Mvc\Router\Console\SimpleRouteStack;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Uri\Http as HttpUri;
 
@@ -109,5 +110,15 @@ class PageControllerTest extends TestCase
         $request->setBaseUrl('/another/base/url/');
         $baseUrl = $this->factory->getBaseUrl($this->serviceManager);
         $this->assertEquals('http://use-request-uri.com/another/base/url/scn-social-auth/hauth', $baseUrl);
+    }
+
+    /**
+     * @expectedException \Zend\ServiceManager\Exception\ServiceNotCreatedException
+     */
+    public function testSimpleRouteStack()
+    {
+        $this->serviceManager->setAllowOverride(true);
+        $this->serviceManager->setService('Router', new SimpleRouteStack());
+        $this->factory->getBaseUrl($this->serviceManager);
     }
 }
