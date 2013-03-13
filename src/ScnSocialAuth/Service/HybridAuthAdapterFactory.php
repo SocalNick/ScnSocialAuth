@@ -20,8 +20,6 @@ class HybridAuthAdapterFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $services)
     {
-        $hybridAuth = $services->get('HybridAuth');
-
         $moduleOptions = $services->get('ScnSocialAuth-ModuleOptions');
         $zfcUserOptions = $services->get('zfcuser_module_options');
 
@@ -29,7 +27,6 @@ class HybridAuthAdapterFactory implements FactoryInterface
         $zfcUserMapper = $services->get('zfcuser_user_mapper');
 
         $adapter = new HybridAuthAdapter();
-        $adapter->setHybridAuth($hybridAuth);
         $adapter->setOptions($moduleOptions);
         $adapter->setZfcUserOptions($zfcUserOptions);
         $adapter->setMapper($mapper);
