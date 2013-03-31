@@ -45,12 +45,6 @@ return array(
                                 'action'     => 'authenticate',
                             ),
                         ),
-                        'may_terminate' => true,
-                        'child_routes' => array(
-                            'query' => array(
-                                'type' => 'Query',
-                            ),
-                        ),
                     ),
                     'login' => array(
                         'type' => 'Literal',
@@ -75,9 +69,6 @@ return array(
                                         'action' => 'provider-login',
                                     ),
                                 ),
-                            ),
-                            'query' => array(
-                                'type' => 'Query',
                             ),
                         ),
                     ),

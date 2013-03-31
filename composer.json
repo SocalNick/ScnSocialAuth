@@ -20,6 +20,9 @@
         "zf-commons/zfc-user": "0.*",
         "hybridauth/hybridauth": "dev-master"
     },
+    "require-dev": {
+        "mockery/mockery": ">=0.7.2"
+    },
     "autoload": {
         "psr-0": {
             "ScnSocialAuth": "src/",
