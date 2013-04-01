@@ -112,4 +112,3 @@ class UserControllerTest extends TestCase
         $this->assertEquals('Page not found', $result->content);
     }
 }
-
