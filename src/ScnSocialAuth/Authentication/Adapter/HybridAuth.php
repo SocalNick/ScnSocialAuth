@@ -134,6 +134,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
                 $authEvent->setCode(Result::FAILURE_UNCATEGORIZED)
                   ->setMessages(array('A record with the supplied identity is not active.'));
                 $this->setSatisfied(false);
+
                 return false;
             }
         }

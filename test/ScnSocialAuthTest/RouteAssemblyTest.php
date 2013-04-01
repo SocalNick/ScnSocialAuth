@@ -58,4 +58,3 @@ class RouteAssemblyTest extends AbstractHttpControllerTestCase
         $this->assertEquals('/user/authenticate?provider=facebook&redirect=another-url', $url);
     }
 }
-
