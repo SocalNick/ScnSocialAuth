@@ -18,7 +18,8 @@ class ModuleOptions extends AbstractOptions
         'google',
         'linkedIn',
         'twitter',
-        'yahoo'
+        'yahoo',
+        'tumblr'
     );
 
     /**
@@ -156,6 +157,21 @@ class ModuleOptions extends AbstractOptions
      */
     protected $yahooSecret;
 
+    /**
+     * @var boolean
+     */
+    protected $tumblrEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $tumblrConsumerKey;
+
+    /**
+     * @var string
+     */
+    protected $tumblrConsumerSecret;
+    
     /**
      * @var string
      */
@@ -800,6 +816,75 @@ class ModuleOptions extends AbstractOptions
         return $this->yahooSecret;
     }
 
+    /**
+     * set tumblr enabled
+     *
+     * @param  boolean       $tumblrEnabled
+     * @return ModuleOptions
+     */
+    public function setTumblrEnabled($tumblrEnabled)
+    {
+        $this->tumblrEnabled = (boolean) $tumblrEnabled;
+
+        return $this;
+    }
+
+    /**
+     * get tumblr enabled
+     *
+     * @return boolean
+     */
+    public function getTumblrEnabled()
+    {
+        return $this->tumblrEnabled;
+    }
+
+    /**
+     * set tumblr consumer key
+     *
+     * @param  string        $tumblrConsumerKey
+     * @return ModuleOptions
+     */
+    public function setTumblrConsumerKey($tumblrConsumerKey)
+    {
+        $this->tumblrConsumerKey = (string) $tumblrConsumerKey;
+
+        return $this;
+    }
+
+    /**
+     * get tumblr consumer key
+     *
+     * @return string
+     */
+    public function getTumblrConsumerKey()
+    {
+        return $this->tumblrConsumerKey;
+    }
+
+    /**
+     * set tumblr consumer secret
+     *
+     * @param  string        $tumblrConsumerSecret
+     * @return ModuleOptions
+     */
+    public function setTumblrConsumerSecret($tumblrConsumerSecret)
+    {
+        $this->tumblrConsumerSecret = (string) $tumblrConsumerSecret;
+
+        return $this;
+    }
+
+    /**
+     * get tumblr consumer secret
+     *
+     * @return string
+     */
+    public function getTumblrConsumerSecret()
+    {
+        return $this->tumblrConsumerSecret;
+    }
+    
     /**
      * set social login only
      *
