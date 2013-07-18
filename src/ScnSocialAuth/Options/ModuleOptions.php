@@ -171,7 +171,7 @@ class ModuleOptions extends AbstractOptions
      * @var string
      */
     protected $tumblrConsumerSecret;
-    
+
     /**
      * @var string
      */
