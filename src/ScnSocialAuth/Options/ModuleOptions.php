@@ -884,7 +884,7 @@ class ModuleOptions extends AbstractOptions
     {
         return $this->tumblrConsumerSecret;
     }
-    
+
     /**
      * set social login only
      *

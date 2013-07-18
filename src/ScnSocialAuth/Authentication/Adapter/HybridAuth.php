@@ -420,7 +420,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
         return $localUser;
     }
-    
+
     protected function tumblrToLocalUser($userProfile)
     {
         $localUser = $this->instantiateLocalUser();
