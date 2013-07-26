@@ -9,7 +9,7 @@ before_install:
  - wget http://cs.sensiolabs.org/get/php-cs-fixer.phar
 
 before_script:
- - composer install --dev
+ - phpversion=$(phpenv version); if [[ $phpversion =~ 5\.3\.3.* ]]; then composer install --dev --prefer-source; else composer install --dev; fi;
 
 script:
  - (cd test ; phpunit -c phpunit.xml)
