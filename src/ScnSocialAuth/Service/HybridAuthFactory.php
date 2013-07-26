@@ -93,6 +93,17 @@ class HybridAuthFactory implements FactoryInterface
                             'secret' => $options->getYahooSecret(),
                         ),
                     ),
+                    'Tumblr' => array(
+                        'enabled' => $options->getTumblrEnabled(),
+                        'keys' => array(
+                            'key' => $options->getTumblrConsumerKey(),
+                            'secret' => $options->getTumblrConsumerSecret(),
+                        ),
+                        'wrapper' => array(
+                            'class' => 'Hybrid_Providers_Tumblr',
+                            'path' => realpath(__DIR__ . '/../HybridAuth/Provider/Tumblr.php'),
+                        ),
+                    ),
                 ),
             )
         );

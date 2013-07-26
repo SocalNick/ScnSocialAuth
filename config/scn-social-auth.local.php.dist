@@ -112,6 +112,20 @@ $settings = array(
     //'yahoo_secret' => 'your-secret',
 
     /**
+     * tumblr Consumer Key
+     *
+     * Please specify a tumblr Consumer Key
+     */
+    //'tumblr_consumer_key' => 'your-consumer-key',
+
+    /**
+     * tumblr Secret
+     *
+     * Please specify a tumblr Consumer Secret
+     */
+    //'tumblr_consumer_secret' => 'your-consumer-secret',
+    
+    /**
      * End of ScnSocialAuth configuration
      */
 );
