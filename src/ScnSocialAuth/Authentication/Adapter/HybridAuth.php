@@ -122,6 +122,9 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
                 ->setProviderId($userProfile->identifier)
                 ->setProvider($provider);
             $this->getMapper()->insert($localUserProvider);
+
+            // Trigger register.post event
+            $this->getEventManager()->trigger('register.post', $this, array('user' => $localUser, 'userProvider' => $localUserProvider));
         }
 
         $zfcUserOptions = $this->getZfcUserOptions();
