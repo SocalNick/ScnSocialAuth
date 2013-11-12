@@ -19,7 +19,8 @@ class ModuleOptions extends AbstractOptions
         'linkedIn',
         'twitter',
         'yahoo',
-        'tumblr'
+        'tumblr',
+        'mailru',
     );
 
     /**
@@ -171,6 +172,21 @@ class ModuleOptions extends AbstractOptions
      * @var string
      */
     protected $tumblrConsumerSecret;
+
+    /**
+     * @var boolean
+     */
+    protected $mailruEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $mailruClientId;
+
+    /**
+     * @var string
+     */
+    protected $mailruSecret;
 
     /**
      * @var string
@@ -896,6 +912,54 @@ class ModuleOptions extends AbstractOptions
         $this->socialLoginOnly = (bool) $socialLoginOnly;
 
         return $this;
+    }
+
+    /**
+     * @param string $mailruClientId
+     */
+    public function setMailruClientId($mailruClientId)
+    {
+        $this->mailruClientId = (string) $mailruClientId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMailruClientId()
+    {
+        return $this->mailruClientId;
+    }
+
+    /**
+     * @param boolean $mailruEnabled
+     */
+    public function setMailruEnabled($mailruEnabled)
+    {
+        $this->mailruEnabled = (bool) $mailruEnabled;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getMailruEnabled()
+    {
+        return $this->mailruEnabled;
+    }
+
+    /**
+     * @param string $mailruSecret
+     */
+    public function setMailruSecret($mailruSecret)
+    {
+        $this->mailruSecret = (string) $mailruSecret;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMailruSecret()
+    {
+        return $this->mailruSecret;
     }
 
     /**

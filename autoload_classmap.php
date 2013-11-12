@@ -12,6 +12,7 @@ return array(
     'ScnSocialAuth\Entity\UserProviderInterface'                        => __DIR__ . '/src/ScnSocialAuth/Entity/UserProviderInterface.php',
     'ScnSocialAuth\HybridAuth\Provider\GitHub'                          => __DIR__ . '/src/ScnSocialAuth/HybridAuth/Provider/GitHub.php',
     'ScnSocialAuth\HybridAuth\Provider\Tumblr'                          => __DIR__ . '/src/ScnSocialAuth/HybridAuth/Provider/Tumblr.php',
+    'ScnSocialAuth\HybridAuth\Provider\Mailru'                          => __DIR__ . '/src/ScnSocialAuth/HybridAuth/Provider/Mailru.php',
     'ScnSocialAuth\Mapper\Exception\ExceptionInterface'                 => __DIR__ . '/src/ScnSocialAuth/Mapper/Exception/ExceptionInterface.php',
     'ScnSocialAuth\Mapper\Exception\RuntimeException'                   => __DIR__ . '/src/ScnSocialAuth/Mapper/Exception/RuntimeException.php',
     'ScnSocialAuth\Mapper\UserProvider'                                 => __DIR__ . '/src/ScnSocialAuth/Mapper/UserProvider.php',

@@ -124,7 +124,21 @@ $settings = array(
      * Please specify a tumblr Consumer Secret
      */
     //'tumblr_consumer_secret' => 'your-consumer-secret',
-    
+
+    /**
+     * Mailru Client ID
+     *
+     * Please specify a Mailru Client ID
+     */
+    //'mailru_client_id' => 'your-client-id',
+
+    /**
+     * Mailru Secret
+     *
+     * Please specify a Mailru Secret
+     */
+    //'mailru_secret' => 'your-secret',
+
     /**
      * End of ScnSocialAuth configuration
      */
