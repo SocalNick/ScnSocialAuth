@@ -84,11 +84,11 @@ class UserController extends AbstractActionController
         }
         $hybridAuth = $this->getHybridAuth();
 
-        $query = array('provider' => $provider);
+        $query = array();
         if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
-            $query = array_merge($query, array('redirect' => $this->getRequest()->getQuery()->get('redirect')));
+            $query = array('redirect' => $this->getRequest()->getQuery()->get('redirect'));
         }
-        $redirectUrl = $this->url()->fromRoute('scn-social-auth-user/authenticate', array(), array('query' => $query));
+        $redirectUrl = $this->url()->fromRoute('scn-social-auth-user/authenticate/provider', array('provider' => $provider), array('query' => $query));
 
         $adapter = $hybridAuth->authenticate(
             $provider,
@@ -124,6 +124,25 @@ class UserController extends AbstractActionController
         Hybrid_Auth::logoutAllProviders();
 
         return $this->forward()->dispatch('zfcuser', array('action' => 'logout'));
+    }
+
+    public function providerAuthenticateAction()
+    {
+        // Get the provider from the route
+        $provider = $this->getEvent()->getRouteMatch()->getParam('provider');
+        if (!in_array($provider, $this->getOptions()->getEnabledProviders())) {
+            return $this->notFoundAction();
+        }
+
+        // Replace the adapters in the module options with the HybridAuth adapter
+        $zfcUserModuleOptions = $this->getServiceLocator()->get('zfcuser_module_options');
+        $zfcUserModuleOptions->setAuthAdapters(array(100 => 'ScnSocialAuth\Authentication\Adapter\HybridAuth'));
+
+        // Adding the provider to request metadata to be used by HybridAuth adapter
+        $this->getRequest()->setMetadata('provider', $provider);
+
+        // Forward to the ZfcUser Authenticate action
+        return $this->forward()->dispatch('zfcuser', array('action' => 'authenticate'));
     }
 
     public function registerAction()
