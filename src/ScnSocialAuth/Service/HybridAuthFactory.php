@@ -104,6 +104,17 @@ class HybridAuthFactory implements FactoryInterface
                             'path' => realpath(__DIR__ . '/../HybridAuth/Provider/Tumblr.php'),
                         ),
                     ),
+                    'Mailru' => array(
+                        'enabled' => $options->getMailruEnabled(),
+                        'keys' => array(
+                            'id' => $options->getMailruClientId(),
+                            'secret' => $options->getMailruSecret(),
+                        ),
+                        'wrapper' => array(
+                            'class' => 'Hybrid_Providers_Mailru',
+                            'path' => realpath(__DIR__ . '/../HybridAuth/Provider/Mailru.php'),
+                        ),
+                    ),
                 ),
             )
         );

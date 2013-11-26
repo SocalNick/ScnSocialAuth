@@ -447,6 +447,17 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         return $localUser;
     }
 
+    protected function mailruToLocalUser($userProfile)
+    {
+        $localUser = $this->instantiateLocalUser();
+        $localUser->setDisplayName($userProfile->displayName)
+                  ->setPassword(__FUNCTION__)
+                  ->setEmail($userProfile->email);
+        $result = $this->insert($localUser, 'mailru', $userProfile);
+
+        return $localUser;
+    }
+
     /**
      * persists the user in the db, and trigger a pre and post events for it
      * @param  mixed  $user

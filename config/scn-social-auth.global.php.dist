@@ -135,6 +135,13 @@ $settings = array(
     //'tumblr_enabled' => true,
 
     /**
+     * Mailru Enabled
+     *
+     * Please specify if Mailru is enabled
+     */
+    //'mailru_enabled' => true,
+
+    /**
      * Set to true if you want to display only the social login buttons without
      * the username/password etc. from ZfcUser.
      */
