@@ -66,7 +66,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         }
 
         $enabledProviders = $this->getOptions()->getEnabledProviders();
-        $provider = $authEvent->getRequest()->getQuery()->get('provider');
+        $provider = $authEvent->getRequest()->getMetadata('provider');
 
         if (empty($provider) || !in_array($provider, $enabledProviders)) {
             $authEvent->setCode(Result::FAILURE)
@@ -149,8 +149,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $storage['identity'] = $authEvent->getIdentity();
         $this->getStorage()->write($storage);
         $authEvent->setCode(Result::SUCCESS)
-          ->setMessages(array('Authentication successful.'))
-          ->stopPropagation();
+          ->setMessages(array('Authentication successful.'));
     }
 
     /**

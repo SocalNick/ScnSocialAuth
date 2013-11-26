@@ -45,6 +45,22 @@ return array(
                                 'action'     => 'authenticate',
                             ),
                         ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'provider' => array(
+                                'type' => 'Segment',
+                                'options' => array(
+                                    'route' => '/:provider',
+                                    'constraints' => array(
+                                        'provider' => '[a-zA-Z][a-zA-Z0-9_-]+',
+                                    ),
+                                    'defaults' => array(
+                                        'controller' => 'ScnSocialAuth-User',
+                                        'action' => 'provider-authenticate',
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                     'login' => array(
                         'type' => 'Literal',
@@ -127,7 +143,6 @@ return array(
             'ScnSocialAuth-ModuleOptions' => 'ScnSocialAuth\Service\ModuleOptionsFactory',
             'ScnSocialAuth-UserProviderMapper' => 'ScnSocialAuth\Service\UserProviderMapperFactory',
             'ScnSocialAuth\Authentication\Adapter\HybridAuth' => 'ScnSocialAuth\Service\HybridAuthAdapterFactory',
-            'ZfcUser\Authentication\Adapter\AdapterChain' => 'ScnSocialAuth\Service\AuthenticationAdapterChainFactory',
         ),
     ),
     'view_helpers' => array(
