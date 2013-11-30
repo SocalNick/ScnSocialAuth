@@ -458,6 +458,17 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         return $localUser;
     }
 
+    protected function odnoklassnikiToLocalUser($userProfile)
+    {
+        $localUser = $this->instantiateLocalUser();
+        $localUser->setDisplayName($userProfile->displayName)
+            ->setPassword(__FUNCTION__)
+            ->setEmail($userProfile->email);
+        $result = $this->insert($localUser, 'odnoklassniki', $userProfile);
+
+        return $localUser;
+    }
+
     /**
      * persists the user in the db, and trigger a pre and post events for it
      * @param  mixed  $user
