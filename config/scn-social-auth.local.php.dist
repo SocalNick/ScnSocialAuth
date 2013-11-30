@@ -140,6 +140,20 @@ $settings = array(
     //'mailru_secret' => 'your-secret',
 
     /**
+     * Vkontakte Application ID
+     *
+     * Please specify a Vkontakte Application ID
+     */
+    //'vkontakte_app_id' => 'your-app-id',
+
+    /**
+     * Vkontakte Secret
+     *
+     * Please specify a Vkontakte Secret
+     */
+    //'vkontakte_secret' => 'your-secret',
+
+    /**
      * Odnoklassniki Client ID
      *
      * Please specify a Odnoklassniki Application ID

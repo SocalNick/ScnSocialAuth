@@ -149,6 +149,13 @@ $settings = array(
     //'odnoklassniki_enabled' => true,
 
     /**
+     * Vkontakte Enabled
+     *
+     * Please specify if Vkontakte is enabled
+     */
+    //'vkontakte_enabled' => true,
+
+    /**
      * Set to true if you want to display only the social login buttons without
      * the username/password etc. from ZfcUser.
      */
