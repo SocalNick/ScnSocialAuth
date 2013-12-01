@@ -154,6 +154,20 @@ $settings = array(
     //'vkontakte_secret' => 'your-secret',
 
     /**
+     * Yandex Application ID
+     *
+     * Please specify a Yandex Application ID
+     */
+    //'yandex_app_id' => 'your-app-id',
+
+    /**
+     * Yandex Secret
+     *
+     * Please specify a Yandex Secret
+     */
+    //'yandex_secret' => 'your-secret',
+
+    /**
      * Odnoklassniki Client ID
      *
      * Please specify a Odnoklassniki Application ID

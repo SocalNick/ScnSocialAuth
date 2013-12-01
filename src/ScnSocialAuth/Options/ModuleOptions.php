@@ -23,6 +23,7 @@ class ModuleOptions extends AbstractOptions
         'mailru',
         'odnoklassniki',
         'vkontakte',
+        'yandex',
     );
 
     /**
@@ -204,6 +205,21 @@ class ModuleOptions extends AbstractOptions
      * @var string
      */
     protected $vkontakteSecret;
+
+    /**
+     * @var boolean
+     */
+    protected $yandexEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $yandexAppId;
+
+    /**
+     * @var string
+     */
+    protected $yandexSecret;
 
     /**
      * @var boolean
@@ -1109,6 +1125,54 @@ class ModuleOptions extends AbstractOptions
     public function getVkontakteSecret()
     {
         return $this->vkontakteSecret;
+    }
+
+    /**
+     * @param string $yandexAppId
+     */
+    public function setYandexAppId($yandexAppId)
+    {
+        $this->yandexAppId = (string) $yandexAppId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getYandexAppId()
+    {
+        return $this->yandexAppId;
+    }
+
+    /**
+     * @param boolean $yandexEnabled
+     */
+    public function setYandexEnabled($yandexEnabled)
+    {
+        $this->yandexEnabled = (bool) $yandexEnabled;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getYandexEnabled()
+    {
+        return $this->yandexEnabled;
+    }
+
+    /**
+     * @param string $yandexSecret
+     */
+    public function setYandexSecret($yandexSecret)
+    {
+        $this->yandexSecret = (string) $yandexSecret;
+    }
+
+    /**
+     * @return string
+     */
+    public function getYandexSecret()
+    {
+        return $this->yandexSecret;
     }
 
     /**

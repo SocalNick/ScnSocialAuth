@@ -15,6 +15,7 @@ return array(
     'ScnSocialAuth\HybridAuth\Provider\Mailru'                          => __DIR__ . '/src/ScnSocialAuth/HybridAuth/Provider/Mailru.php',
     'ScnSocialAuth\HybridAuth\Provider\Odnoklassniki'                   => __DIR__ . '/src/ScnSocialAuth/HybridAuth/Provider/Odnoklassniki.php',
     'ScnSocialAuth\HybridAuth\Provider\Vkontakte'                       => __DIR__ . '/src/ScnSocialAuth/HybridAuth/Provider/Vkontakte.php',
+    'ScnSocialAuth\HybridAuth\Provider\Yandex'                          => __DIR__ . '/src/ScnSocialAuth/HybridAuth/Provider/Yandex.php',
     'ScnSocialAuth\Mapper\Exception\ExceptionInterface'                 => __DIR__ . '/src/ScnSocialAuth/Mapper/Exception/ExceptionInterface.php',
     'ScnSocialAuth\Mapper\Exception\RuntimeException'                   => __DIR__ . '/src/ScnSocialAuth/Mapper/Exception/RuntimeException.php',
     'ScnSocialAuth\Mapper\UserProvider'                                 => __DIR__ . '/src/ScnSocialAuth/Mapper/UserProvider.php',

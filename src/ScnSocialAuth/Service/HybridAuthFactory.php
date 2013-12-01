@@ -138,6 +138,17 @@ class HybridAuthFactory implements FactoryInterface
                             'path' => realpath(__DIR__ . '/../HybridAuth/Provider/Vkontakte.php'),
                         ),
                     ),
+                    'Yandex' => array(
+                        'enabled' => $options->getYandexEnabled(),
+                        'keys' => array(
+                            'id' => $options->getYandexAppId(),
+                            'secret' => $options->getYandexSecret(),
+                        ),
+                        'wrapper' => array(
+                            'class' => 'Hybrid_Providers_Yandex',
+                            'path' => realpath(__DIR__ . '/../HybridAuth/Provider/Yandex.php'),
+                        ),
+                    ),
                 ),
             )
         );
