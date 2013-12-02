@@ -22,6 +22,7 @@ class ModuleOptions extends AbstractOptions
         'tumblr',
         'mailru',
         'odnoklassniki',
+        'vkontakte',
     );
 
     /**
@@ -188,6 +189,21 @@ class ModuleOptions extends AbstractOptions
      * @var string
      */
     protected $mailruSecret;
+
+    /**
+     * @var boolean
+     */
+    protected $vkontakteEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $vkontakteAppId;
+
+    /**
+     * @var string
+     */
+    protected $vkontakteSecret;
 
     /**
      * @var boolean
@@ -1045,6 +1061,54 @@ class ModuleOptions extends AbstractOptions
     public function getOdnoklassnikiSecret()
     {
         return $this->odnoklassnikiSecret;
+    }
+
+    /**
+     * @param string $vkontakteAppId
+     */
+    public function setVkontakteAppId($vkontakteAppId)
+    {
+        $this->vkontakteAppId = (string) $vkontakteAppId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVkontakteAppId()
+    {
+        return $this->vkontakteAppId;
+    }
+
+    /**
+     * @param boolean $vkontakteEnabled
+     */
+    public function setVkontakteEnabled($vkontakteEnabled)
+    {
+        $this->vkontakteEnabled = (bool) $vkontakteEnabled;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getVkontakteEnabled()
+    {
+        return $this->vkontakteEnabled;
+    }
+
+    /**
+     * @param string $vkontakteSecret
+     */
+    public function setVkontakteSecret($vkontakteSecret)
+    {
+        $this->vkontakteSecret = (string) $vkontakteSecret;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVkontakteSecret()
+    {
+        return $this->vkontakteSecret;
     }
 
     /**

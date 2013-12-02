@@ -469,6 +469,16 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         return $localUser;
     }
 
+    protected function vkontakteToLocalUser($userProfile)
+    {
+        $localUser = $this->instantiateLocalUser();
+        $localUser->setDisplayName($userProfile->displayName)
+            ->setPassword(__FUNCTION__);
+        $result = $this->insert($localUser, 'vkontakte', $userProfile);
+
+        return $localUser;
+    }
+
     /**
      * persists the user in the db, and trigger a pre and post events for it
      * @param  mixed  $user

@@ -127,6 +127,17 @@ class HybridAuthFactory implements FactoryInterface
                             'path' => realpath(__DIR__ . '/../HybridAuth/Provider/Odnoklassniki.php'),
                         ),
                     ),
+                    'Vkontakte' => array(
+                        'enabled' => $options->getVkontakteEnabled(),
+                        'keys' => array(
+                            'id' => $options->getVkontakteAppId(),
+                            'secret' => $options->getVkontakteSecret(),
+                        ),
+                        'wrapper' => array(
+                            'class' => 'Hybrid_Providers_Vkontakte',
+                            'path' => realpath(__DIR__ . '/../HybridAuth/Provider/Vkontakte.php'),
+                        ),
+                    ),
                 ),
             )
         );
