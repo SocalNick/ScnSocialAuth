@@ -28,6 +28,7 @@ Features
 * Login with Tumblr [COMPLETE]
 * Login with Mail.Ru [COMPLETE]
 * Login with Odnoklassniki [COMPLETE]
+* Login with VKontakte [COMPLETE]
 
 Installation
 ------------
