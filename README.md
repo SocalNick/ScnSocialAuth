@@ -29,6 +29,7 @@ Features
 * Login with Mail.Ru [COMPLETE]
 * Login with Odnoklassniki [COMPLETE]
 * Login with VKontakte [COMPLETE]
+* Login with Yandex [COMPLETE]
 
 Installation
 ------------
