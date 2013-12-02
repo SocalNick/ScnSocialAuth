@@ -25,7 +25,9 @@ Features
 * Login with OpenID [INCOMPLETE]
 * Login with Twitter [COMPLETE]
 * Login with Yahoo! [COMPLETE]
-* Login with tumblr [COMPLETE]
+* Login with Tumblr [COMPLETE]
+* Login with Mail.Ru [COMPLETE]
+* Login with Odnoklassniki [COMPLETE]
 
 Installation
 ------------
