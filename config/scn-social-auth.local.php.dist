@@ -140,6 +140,27 @@ $settings = array(
     //'mailru_secret' => 'your-secret',
 
     /**
+     * Odnoklassniki Client ID
+     *
+     * Please specify a Odnoklassniki Application ID
+     */
+    //'odnoklassniki_app_id' => 'your-app-id',
+
+    /**
+     * Odnoklassniki Public Key
+     *
+     * Please specify a Odnoklassniki Public Key
+     */
+    //'odnoklassniki_key' => 'your-public-key',
+
+    /**
+     * Odnoklassniki Secret
+     *
+     * Please specify a Odnoklassniki Secret
+     */
+    //'odnoklassniki_secret' => 'your-secret',
+
+    /**
      * End of ScnSocialAuth configuration
      */
 );

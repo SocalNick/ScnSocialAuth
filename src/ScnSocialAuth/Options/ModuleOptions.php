@@ -21,6 +21,7 @@ class ModuleOptions extends AbstractOptions
         'yahoo',
         'tumblr',
         'mailru',
+        'odnoklassniki',
     );
 
     /**
@@ -187,6 +188,26 @@ class ModuleOptions extends AbstractOptions
      * @var string
      */
     protected $mailruSecret;
+
+    /**
+     * @var boolean
+     */
+    protected $odnoklassnikiEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $odnoklassnikiApplicationId;
+
+    /**
+     * @var string
+     */
+    protected $odnoklassnikiKey;
+
+    /**
+     * @var string
+     */
+    protected $odnoklassnikiSecret;
 
     /**
      * @var string
@@ -960,6 +981,70 @@ class ModuleOptions extends AbstractOptions
     public function getMailruSecret()
     {
         return $this->mailruSecret;
+    }
+
+    /**
+     * @param string $odnoklassnikiApplicationId
+     */
+    public function setOdnoklassnikiAppId($odnoklassnikiApplicationId)
+    {
+        $this->odnoklassnikiApplicationId = (string) $odnoklassnikiApplicationId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOdnoklassnikiAppId()
+    {
+        return $this->odnoklassnikiApplicationId;
+    }
+
+    /**
+     * @param boolean $odnoklassnikiEnabled
+     */
+    public function setOdnoklassnikiEnabled($odnoklassnikiEnabled)
+    {
+        $this->odnoklassnikiEnabled = (bool) $odnoklassnikiEnabled;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getOdnoklassnikiEnabled()
+    {
+        return $this->odnoklassnikiEnabled;
+    }
+
+    /**
+     * @param string $odnoklassnikiKey
+     */
+    public function setOdnoklassnikiKey($odnoklassnikiKey)
+    {
+        $this->odnoklassnikiKey = (string) $odnoklassnikiKey;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOdnoklassnikiKey()
+    {
+        return $this->odnoklassnikiKey;
+    }
+
+    /**
+     * @param string $odnoklassnikiSecret
+     */
+    public function setOdnoklassnikiSecret($odnoklassnikiSecret)
+    {
+        $this->odnoklassnikiSecret = (string) $odnoklassnikiSecret;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOdnoklassnikiSecret()
+    {
+        return $this->odnoklassnikiSecret;
     }
 
     /**

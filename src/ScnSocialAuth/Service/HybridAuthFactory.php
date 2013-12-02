@@ -115,6 +115,18 @@ class HybridAuthFactory implements FactoryInterface
                             'path' => realpath(__DIR__ . '/../HybridAuth/Provider/Mailru.php'),
                         ),
                     ),
+                    'Odnoklassniki' => array(
+                        'enabled' => $options->getOdnoklassnikiEnabled(),
+                        'keys' => array(
+                            'id' => $options->getOdnoklassnikiAppId(),
+                            'key' => $options->getOdnoklassnikiKey(),
+                            'secret' => $options->getOdnoklassnikiSecret(),
+                        ),
+                        'wrapper' => array(
+                            'class' => 'Hybrid_Providers_Odnoklassniki',
+                            'path' => realpath(__DIR__ . '/../HybridAuth/Provider/Odnoklassniki.php'),
+                        ),
+                    ),
                 ),
             )
         );
