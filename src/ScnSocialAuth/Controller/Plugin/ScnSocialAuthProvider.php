@@ -25,7 +25,6 @@ class ScnSocialAuthProvider extends AbstractPlugin implements ServiceLocatorAwar
      *
      * @param UserInterface $user
      * @param string        $provider
-     * @param UserProviderInterface|false
      */
     public function getProvider(UserInterface $user, $provider)
     {
@@ -36,7 +35,6 @@ class ScnSocialAuthProvider extends AbstractPlugin implements ServiceLocatorAwar
      * Returns an array of UserProviderInterface for $user
      *
      * @param UserInterface $user
-     * @param UserProviderInterface|false
      */
     public function getProviders(UserInterface $user)
     {
