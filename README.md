@@ -2,7 +2,7 @@ ScnSocialAuth
 =============
 Uses the HybridAuth PHP library to Enable authentication via Google, Facebook, Twitter, Yahoo!, etc for the ZfcUser ZF2 module.
 
-[![Build Status](https://travis-ci.org/SocalNick/ScnSocialAuth.png)](https://travis-ci.org/SocalNick/ScnSocialAuth)
+[![Build Status](https://travis-ci.org/SocalNick/ScnSocialAuth.png)](https://travis-ci.org/SocalNick/ScnSocialAuth) [![Latest Stable Version](https://poser.pugx.org/socalnick/scn-social-auth/v/stable.png)](https://packagist.org/packages/socalnick/scn-social-auth) [![Total Downloads](https://poser.pugx.org/socalnick/scn-social-auth/downloads.png)](https://packagist.org/packages/socalnick/scn-social-auth)
 
 Requirements
 ------------
