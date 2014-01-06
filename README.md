@@ -30,6 +30,7 @@ Features
 * Login with Odnoklassniki [COMPLETE]
 * Login with VKontakte [COMPLETE]
 * Login with Yandex [COMPLETE]
+* Login with Instagram [COMPLETE]
 
 Installation
 ------------
@@ -49,6 +50,12 @@ It is recommended to add this module to your Zend Framework 2 application using 
         "php": ">=5.3.3",
         "zendframework/zendframework": "dev-master",
         "socalnick/scn-social-auth": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Hybrid": "./vendor/hybridauth/hybridauth/hybridauth/"
+        },
+        "classmap": ["./vendor/hybridauth/hybridauth"]
     }
 }
 ```

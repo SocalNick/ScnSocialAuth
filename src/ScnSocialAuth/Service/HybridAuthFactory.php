@@ -149,6 +149,17 @@ class HybridAuthFactory implements FactoryInterface
                             'path' => realpath(__DIR__ . '/../HybridAuth/Provider/Yandex.php'),
                         ),
                     ),
+                    'Instagram' => array(
+                        'enabled' => $options->getInstagramEnabled(),
+                        'keys' => array(
+                            'id' => $options->getInstagramClientId(),
+                            'secret' => $options->getInstagramClientSecret(),
+                        ),
+                        'wrapper' => array(
+                            'class' => 'Hybrid_Providers_Instagram',
+                            'path' => realpath(__DIR__ . '/../HybridAuth/Provider/Instagram.php'),
+                        ),
+                    ),
                 ),
             )
         );
