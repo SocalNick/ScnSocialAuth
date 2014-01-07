@@ -1238,7 +1238,6 @@ class ModuleOptions extends AbstractOptions
         return $this->instagramClientSecret;
     }
 
-
     /**
      * get social login only
      *
