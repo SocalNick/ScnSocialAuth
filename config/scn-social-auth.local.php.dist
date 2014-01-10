@@ -189,6 +189,20 @@ $settings = array(
     //'odnoklassniki_secret' => 'your-secret',
 
     /**
+     * Instagram Client ID
+     *
+     * Please specify a Instagram Client ID
+     */
+    //'instagram_client_id' => 'your-client-id',
+
+    /**
+     * Instagram Client Secret
+     *
+     * Please specify a Instagram Client Secret
+     */
+    //'instagram_client_secret' => 'your-client-secret',
+
+    /**
      * End of ScnSocialAuth configuration
      */
 );

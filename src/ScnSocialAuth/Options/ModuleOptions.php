@@ -24,6 +24,7 @@ class ModuleOptions extends AbstractOptions
         'odnoklassniki',
         'vkontakte',
         'yandex',
+        'instagram',
     );
 
     /**
@@ -240,6 +241,20 @@ class ModuleOptions extends AbstractOptions
      * @var string
      */
     protected $odnoklassnikiSecret;
+
+    /**
+     * @var boolean
+     */
+    protected $instagramEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $instagramClientId;
+    /**
+     * @var string
+     */
+    protected $instagramClientSecret;
 
     /**
      * @var string
@@ -1173,6 +1188,54 @@ class ModuleOptions extends AbstractOptions
     public function getYandexSecret()
     {
         return $this->yandexSecret;
+    }
+
+    /**
+     * @param string $instagramClientId
+     */
+    public function setInstagramClientId($instagramClientId)
+    {
+        $this->instagramClientId = (string) $instagramClientId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInstagramClientId()
+    {
+        return $this->instagramClientId;
+    }
+
+    /**
+     * @param boolean $instagramEnabled
+     */
+    public function setInstagramEnabled($instagramEnabled)
+    {
+        $this->instagramEnabled = (bool) $instagramEnabled;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getInstagramEnabled()
+    {
+        return $this->instagramEnabled;
+    }
+
+    /**
+     * @param string $instagramClientSecret
+     */
+    public function setInstagramClientSecret($instagramClientSecret)
+    {
+        $this->instagramClientSecret = (string) $instagramClientSecret;
+    }
+
+    /**
+     * @return string
+     */
+    public function getinstagramClientSecret()
+    {
+        return $this->instagramClientSecret;
     }
 
     /**
