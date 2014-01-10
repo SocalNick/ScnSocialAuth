@@ -17,7 +17,7 @@ use Zend\Uri\Http as HttpUri;
 /**
  * Unit tests for HybridAuthFactory
  */
-class PageControllerTest extends TestCase
+class HybridAuthFactoryTest extends TestCase
 {
     /**
      * @var HybridAuthFactory

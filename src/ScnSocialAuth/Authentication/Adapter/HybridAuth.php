@@ -3,7 +3,6 @@
 namespace ScnSocialAuth\Authentication\Adapter;
 
 use Hybrid_Auth;
-use ScnSocialAuth\Authentication\Adapter\Exception;
 use ScnSocialAuth\Mapper\UserProviderInterface;
 use ScnSocialAuth\Options\ModuleOptions;
 use Zend\Authentication\Result;
