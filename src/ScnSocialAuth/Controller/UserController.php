@@ -134,9 +134,8 @@ class UserController extends AbstractActionController
             return $this->notFoundAction();
         }
 
-        // Replace the adapters in the module options with the HybridAuth adapter
-        $zfcUserModuleOptions = $this->getServiceLocator()->get('zfcuser_module_options');
-        $zfcUserModuleOptions->setAuthAdapters(array(100 => 'ScnSocialAuth\Authentication\Adapter\HybridAuth'));
+        // For provider authentication, change the auth adapter in the ZfcUser Controller Plugin
+        $this->zfcUserAuthentication()->setAuthAdapter($this->getServiceLocator()->get('ScnSocialAuth-AuthenticationAdapterChain'));
 
         // Adding the provider to request metadata to be used by HybridAuth adapter
         $this->getRequest()->setMetadata('provider', $provider);

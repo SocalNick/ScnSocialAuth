@@ -142,6 +142,7 @@ return array(
             'HybridAuth' => 'ScnSocialAuth\Service\HybridAuthFactory',
             'ScnSocialAuth-ModuleOptions' => 'ScnSocialAuth\Service\ModuleOptionsFactory',
             'ScnSocialAuth-UserProviderMapper' => 'ScnSocialAuth\Service\UserProviderMapperFactory',
+            'ScnSocialAuth-AuthenticationAdapterChain' => 'ScnSocialAuth\Service\AuthenticationAdapterChainFactory',
             'ScnSocialAuth\Authentication\Adapter\HybridAuth' => 'ScnSocialAuth\Service\HybridAuthAdapterFactory',
         ),
     ),
