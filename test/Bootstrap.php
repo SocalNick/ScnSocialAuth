@@ -1,5 +1,5 @@
 <?php
-namespace ScnSocialAuthTest;
+namespace ScnSocialAuthtest;
 
 use Zend\Loader\AutoloaderFactory;
 use RuntimeException;

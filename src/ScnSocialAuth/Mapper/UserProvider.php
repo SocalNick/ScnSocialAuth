@@ -4,7 +4,6 @@ namespace ScnSocialAuth\Mapper;
 
 use Hybrid_User_Profile;
 use ScnSocialAuth\Entity\UserProvider as UserProviderEntity;
-use ScnSocialAuth\Mapper\Exception;
 use Zend\Stdlib\Hydrator\HydratorInterface;
 use ZfcBase\Mapper\AbstractDbMapper;
 use ZfcUser\Entity\UserInterface;
