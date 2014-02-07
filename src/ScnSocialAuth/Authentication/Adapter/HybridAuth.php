@@ -113,7 +113,9 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
                 $localUser = $this->instantiateLocalUser();
                 $localUser->setDisplayName($userProfile->displayName)
                           ->setPassword($provider);
-                if ($userProfile->emailVerified) $localUser->setEmail($userProfile->emailVerified);
+                if (isset($userProfile->emailVerified) && !empty($userProfile->emailVerified)) {
+                    $localUser->setEmail($userProfile->emailVerified);
+                }
                 $result = $this->insert($localUser, $provider, $userProfile);
             }
             $localUserProvider = clone($this->getMapper()->getEntityPrototype());
@@ -319,7 +321,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
     protected function facebookToLocalUser($userProfile)
     {
-        if (!isset($userProfile->emailVerified)) {
+        if (!isset($userProfile->emailVerified) || empty($userProfile->emailVerified)) {
             throw new Exception\RuntimeException(
                 'Please verify your email with Facebook before attempting login',
                 Result::FAILURE_CREDENTIAL_INVALID
@@ -340,7 +342,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
     protected function foursquareToLocalUser($userProfile)
     {
-        if (!isset($userProfile->emailVerified)) {
+        if (!isset($userProfile->emailVerified) || empty($userProfile->emailVerified)) {
             throw new Exception\RuntimeException(
                 'Please verify your email with Foursquare before attempting login',
                 Result::FAILURE_CREDENTIAL_INVALID
@@ -361,7 +363,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
     protected function googleToLocalUser($userProfile)
     {
-        if (!isset($userProfile->emailVerified)) {
+        if (!isset($userProfile->emailVerified) || empty($userProfile->emailVerified)) {
             throw new Exception\RuntimeException(
                 'Please verify your email with Google before attempting login',
                 Result::FAILURE_CREDENTIAL_INVALID
@@ -382,7 +384,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
     protected function linkedInToLocalUser($userProfile)
     {
-        if (!isset($userProfile->emailVerified)) {
+        if (!isset($userProfile->emailVerified) || empty($userProfile->emailVerified)) {
             throw new Exception\RuntimeException(
                 'Please verify your email with LinkedIn before attempting login',
                 Result::FAILURE_CREDENTIAL_INVALID
