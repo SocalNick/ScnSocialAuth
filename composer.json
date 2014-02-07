@@ -21,7 +21,7 @@
         "hybridauth/hybridauth": "dev-master"
     },
     "require-dev": {
-        "mockery/mockery": ">=0.7.2"
+        "mockery/mockery": "0.8.0"
     },
     "autoload": {
         "psr-0": {
