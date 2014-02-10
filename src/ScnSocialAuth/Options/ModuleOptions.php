@@ -1268,7 +1268,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * Gets enableSocialRegistration
      *
-     * @return bool 
+     * @return bool
      */
     public function getEnableSocialRegistration()
     {
