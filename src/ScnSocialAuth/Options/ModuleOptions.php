@@ -262,6 +262,11 @@ class ModuleOptions extends AbstractOptions
     protected $socialLoginOnly = false;
 
     /**
+     * @var boolean
+     */
+    protected $enableSocialRegistration = true;
+
+    /**
      * get an array of enabled providers
      *
      * @return array
@@ -1246,5 +1251,27 @@ class ModuleOptions extends AbstractOptions
     public function getSocialLoginOnly()
     {
         return $this->socialLoginOnly;
+    }
+
+    /**
+     * Sets enableSocialRegistration
+     *
+     * @param bool $enableSocialRegistration
+     *
+     * @return void
+     */
+    public function setEnableSocialRegistration($enableSocialRegistration)
+    {
+        $this->enableSocialRegistration = (bool) $enableSocialRegistration;
+    }
+
+    /**
+     * Gets enableSocialRegistration
+     *
+     * @return bool 
+     */
+    public function getEnableSocialRegistration()
+    {
+        return $this->enableSocialRegistration;
     }
 }

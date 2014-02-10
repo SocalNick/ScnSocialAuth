@@ -176,6 +176,14 @@ $settings = array(
     //'social_login_only' => false,
 
     /**
+     * Allow users to register their new account with social login
+     *
+     * Default: true
+     * Accepted Values: boolean (true or false)
+     */
+    // 'enable_social_registration' => true,
+
+    /**
      * End of ScnSocialAuth configuration
      */
 );
