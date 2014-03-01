@@ -61,6 +61,15 @@ $settings = array(
     //'facebook_display' => '',
 
     /**
+     * Facebook Trust forwarded sessions
+     * Improves session security on shared domains
+     *
+     * @see https://github.com/facebook/facebook-php-sdk/commit/42481fa03f98465fd6dc6eb99a5124c01e8797d2
+     *
+     */
+     //'facebook_trust_forwarded' => false,
+
+    /**
      * Foursquare Enabled
      *
      * Please specify if Foursquare is enabled

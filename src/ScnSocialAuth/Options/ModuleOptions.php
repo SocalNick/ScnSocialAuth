@@ -58,6 +58,11 @@ class ModuleOptions extends AbstractOptions
     protected $facebookDisplay;
 
     /**
+     * @var boolean
+     */
+    protected $facebookTrustForwarded;
+
+    /**
      * @var string
      */
     protected $githubEnabled = false;
@@ -415,6 +420,26 @@ class ModuleOptions extends AbstractOptions
     public function getFacebookDisplay()
     {
         return $this->facebookDisplay;
+    }
+
+    /**
+     * @param boolean $facebookTrustForwarded
+     *
+     * @return ModuleOptions
+     */
+    public function setFacebookTrustForwarded( $facebookTrustForwarded )
+    {
+        $this->facebookTrustForwarded = $facebookTrustForwarded;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getFacebookTrustForwarded()
+    {
+        return $this->facebookTrustForwarded;
     }
 
     /**
