@@ -427,7 +427,7 @@ class ModuleOptions extends AbstractOptions
      *
      * @return ModuleOptions
      */
-    public function setFacebookTrustForwarded( $facebookTrustForwarded )
+    public function setFacebookTrustForwarded($facebookTrustForwarded)
     {
         $this->facebookTrustForwarded = $facebookTrustForwarded;
 
