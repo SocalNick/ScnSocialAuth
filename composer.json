@@ -2,6 +2,7 @@
     "name": "socalnick/scn-social-auth",
     "description": "Uses the HybridAuth PHP library to Enable authentication via Google, Facebook, Twitter, Yahoo!, etc for the ZfcUser ZF2 module.",
     "type": "library",
+    "license": "BSD-3-Clause",
     "keywords": [
         "zf2"
     ],
