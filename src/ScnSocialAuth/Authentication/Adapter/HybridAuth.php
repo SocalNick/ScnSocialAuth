@@ -97,6 +97,13 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
         $localUserProvider = $this->getMapper()->findUserByProviderId($userProfile->identifier, $provider);
         if (false == $localUserProvider) {
+            if (!$this->getOptions()->getEnableSocialRegistration()) {
+                $authEvent->setCode(Result::FAILURE_IDENTITY_NOT_FOUND)
+                  ->setMessages(array('A record with the supplied identity could not be found.'));
+                $this->setSatisfied(false);
+
+                return false;
+            }
             $method = $provider.'ToLocalUser';
             if (method_exists($this, $method)) {
                 try {
