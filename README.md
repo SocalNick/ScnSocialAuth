@@ -44,12 +44,11 @@ It is recommended to add this module to your Zend Framework 2 application using 
         "framework",
         "zf2"
     ],
-    "minimum-stability": "dev",
     "homepage": "http://framework.zend.com/",
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zendframework": "dev-master",
-        "socalnick/scn-social-auth": "dev-master"
+        "zendframework/zendframework": "2.*",
+        "socalnick/scn-social-auth": "1.*"
     },
     "autoload": {
         "psr-0": {
