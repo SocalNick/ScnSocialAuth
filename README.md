@@ -6,10 +6,10 @@ Uses the HybridAuth PHP library to Enable authentication via Google, Facebook, T
 
 Requirements
 ------------
-* [Zend Framework 2](https://github.com/zendframework/zf2) (latest master)
-* [ZfcBase](https://github.com/ZF-Commons/ZfcBase) (latest master)
-* [ZfcUser](https://github.com/ZF-Commons/ZfcUser) (latest master)
-* [HybridAuth](https://github.com/hybridauth/hybridauth) (latest master)
+* [Zend Framework 2](https://github.com/zendframework/zf2) (2.*)
+* [ZfcBase](https://github.com/ZF-Commons/ZfcBase) (0.1.*)
+* [ZfcUser](https://github.com/ZF-Commons/ZfcUser) (1.0.*)
+* [HybridAuth](https://github.com/hybridauth/hybridauth) (2.2.*)
 * Extension php_curl enabled in php.ini
 
 Features
