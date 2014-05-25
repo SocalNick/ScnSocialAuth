@@ -18,8 +18,8 @@
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.*",
         "zf-commons/zfc-base": "0.1.*",
-        "zf-commons/zfc-user": "0.1.*",
-        "hybridauth/hybridauth": "dev-master"
+        "zf-commons/zfc-user": "1.0.*",
+        "hybridauth/hybridauth": "2.2.*"
     },
     "require-dev": {
         "mockery/mockery": "0.8.0"
