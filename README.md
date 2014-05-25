@@ -49,12 +49,6 @@ It is recommended to add this module to your Zend Framework 2 application using 
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.*",
         "socalnick/scn-social-auth": "1.*"
-    },
-    "autoload": {
-        "psr-0": {
-            "Hybrid": "./vendor/hybridauth/hybridauth/hybridauth/"
-        },
-        "classmap": ["./vendor/hybridauth/hybridauth"]
     }
 }
 ```
