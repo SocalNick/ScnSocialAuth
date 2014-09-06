@@ -32,6 +32,22 @@ class UserController extends AbstractActionController
      */
     protected $failedAddProviderMessage = 'Add provider failed. Please try again.';
 
+    /**
+     * @var callable $redirectCallback
+     */
+    protected $redirectCallback;
+
+    /**
+     * @param callable $redirectCallback
+     */
+    public function __construct($redirectCallback)
+    {
+        if (!is_callable($redirectCallback)) {
+            throw new \InvalidArgumentException('You must supply a callable redirectCallback');
+        }
+        $this->redirectCallback = $redirectCallback;
+    }
+
     public function addProviderAction()
     {
         // Make sure the provider is enabled, else 404
@@ -59,7 +75,6 @@ class UserController extends AbstractActionController
         $localUser = $authService->getIdentity();
         $userProfile = $adapter->getUserProfile();
         $accessToken = $adapter->getAccessToken();
-        $redirect = $this->params()->fromQuery('redirect', false);
 
         try {
             $this->getMapper()->linkUserToProvider($localUser, $userProfile, $provider, $accessToken);
@@ -67,13 +82,9 @@ class UserController extends AbstractActionController
             $this->flashMessenger()->setNamespace('zfcuser-index')->addMessage($e->getMessage());
         }
 
-        if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $redirect) {
-            return $this->redirect()->toUrl($redirect);
-        }
+        $redirect = $this->redirectCallback;
 
-        return $this->redirect()->toRoute(
-            $this->getServiceLocator()->get('zfcuser_module_options')->getLoginRedirectRoute()
-        );
+        return $redirect();
     }
 
     public function providerLoginAction()
@@ -97,7 +108,9 @@ class UserController extends AbstractActionController
             )
         );
 
-        return $this->redirect()->toUrl($redirectUrl);
+        $redirect = $this->redirectCallback;
+
+        return $redirect();
     }
 
     public function loginAction()

@@ -144,6 +144,7 @@ return array(
             'ScnSocialAuth-UserProviderMapper' => 'ScnSocialAuth\Service\UserProviderMapperFactory',
             'ScnSocialAuth-AuthenticationAdapterChain' => 'ScnSocialAuth\Service\AuthenticationAdapterChainFactory',
             'ScnSocialAuth\Authentication\Adapter\HybridAuth' => 'ScnSocialAuth\Service\HybridAuthAdapterFactory',
+            'zfcuser_redirect_callback' => 'ScnSocialAuth\Service\RedirectCallbackFactory',
         ),
     ),
     'view_helpers' => array(
