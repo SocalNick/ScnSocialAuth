@@ -47,7 +47,7 @@ class UserControllerTest extends TestCase
         $this->pm = new PluginManager();
         $this->event = new MvcEvent();
         $this->request = new Request();
-        $this->controller = new UserController();
+        $this->controller = new UserController(\Mockery::mock('ScnSocialAuth\Controller\RedirectCallback'));
         $this->controller->setEvent($this->event);
         $this->controller->setServiceLocator($this->sm);
         $this->controller->setPluginManager($this->pm);
