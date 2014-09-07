@@ -33,9 +33,9 @@ class RedirectCallback
     private $options;
 
     /**
-     * @param Application $application
+     * @param Application    $application
      * @param RouteInterface $router
-     * @param ModuleOptions $options
+     * @param ModuleOptions  $options
      */
     public function __construct(Application $application, RouteInterface $router, ModuleOptions $options)
     {
@@ -55,6 +55,7 @@ class RedirectCallback
         $response = $this->application->getResponse();
         $response->getHeaders()->addHeaderLine('Location', $redirect);
         $response->setStatusCode(302);
+
         return $response;
     }
 
@@ -90,6 +91,7 @@ class RedirectCallback
         } catch (Exception\RuntimeException $e) {
             return false;
         }
+
         return true;
     }
 
@@ -97,8 +99,8 @@ class RedirectCallback
      * Returns the url to redirect to based on current route.
      * If $redirect is set and the option to use redirect is set to true, it will return the $redirect url.
      *
-     * @param string $currentRoute
-     * @param bool $redirect
+     * @param  string $currentRoute
+     * @param  bool   $redirect
      * @return mixed
      */
     private function getRedirect($currentRoute, $redirect = false)
@@ -115,11 +117,13 @@ class RedirectCallback
             case 'scn-social-auth-user/authenticate/provider':
             case 'scn-social-auth-user/add-provider/provider':
                 $route = ($redirect) ?: $this->options->getLoginRedirectRoute();
+
                 return $this->router->assemble(array(), array('name' => $route));
                 break;
             case 'zfcuser/logout':
             case 'scn-social-auth-user/logout':
                 $route = ($redirect) ?: $this->options->getLogoutRedirectRoute();
+
                 return $this->router->assemble(array(), array('name' => $route));
                 break;
             default:
