@@ -147,6 +147,11 @@ class UserController extends AbstractActionController
             return $this->notFoundAction();
         }
 
+        if (!$this->hybridAuth) {
+            // This is likely user that cancelled login...
+            return $this->redirect()->toRoute('zfcuser/login');
+        }
+
         // For provider authentication, change the auth adapter in the ZfcUser Controller Plugin
         $this->zfcUserAuthentication()->setAuthAdapter($this->getServiceLocator()->get('ScnSocialAuth-AuthenticationAdapterChain'));
 
