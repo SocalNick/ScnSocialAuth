@@ -229,7 +229,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
     public function getOptions()
     {
         if (!$this->options instanceof ModuleOptions) {
-            $this->setOptions($this->getServiceLocator()->get('ScnSocialAuth-ModuleOptions'));
+            $this->setOptions($this->getServiceManager()->get('ScnSocialAuth-ModuleOptions'));
         }
 
         return $this->options;
@@ -279,7 +279,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
     public function getMapper()
     {
         if (!$this->mapper instanceof UserProviderInterface) {
-            $this->setMapper($this->getServiceLocator()->get('ScnSocialAuth-UserProviderMapper'));
+            $this->setMapper($this->getServiceManager()->get('ScnSocialAuth-UserProviderMapper'));
         }
 
         return $this->mapper;
@@ -306,7 +306,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
     public function getZfcUserMapper()
     {
         if (!$this->zfcUserMapper instanceof UserMapperInterface) {
-            $this->setZfcUserMapper($this->getServiceLocator()->get('zfcuser_user_mapper'));
+            $this->setZfcUserMapper($this->getServiceManager()->get('zfcuser_user_mapper'));
         }
 
         return $this->zfcUserMapper;
