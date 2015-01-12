@@ -554,6 +554,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
     protected function update(UserInterface $user, $provider, \Hybrid_User_Profile $userProfile)
     {
         $user->setDisplayName($userProfile->displayName);
+        $user->setEmail($userProfile->email);
 
         $options = array(
             'user'          => $user,
