@@ -11,7 +11,7 @@ before_install:
  - curl -sS https://getcomposer.org/installer | php
 
 before_script:
- - phpversion=$(phpenv version); if [[ $phpversion =~ 5\.3\.3.* ]]; then composer.phar install --dev --prefer-source; else composer.phar install --dev; fi;
+ - phpversion=$(phpenv version); if [[ $phpversion =~ 5\.3\.3.* ]]; then php composer.phar install --dev --prefer-source; else php composer.phar install --dev; fi;
 
 script:
  - (cd test ; phpunit -c phpunit.xml)
