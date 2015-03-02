@@ -38,12 +38,12 @@ class HybridAuthFactory implements FactoryInterface
                     'BitBucket' => array(
                         'enabled' => $options->getBitbucketEnabled(),
                         'keys' => array(
-                            'id' => $options->getBitbucketClientId(),
+                            'key' => $options->getBitbucketKey(),
                             'secret' => $options->getBitbucketSecret(),
                         ),
                         'scope' => '',
                         'wrapper' => array(
-                            'class' => 'BitBucket',
+                            'class' => 'Hybrid_Providers_BitBucket',
                             'path' => realpath(__DIR__ . '/../HybridAuth/Provider/BitBucket.php'),
                         ),
                     ),

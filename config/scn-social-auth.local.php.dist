@@ -9,7 +9,7 @@ $settings = array(
     /**
      * BitBucket Client ID
      */
-    //'bitbucket_client_id' => 'your-bitbucket-client-id',
+    //'bitbucket_key' => 'your-bitbucket-client-id',
 
     /**
      * BitBucket Secret

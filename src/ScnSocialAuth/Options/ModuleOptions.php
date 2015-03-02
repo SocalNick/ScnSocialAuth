@@ -12,7 +12,7 @@ class ModuleOptions extends AbstractOptions
     protected $__strictMode__ = false;
 
     protected $providers = array(
-        'bitBucket',
+        'bitbucket',
         'facebook',
         'foursquare',
         'github',
@@ -275,17 +275,17 @@ class ModuleOptions extends AbstractOptions
     /**
      * @var string
      */
-    protected $bitBucketEnabled = false;
+    protected $bitbucketEnabled = false;
 
     /**
      * @var string
      */
-    protected $bitBucketClientId;
+    protected $bitbucketKey;
 
     /**
      * @var string
      */
-    protected $bitBucketSecret;
+    protected $bitbucketSecret;
 
     /**
      * get an array of enabled providers
@@ -1319,49 +1319,49 @@ class ModuleOptions extends AbstractOptions
     /**
      * @return string
      */
-    public function getBitBucketEnabled()
+    public function getBitbucketEnabled()
     {
-        return $this->bitBucketEnabled;
+        return $this->bitbucketEnabled;
     }
 
     /**
-     * @param string $bitBucketEnabled
+     * @param string $bitbucketEnabled
      */
-    public function setBitBucketEnabled($bitBucketEnabled)
+    public function setBitbucketEnabled($bitbucketEnabled)
     {
-        $this->bitBucketEnabled = $bitBucketEnabled;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBitBucketClientId()
-    {
-        return $this->bitBucketClientId;
-    }
-
-    /**
-     * @param string $bitBucketClientId
-     */
-    public function setBitBucketClientId($bitBucketClientId)
-    {
-        $this->bitBucketClientId = $bitBucketClientId;
+        $this->bitbucketEnabled = $bitbucketEnabled;
     }
 
     /**
      * @return string
      */
-    public function getBitBucketSecret()
+    public function getBitbucketKey()
     {
-        return $this->bitBucketSecret;
+        return $this->bitbucketKey;
     }
 
     /**
-     * @param string $bitBucketSecret
+     * @param string $bitbucketKey
      */
-    public function setBitBucketSecret($bitBucketSecret)
+    public function setBitbucketKey($bitbucketKey)
     {
-        $this->bitBucketSecret = $bitBucketSecret;
+        $this->bitbucketKey = $bitbucketKey;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBitbucketSecret()
+    {
+        return $this->bitbucketSecret;
+    }
+
+    /**
+     * @param string $bitbucketSecret
+     */
+    public function setBitbucketSecret($bitbucketSecret)
+    {
+        $this->bitbucketSecret = $bitbucketSecret;
     }
 
 }
