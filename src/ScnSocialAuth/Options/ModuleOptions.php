@@ -12,6 +12,7 @@ class ModuleOptions extends AbstractOptions
     protected $__strictMode__ = false;
 
     protected $providers = array(
+        'bitBucket',
         'facebook',
         'foursquare',
         'github',
@@ -270,6 +271,21 @@ class ModuleOptions extends AbstractOptions
      * @var boolean
      */
     protected $enableSocialRegistration = true;
+
+    /**
+     * @var string
+     */
+    protected $bitBucketEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $bitBucketClientId;
+
+    /**
+     * @var string
+     */
+    protected $bitBucketSecret;
 
     /**
      * get an array of enabled providers
@@ -1299,4 +1315,53 @@ class ModuleOptions extends AbstractOptions
     {
         return $this->enableSocialRegistration;
     }
+
+    /**
+     * @return string
+     */
+    public function getBitBucketEnabled()
+    {
+        return $this->bitBucketEnabled;
+    }
+
+    /**
+     * @param string $bitBucketEnabled
+     */
+    public function setBitBucketEnabled($bitBucketEnabled)
+    {
+        $this->bitBucketEnabled = $bitBucketEnabled;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBitBucketClientId()
+    {
+        return $this->bitBucketClientId;
+    }
+
+    /**
+     * @param string $bitBucketClientId
+     */
+    public function setBitBucketClientId($bitBucketClientId)
+    {
+        $this->bitBucketClientId = $bitBucketClientId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBitBucketSecret()
+    {
+        return $this->bitBucketSecret;
+    }
+
+    /**
+     * @param string $bitBucketSecret
+     */
+    public function setBitBucketSecret($bitBucketSecret)
+    {
+        $this->bitBucketSecret = $bitBucketSecret;
+    }
+
 }

@@ -35,6 +35,18 @@ class HybridAuthFactory implements FactoryInterface
             array(
                 'base_url' => $baseUrl,
                 'providers' => array(
+                    'BitBucket' => array(
+                        'enabled' => $options->getBitbucketEnabled(),
+                        'keys' => array(
+                            'id' => $options->getBitbucketClientId(),
+                            'secret' => $options->getBitbucketSecret(),
+                        ),
+                        'scope' => '',
+                        'wrapper' => array(
+                            'class' => 'BitBucket',
+                            'path' => realpath(__DIR__ . '/../HybridAuth/Provider/BitBucket.php'),
+                        ),
+                    ),
                     'Facebook' => array(
                         'enabled' => $options->getFacebookEnabled(),
                         'keys' => array(

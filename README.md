@@ -19,6 +19,7 @@ Features
 * Login with Facebook [COMPLETE]
 * Login with Foursquare [COMPLETE]
 * Login with Github [COMPLETE]
+* Login with BitBucket [COMPLETE]
 * Login with Google [COMPLETE]
 * Login with LinkedIn [COMPLETE]
 * Login with Live [INCOMPLETE]

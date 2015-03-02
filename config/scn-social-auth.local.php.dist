@@ -7,6 +7,16 @@
  */
 $settings = array(
     /**
+     * BitBucket Client ID
+     */
+    //'bitbucket_client_id' => 'your-bitbucket-client-id',
+
+    /**
+     * BitBucket Secret
+     */
+    //'bitbucket_secret' => 'your-bitbucket-client-secret',
+
+    /**
      * Facebook Client ID
      *
      * Please specify a Facebook Client ID

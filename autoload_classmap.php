@@ -10,6 +10,7 @@ return array(
     'ScnSocialAuth\Controller\UserController'                           => __DIR__ . '/src/ScnSocialAuth/Controller/UserController.php',
     'ScnSocialAuth\Entity\UserProvider'                                 => __DIR__ . '/src/ScnSocialAuth/Entity/UserProvider.php',
     'ScnSocialAuth\Entity\UserProviderInterface'                        => __DIR__ . '/src/ScnSocialAuth/Entity/UserProviderInterface.php',
+    'ScnSocialAuth\HybridAuth\Provider\BitBucket'                       => __DIR__ . '/src/ScnSocialAuth/HybridAuth/Provider/BitBucket.php',
     'ScnSocialAuth\HybridAuth\Provider\GitHub'                          => __DIR__ . '/src/ScnSocialAuth/HybridAuth/Provider/GitHub.php',
     'ScnSocialAuth\HybridAuth\Provider\Tumblr'                          => __DIR__ . '/src/ScnSocialAuth/HybridAuth/Provider/Tumblr.php',
     'ScnSocialAuth\HybridAuth\Provider\Mailru'                          => __DIR__ . '/src/ScnSocialAuth/HybridAuth/Provider/Mailru.php',
