@@ -34,6 +34,8 @@ class HybridAuthFactory implements FactoryInterface
         $hybridAuth = new Hybrid_Auth(
             array(
                 'base_url' => $baseUrl,
+                "debug_mode" => $options->getDebugMode(),
+                "debug_file" => $options->getDebugFile(),
                 'providers' => array(
                     'Facebook' => array(
                         'enabled' => $options->getFacebookEnabled(),
