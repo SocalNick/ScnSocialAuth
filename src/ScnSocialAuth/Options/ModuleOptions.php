@@ -274,7 +274,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * @var boolean
      */
-    protected $debugMode = true;
+    protected $debugMode = false;
 
     /**
      * @var boolean
