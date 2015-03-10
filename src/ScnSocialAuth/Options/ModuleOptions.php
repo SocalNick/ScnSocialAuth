@@ -1313,15 +1313,15 @@ class ModuleOptions extends AbstractOptions
     /**
      * @return boolean
      */
-    function getDebugMode()
+    public function getDebugMode()
     {
         return $this->debugMode;
     }
 
     /**
-     * @param  boolean $debugMode
+     * @param boolean $debugMode
      */
-    function setDebugMode($debugMode)
+    public function setDebugMode($debugMode)
     {
         $this->debugMode = (boolean) $debugMode;
     }
@@ -1329,7 +1329,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * @return string
      */
-    function getDebugFile()
+    public function getDebugFile()
     {
         return $this->debugFile;
     }
@@ -1337,7 +1337,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * @param string $debugFile
      */
-    function setDebugFile($debugFile)
+    public function setDebugFile($debugFile)
     {
         $this->debugFile = (string) $debugFile;
     }
