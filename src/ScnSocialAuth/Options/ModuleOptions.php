@@ -279,7 +279,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * @var boolean
      */
-    protected $debugFile = "/temp/hybridauth.log";
+    protected $debugFile = "/tmp/hybridauth.log";
 
     /**
      * get an array of enabled providers
@@ -1313,28 +1313,32 @@ class ModuleOptions extends AbstractOptions
     /**
      * @return boolean
      */
-    function getDebugMode() {
+    function getDebugMode()
+    {
         return $this->debugMode;
     }
 
     /**
      * @param  boolean $debugMode
      */
-    function setDebugMode($debugMode) {
+    function setDebugMode($debugMode)
+    {
         $this->debugMode = (boolean) $debugMode;
     }
 
     /**
      * @return string
      */
-    function getDebugFile() {
+    function getDebugFile()
+    {
         return $this->debugFile;
     }
 
     /**
      * @param string $debugFile
      */
-    function setDebugFile($debugFile) {
+    function setDebugFile($debugFile)
+    {
         $this->debugFile = (string) $debugFile;
     }
 
