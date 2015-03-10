@@ -272,6 +272,16 @@ class ModuleOptions extends AbstractOptions
     protected $enableSocialRegistration = true;
 
     /**
+     * @var boolean
+     */
+    protected $debugMode = false;
+
+    /**
+     * @var boolean
+     */
+    protected $debugFile = "/tmp/hybridauth.log";
+
+    /**
      * get an array of enabled providers
      *
      * @return array
@@ -1299,4 +1309,37 @@ class ModuleOptions extends AbstractOptions
     {
         return $this->enableSocialRegistration;
     }
+
+    /**
+     * @return boolean
+     */
+    public function getDebugMode()
+    {
+        return $this->debugMode;
+    }
+
+    /**
+     * @param boolean $debugMode
+     */
+    public function setDebugMode($debugMode)
+    {
+        $this->debugMode = (boolean) $debugMode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDebugFile()
+    {
+        return $this->debugFile;
+    }
+
+    /**
+     * @param string $debugFile
+     */
+    public function setDebugFile($debugFile)
+    {
+        $this->debugFile = (string) $debugFile;
+    }
+
 }
