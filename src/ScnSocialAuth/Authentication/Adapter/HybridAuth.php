@@ -10,6 +10,7 @@ use Zend\ServiceManager\ServiceManagerAwareInterface;
 use Zend\ServiceManager\ServiceManager;
 use ZfcUser\Authentication\Adapter\AbstractAdapter;
 use ZfcUser\Authentication\Adapter\AdapterChainEvent as AuthEvent;
+use ZfcUser\Entity\UserInterface;
 use ZfcUser\Mapper\UserInterface as UserMapperInterface;
 use ZfcUser\Options\UserServiceOptionsInterface;
 use Zend\EventManager\EventManagerInterface;
@@ -133,6 +134,13 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
             // Trigger register.post event
             $this->getEventManager()->trigger('register.post', $this, array('user' => $localUser, 'userProvider' => $localUserProvider));
+        } else {
+            $mapper = $this->getZfcUserMapper();
+            $localUser = $mapper->findById($localUserProvider->getUserId());
+
+            if ($localUser instanceof UserInterface) {
+                $this->update($localUser, $provider, $userProfile);
+            }
         }
 
         $zfcUserOptions = $this->getZfcUserOptions();
@@ -533,6 +541,30 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $this->getEventManager()->trigger('registerViaProvider', $this, $options);
         $result = $this->getZfcUserMapper()->insert($user);
         $this->getEventManager()->trigger('registerViaProvider.post', $this, $options);
+
+        return $result;
+    }
+
+    /**
+     * @param  UserInterface        $user
+     * @param  string               $provider
+     * @param  \Hybrid_User_Profile $userProfile
+     * @return mixed
+     */
+    protected function update(UserInterface $user, $provider, \Hybrid_User_Profile $userProfile)
+    {
+        $user->setDisplayName($userProfile->displayName);
+        $user->setEmail($userProfile->email);
+
+        $options = array(
+            'user'          => $user,
+            'provider'      => $provider,
+            'userProfile'   => $userProfile,
+        );
+
+        $this->getEventManager()->trigger('scnUpdateUser.pre', $this, $options);
+        $result = $this->getZfcUserMapper()->update($user);
+        $this->getEventManager()->trigger('scnUpdateUser.post', $this, $options);
 
         return $result;
     }
