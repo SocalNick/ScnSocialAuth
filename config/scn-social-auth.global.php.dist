@@ -31,6 +31,13 @@ $settings = array(
     //'user_provider_entity_class' => 'ScnSocialAuth\Entity\UserProvider',
 
     /**
+     * BitBucket Enabled
+     *
+     * Please specify if BitBucket is enabled
+     */
+    //'bitbucket_enabled' => true,
+
+    /**
      * Facebook Enabled
      *
      * Please specify if Facebook is enabled
