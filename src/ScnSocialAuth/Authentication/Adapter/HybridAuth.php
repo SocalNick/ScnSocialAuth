@@ -334,6 +334,22 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
     // Provider specific methods
 
+    /**
+     * BitBucket to Local User
+     * @param $userProfile
+     * @return mixed
+     */
+    protected function bitbucketToLocalUser($userProfile)
+    {
+        $localUser = $this->instantiateLocalUser();
+        $localUser->setDisplayName($userProfile->displayName)
+            ->setPassword(__FUNCTION__)
+            ->setEmail($userProfile->email);
+        $this->insert($localUser, 'github', $userProfile);
+
+        return $localUser;
+    }
+
     protected function facebookToLocalUser($userProfile)
     {
         if (!isset($userProfile->emailVerified) || empty($userProfile->emailVerified)) {

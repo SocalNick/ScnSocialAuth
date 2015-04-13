@@ -12,6 +12,7 @@ class ModuleOptions extends AbstractOptions
     protected $__strictMode__ = false;
 
     protected $providers = array(
+        'bitbucket',
         'facebook',
         'foursquare',
         'github',
@@ -280,6 +281,21 @@ class ModuleOptions extends AbstractOptions
      * @var boolean
      */
     protected $debugFile = "/tmp/hybridauth.log";
+
+    /**
+     * @var string
+     */
+    protected $bitbucketEnabled = false;
+
+    /**
+     * @var string
+     */
+    protected $bitbucketKey;
+
+    /**
+     * @var string
+     */
+    protected $bitbucketSecret;
 
     /**
      * get an array of enabled providers
@@ -1342,4 +1358,51 @@ class ModuleOptions extends AbstractOptions
         $this->debugFile = (string) $debugFile;
     }
 
+    /**
+     * @return boolean
+     */
+    public function getBitbucketEnabled()
+    {
+        return $this->bitbucketEnabled;
+    }
+
+    /**
+     * @param boolean $bitbucketEnabled
+     */
+    public function setBitbucketEnabled($bitbucketEnabled)
+    {
+        $this->bitbucketEnabled = $bitbucketEnabled;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBitbucketKey()
+    {
+        return $this->bitbucketKey;
+    }
+
+    /**
+     * @param string $bitbucketKey
+     */
+    public function setBitbucketKey($bitbucketKey)
+    {
+        $this->bitbucketKey = $bitbucketKey;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBitbucketSecret()
+    {
+        return $this->bitbucketSecret;
+    }
+
+    /**
+     * @param string $bitbucketSecret
+     */
+    public function setBitbucketSecret($bitbucketSecret)
+    {
+        $this->bitbucketSecret = $bitbucketSecret;
+    }
 }
