@@ -114,6 +114,7 @@ class RedirectCallback
         switch ($currentRoute) {
             case 'zfcuser/login':
             case 'scn-social-auth-user/login':
+            case 'scn-social-auth-user/register':
             case 'scn-social-auth-user/authenticate/provider':
             case 'scn-social-auth-user/add-provider/provider':
                 $route = ($redirect) ?: $this->options->getLoginRedirectRoute();
