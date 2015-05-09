@@ -133,7 +133,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
 
             // Trigger register.pre event
             $this->getEventManager()->trigger('register.pre', $this, array('user' => $localUser, 'userProvider' => $localUserProvider, 'userProfile' => $userProfile));
-			
+
             $this->getMapper()->insert($localUserProvider);
 
             // Trigger register.post event
