@@ -16,7 +16,11 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zendframework": "2.*",
+        "zendframework/zend-mvc": "2.*",
+        "zendframework/zend-i18n": "2.*",
+        "zendframework/zend-log": "2.*",
+        "zendframework/zend-serializer": "2.*",
+        "zendframework/zend-test": "2.*",
         "zf-commons/zfc-base": "0.1.*",
         "zf-commons/zfc-user": "1.2.*",
         "hybridauth/hybridauth": "2.5.*"
