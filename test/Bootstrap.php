@@ -1,7 +1,6 @@
 <?php
 namespace ScnSocialAuthtest;
 
-use Zend\Loader\AutoloaderFactory;
 use RuntimeException;
 
 error_reporting(E_ALL | E_STRICT);
@@ -30,12 +29,11 @@ class Bootstrap
             throw new RuntimeException('Unable to load ZF2. Run `php composer.phar install` or define a ZF2_PATH environment variable.');
         }
 
-        if (isset($loader)) {
-            $loader->add('Zend', $zf2Path . '/Zend');
-            return;
+        if (!isset($loader)) {
+            throw new RuntimeException('Unable to run tests without composer autoloader');
         }
 
-        throw new RuntimeException('Unable to run tests without composer autoloader');
+        $loader->add('Zend', $zf2Path . '/Zend');
     }
 
     protected static function findParentPath($path)
