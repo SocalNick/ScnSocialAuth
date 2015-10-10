@@ -5,12 +5,17 @@ Uses the HybridAuth PHP library to Enable authentication via Google, Facebook, T
 [![Build Status](https://travis-ci.org/SocalNick/ScnSocialAuth.png)](https://travis-ci.org/SocalNick/ScnSocialAuth) [![Latest Stable Version](https://poser.pugx.org/socalnick/scn-social-auth/v/stable.png)](https://packagist.org/packages/socalnick/scn-social-auth) [![Total Downloads](https://poser.pugx.org/socalnick/scn-social-auth/downloads.png)](https://packagist.org/packages/socalnick/scn-social-auth)
 [![Dependency Status](https://www.versioneye.com/php/socalnick:scn-social-auth/badge.svg)](https://www.versioneye.com/php/socalnick:scn-social-auth/)
 
+Demo
+----
+* [Sandbox](http://scn-social-auth-sandbox.cfapps.io/user/login)
+* [Sandbox Code](https://github.com/SocalNick/ScnSocialAuth-Sandbox)
+
 Requirements
 ------------
 * [Zend Framework 2](https://github.com/zendframework/zf2) (2.*)
 * [ZfcBase](https://github.com/ZF-Commons/ZfcBase) (0.1.*)
 * [ZfcUser](https://github.com/ZF-Commons/ZfcUser) (1.2.*)
-* [HybridAuth](https://github.com/hybridauth/hybridauth) (2.2.*)
+* [HybridAuth](https://github.com/hybridauth/hybridauth) (2.5.*)
 * Extension php_curl enabled in php.ini
 
 Features
