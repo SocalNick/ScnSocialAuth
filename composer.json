@@ -19,7 +19,7 @@
         "zendframework/zendframework": "2.*",
         "zf-commons/zfc-base": "0.1.*",
         "zf-commons/zfc-user": "1.2.*",
-        "hybridauth/hybridauth": "2.4.*"
+        "hybridauth/hybridauth": "2.5.*"
     },
     "require-dev": {
         "mockery/mockery": "0.8.0"
