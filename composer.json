@@ -4,7 +4,8 @@
     "type": "library",
     "license": "BSD-3-Clause",
     "keywords": [
-        "zf2"
+        "zf2",
+        "facebook"
     ],
     "homepage": "https://github.com/SocalNick/ScnSocialAuth",
     "authors": [
