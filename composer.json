@@ -34,7 +34,7 @@
         "zendframework/zend-uri": "2.*",
         "zendframework/zend-view": "2.*",
         "zf-commons/zfc-base": "0.1.*",
-        "zf-commons/zfc-user": "1.2.*",
+        "zf-commons/zfc-user": "1.4.*",
         "hybridauth/hybridauth": "2.5.*"
     },
     "require-dev": {
