@@ -14,8 +14,8 @@ Requirements
 ------------
 * [Zend Framework 2](https://github.com/zendframework/zf2) (2.*)
 * [ZfcBase](https://github.com/ZF-Commons/ZfcBase) (0.1.*)
-* [ZfcUser](https://github.com/ZF-Commons/ZfcUser) (1.2.*)
-* [HybridAuth](https://github.com/hybridauth/hybridauth) (2.5.*)
+* [ZfcUser](https://github.com/ZF-Commons/ZfcUser) (1.4.*)
+* [HybridAuth](https://github.com/hybridauth/hybridauth) (2.6.*)
 * Extension php_curl enabled in php.ini
 
 Features
