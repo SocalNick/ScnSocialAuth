@@ -26,6 +26,12 @@ class UserController extends AbstractActionController
      */
     protected $options;
 
+    /**
+     * @var zfcmoduleoptions
+     */
+    protected $zfcmoduleoptions;
+
+
     /*
      * @todo Make this dynamic / translation-friendly
      * @var string
@@ -96,7 +102,7 @@ class UserController extends AbstractActionController
         $hybridAuth = $this->getHybridAuth();
 
         $query = array();
-        if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
+        if ($this->getZfcModuleOptions()->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
             $query = array('redirect' => $this->getRequest()->getQuery()->get('redirect'));
         }
         $redirectUrl = $this->url()->fromRoute('scn-social-auth-user/authenticate/provider', array('provider' => $provider), array('query' => $query));
@@ -124,7 +130,7 @@ class UserController extends AbstractActionController
         $viewModel->setVariable('options', $this->getOptions());
 
         $redirect = false;
-        if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
+        if ($this->getZfcModuleOptions()->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
             $redirect = $this->getRequest()->getQuery()->get('redirect');
         }
         $viewModel->setVariable('redirect', $redirect);
@@ -173,7 +179,7 @@ class UserController extends AbstractActionController
         $viewModel->setVariable('options', $this->getOptions());
 
         $redirect = false;
-        if ($this->getServiceLocator()->get('zfcuser_module_options')->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
+        if ($this->getZfcModuleOptions()->getUseRedirectParameterIfPresent() && $this->getRequest()->getQuery()->get('redirect')) {
             $redirect = $this->getRequest()->getQuery()->get('redirect');
         }
         $viewModel->setVariable('redirect', $redirect);
@@ -260,5 +266,22 @@ class UserController extends AbstractActionController
         }
 
         return $this->options;
+    }
+
+
+    /**
+     * @return zfcmoduleoptions
+     */
+    public function getZfcModuleOptions()
+    {
+        return $this->zfcmoduleoptions;
+    }
+
+    /**
+     * @param zfcmoduleoptions $zfcmoduleoptions
+     */
+    public function setZfcModuleOptions($zfcmoduleoptions)
+    {
+        $this->zfcmoduleoptions = $zfcmoduleoptions;
     }
 }

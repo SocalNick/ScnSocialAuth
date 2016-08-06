@@ -23,10 +23,12 @@ class UserControllerFactory implements FactoryInterface
         $mapper = $controllerManager->getServiceLocator()->get('ScnSocialAuth-UserProviderMapper');
         $moduleOptions = $controllerManager->getServiceLocator()->get('ScnSocialAuth-ModuleOptions');
         $redirectCallback = $controllerManager->getServiceLocator()->get('zfcuser_redirect_callback');
+        $zfcuserModuleOptions = $controllerManager->getServiceLocator()->get('zfcuser_module_options');
 
         $controller = new UserController($redirectCallback);
         $controller->setMapper($mapper);
         $controller->setOptions($moduleOptions);
+        $controller->setZfcModuleOptions($zfcuserModuleOptions);
 
         try {
           $hybridAuth = $controllerManager->getServiceLocator()->get('HybridAuth');
