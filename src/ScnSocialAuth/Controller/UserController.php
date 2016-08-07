@@ -27,10 +27,9 @@ class UserController extends AbstractActionController
     protected $options;
 
     /**
-     * @var zfcmoduleoptions
+     * @var \ZfcUser\Options\ModuleOptions
      */
     protected $zfcmoduleoptions;
-
 
     /*
      * @todo Make this dynamic / translation-friendly
@@ -268,9 +267,8 @@ class UserController extends AbstractActionController
         return $this->options;
     }
 
-
     /**
-     * @return zfcmoduleoptions
+     * @return \ZfcUser\Options\ModuleOptions
      */
     public function getZfcModuleOptions()
     {
@@ -278,7 +276,7 @@ class UserController extends AbstractActionController
     }
 
     /**
-     * @param zfcmoduleoptions $zfcmoduleoptions
+     * @param \ZfcUser\Options\ModuleOptions $zfcmoduleoptions
      */
     public function setZfcModuleOptions($zfcmoduleoptions)
     {
