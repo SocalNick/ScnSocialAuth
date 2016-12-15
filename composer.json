@@ -35,7 +35,7 @@
         "zendframework/zend-view": "2.*",
         "zf-commons/zfc-base": "0.1.*",
         "zf-commons/zfc-user": "1.4.*",
-        "hybridauth/hybridauth": "2.6.*"
+        "hybridauth/hybridauth": "2.8.*"
     },
     "require-dev": {
         "mockery/mockery": "0.8.0"
