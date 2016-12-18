@@ -26,11 +26,14 @@ class HybridAuthAdapterFactory implements FactoryInterface
         $mapper = $services->get('ScnSocialAuth-UserProviderMapper');
         $zfcUserMapper = $services->get('zfcuser_user_mapper');
 
+        $hybridAuth = $services->get('HybridAuth');
+
         $adapter = new HybridAuthAdapter();
         $adapter->setOptions($moduleOptions);
         $adapter->setZfcUserOptions($zfcUserOptions);
         $adapter->setMapper($mapper);
         $adapter->setZfcUserMapper($zfcUserMapper);
+        $adapter->setHybridAuth($hybridAuth);
 
         return $adapter;
     }

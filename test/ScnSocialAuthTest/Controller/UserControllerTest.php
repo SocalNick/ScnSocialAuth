@@ -12,15 +12,9 @@ use ScnSocialAuth\Options\ModuleOptions;
 use Zend\Mvc\Controller\PluginManager;
 use Zend\Mvc\MvcEvent;
 use Zend\Http\PhpEnvironment\Request;
-use Zend\ServiceManager\ServiceManager;
 
 class UserControllerTest extends TestCase
 {
-    /**
-     * @var \Zend\ServiceManager\ServiceManager
-     */
-    protected $sm;
-
     /**
      * @var \Zend\Mvc\Controller\PluginManager
      */
@@ -43,13 +37,11 @@ class UserControllerTest extends TestCase
 
     public function setUp()
     {
-        $this->sm = new ServiceManager();
         $this->pm = new PluginManager();
         $this->event = new MvcEvent();
         $this->request = new Request();
         $this->controller = new UserController(\Mockery::mock('ScnSocialAuth\Controller\RedirectCallback'));
         $this->controller->setEvent($this->event);
-        $this->controller->setServiceLocator($this->sm);
         $this->controller->setPluginManager($this->pm);
 
         $forwardPlugin = \Mockery::mock('Zend\Mvc\Controller\Plugin\Forward[dispatch]');

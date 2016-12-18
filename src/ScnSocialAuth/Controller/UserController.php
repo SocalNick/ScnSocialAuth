@@ -22,6 +22,11 @@ class UserController extends AbstractActionController
     protected $hybridAuth;
 
     /**
+     * @var \ZfcUser\Authentication\Adapter\AdapterChain
+     */
+    protected $scnAuthAdapterChain;
+
+    /**
      * @var ModuleOptions
      */
     protected $options;
@@ -158,7 +163,7 @@ class UserController extends AbstractActionController
         }
 
         // For provider authentication, change the auth adapter in the ZfcUser Controller Plugin
-        $this->zfcUserAuthentication()->setAuthAdapter($this->getServiceLocator()->get('ScnSocialAuth-AuthenticationAdapterChain'));
+        $this->zfcUserAuthentication()->setAuthAdapter($this->getScnAuthAdapterChain());
 
         // Adding the provider to request metadata to be used by HybridAuth adapter
         $this->getRequest()->setMetadata('provider', $provider);
@@ -206,10 +211,6 @@ class UserController extends AbstractActionController
      */
     public function getMapper()
     {
-        if (!$this->mapper instanceof UserProviderInterface) {
-            $this->setMapper($this->getServiceLocator()->get('ScnSocialAuth-UserProviderMapper'));
-        }
-
         return $this->mapper;
     }
 
@@ -220,10 +221,6 @@ class UserController extends AbstractActionController
      */
     public function getHybridAuth()
     {
-        if (!$this->hybridAuth) {
-            $this->hybridAuth = $this->getServiceLocator()->get('HybridAuth');
-        }
-
         return $this->hybridAuth;
     }
 
@@ -238,6 +235,29 @@ class UserController extends AbstractActionController
         $this->hybridAuth = $hybridAuth;
 
         return $this;
+    }
+
+    /**
+     * Set the scnAuthAdapterChain
+     *
+     * @param \ZfcUser\Authentication\Adapter\AdapterChain
+     * @return UserController
+     */
+    public function setScnAuthAdapterChain(\ZfcUser\Authentication\Adapter\AdapterChain $chain)
+    {
+        $this->scnAuthAdapterChain = $chain;
+
+        return $this;
+    }
+
+    /**
+     * Get the scnAuthAdapterChain
+     *
+     * @return \ZfcUser\Authentication\Adapter\AdapterChain
+     */
+    public function getScnAuthAdapterChain()
+    {
+        return $this->scnAuthAdapterChain;
     }
 
     /**
@@ -260,10 +280,6 @@ class UserController extends AbstractActionController
      */
     public function getOptions()
     {
-        if (!$this->options instanceof ModuleOptions) {
-            $this->setOptions($this->getServiceLocator()->get('ScnSocialAuth-ModuleOptions'));
-        }
-
         return $this->options;
     }
 
