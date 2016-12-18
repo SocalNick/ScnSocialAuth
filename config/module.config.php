@@ -7,8 +7,8 @@ return array(
         ),
     ),
     'controller_plugins' => array(
-        'invokables' => array(
-            'scnsocialauthprovider' => 'ScnSocialAuth\Controller\Plugin\ScnSocialAuthProvider',
+        'factories' => array(
+            'scnSocialAuthProvider' => 'ScnSocialAuth\Service\ProviderControllerPluginFactory',
         ),
     ),
     'router' => array(

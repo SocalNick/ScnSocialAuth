@@ -6,8 +6,6 @@ use Hybrid_Auth;
 use ScnSocialAuth\Mapper\UserProviderInterface;
 use ScnSocialAuth\Options\ModuleOptions;
 use Zend\Authentication\Result;
-use Zend\ServiceManager\ServiceManagerAwareInterface;
-use Zend\ServiceManager\ServiceManager;
 use ZfcUser\Authentication\Adapter\AbstractAdapter;
 use ZfcUser\Authentication\Adapter\AdapterChainEvent as AuthEvent;
 use ZfcUser\Entity\UserInterface;
@@ -17,17 +15,12 @@ use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\EventManager;
 use Zend\EventManager\EventManagerAwareInterface;
 
-class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface, EventManagerAwareInterface
+class HybridAuth extends AbstractAdapter implements EventManagerAwareInterface
 {
     /**
      * @var Hybrid_Auth
      */
     protected $hybridAuth;
-
-    /**
-     * @var ServiceManager
-     */
-    protected $serviceManager;
 
     /**
      * @var ModuleOptions
@@ -179,10 +172,6 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
      */
     public function getHybridAuth()
     {
-        if (!$this->hybridAuth) {
-            $this->hybridAuth = $this->getServiceManager()->get('HybridAuth');
-        }
-
         return $this->hybridAuth;
     }
 
@@ -197,27 +186,6 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
         $this->hybridAuth = $hybridAuth;
 
         return $this;
-    }
-
-    /**
-     * Retrieve service manager instance
-     *
-     * @return ServiceManager
-     */
-    public function getServiceManager()
-    {
-        return $this->serviceManager;
-    }
-
-    /**
-     * Set service manager instance
-     *
-     * @param  ServiceManager $serviceManager
-     * @return void
-     */
-    public function setServiceManager(ServiceManager $serviceManager)
-    {
-        $this->serviceManager = $serviceManager;
     }
 
     /**
@@ -240,10 +208,6 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
      */
     public function getOptions()
     {
-        if (!$this->options instanceof ModuleOptions) {
-            $this->setOptions($this->getServiceManager()->get('ScnSocialAuth-ModuleOptions'));
-        }
-
         return $this->options;
     }
 
@@ -263,10 +227,6 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
      */
     public function getZfcUserOptions()
     {
-        if (!$this->zfcUserOptions instanceof UserServiceOptionsInterface) {
-            $this->setZfcUserOptions($this->getServiceManager()->get('zfcuser_module_options'));
-        }
-
         return $this->zfcUserOptions;
     }
 
@@ -290,10 +250,6 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
      */
     public function getMapper()
     {
-        if (!$this->mapper instanceof UserProviderInterface) {
-            $this->setMapper($this->getServiceManager()->get('ScnSocialAuth-UserProviderMapper'));
-        }
-
         return $this->mapper;
     }
 
@@ -317,10 +273,6 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
      */
     public function getZfcUserMapper()
     {
-        if (!$this->zfcUserMapper instanceof UserMapperInterface) {
-            $this->setZfcUserMapper($this->getServiceManager()->get('zfcuser_user_mapper'));
-        }
-
         return $this->zfcUserMapper;
     }
 
