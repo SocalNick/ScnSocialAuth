@@ -90,7 +90,7 @@ class HybridAuthFactory implements FactoryInterface
                     'LinkedIn' => array(
                         'enabled' => $options->getLinkedInEnabled(),
                         'keys' => array(
-                            'key' => $options->getLinkedInClientId(),
+                            'id' => $options->getLinkedInClientId(),
                             'secret' => $options->getLinkedInSecret(),
                         ),
                     ),
