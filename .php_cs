@@ -1,5 +1,5 @@
 <?php
-$finder = Symfony\CS\Finder\DefaultFinder::create()
+$finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
     ->exclude('vendor')
     ->notName('autoload_classmap.php')
@@ -11,6 +11,6 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->notName('*.xml')
 ;
 
-return Symfony\CS\Config\Config::create()
-    ->finder($finder)
+return PhpCsFixer\Config::create()
+    ->setFinder($finder)
 ;

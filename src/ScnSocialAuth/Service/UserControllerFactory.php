@@ -33,10 +33,10 @@ class UserControllerFactory implements FactoryInterface
         $controller->setScnAuthAdapterChain($scnAuthAdapterChain);
 
         try {
-          $hybridAuth = $controllerManager->getServiceLocator()->get('HybridAuth');
-          $controller->setHybridAuth($hybridAuth);
+            $hybridAuth = $controllerManager->getServiceLocator()->get('HybridAuth');
+            $controller->setHybridAuth($hybridAuth);
         } catch (\Zend\ServiceManager\Exception\ServiceNotCreatedException $e) {
-          // This is likely the user cancelling login...
+            // This is likely the user cancelling login...
         }
 
         return $controller;

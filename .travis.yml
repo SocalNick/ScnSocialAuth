@@ -8,7 +8,7 @@ php:
   - 7.0
 
 before_install:
- - wget http://cs.sensiolabs.org/get/php-cs-fixer.phar
+ - wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O php-cs-fixer.phar
  - curl -sS https://getcomposer.org/installer | php
 
 before_script:
