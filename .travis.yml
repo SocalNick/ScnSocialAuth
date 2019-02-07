@@ -13,5 +13,5 @@ before_script:
  - php composer.phar install --dev
 
 script:
- - (cd test ; phpunit -c phpunit.xml)
+ - (cd test ; ../vendor/bin/phpunit -c phpunit.xml)
  - php php-cs-fixer.phar fix -v --dry-run .
