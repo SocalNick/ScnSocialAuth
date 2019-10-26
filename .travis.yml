@@ -14,3 +14,12 @@ before_script:
 script:
  - (cd test ; ../vendor/bin/phpunit -c phpunit.xml)
  - php php-cs-fixer.phar fix -v --dry-run .
+
+branches:
+  only:
+    # This is where pull requests from "bors r+" are built.
+    - staging
+    # This is where pull requests from "bors try" are built.
+    - trying
+    # Uncomment this to enable building pull requests.
+    - master
